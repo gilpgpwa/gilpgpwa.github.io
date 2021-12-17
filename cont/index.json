@@ -1,0 +1,26 @@
+{
+ "type": "1",
+ "title": "Aprende Progressive Web Apps",
+ "description": "Página de inicio de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas.",
+ "printDescription": "Página para imprimir todo el contenido de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas.",
+ "listado": [
+  {
+   "name": "m01conceptos"
+  },
+  {
+   "name": "m02herramientas"
+  },
+  {
+   "name": "m03base"
+  },
+  {
+   "name": "m04acceso"
+  },
+  {
+   "name": "m05renderCliente"
+  },
+  {
+   "name": "m06renderServidor"
+  }
+ ]
+}

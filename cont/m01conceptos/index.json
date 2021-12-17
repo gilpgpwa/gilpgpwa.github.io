@@ -1,0 +1,37 @@
+{
+ "type": "A",
+ "title": "Conceptos básicos",
+ "description": "Contenido de la lección «1. Conceptos básicos",
+ "printDescription": "Página para imprimir de la lección «1. Conceptos básicos.",
+ "listado": [
+  {
+   "name": "mAaw.html",
+   "title": "Aplicación web",
+   "h1": "<dfn>Aplicación web</dfn>",
+   "description": "Definición de aplicación web."
+  },
+  {
+   "name": "mBawoas.html",
+   "title": "Aplicación web orientada a servicios",
+   "h1": "<dfn>Aplicación web orientada a servicios</dfn>",
+   "description": "Definición de aplicación web orientada a servicios."
+  },
+  {
+   "name": "mCamn.html",
+   "title": "Aplicación móvil nativa",
+   "h1": "<dfn>Aplicación móvil nativa</dfn>",
+   "description": "Definición de aplicación móvil nativa."
+  },
+  {
+   "name": "mDpwa.html",
+   "title": "Aplicación web progresiva",
+   "h1": "<dfn>Aplicación web progresiva</dfn>",
+   "description": "Definición de aplicación web progresiva."
+  },
+  {
+   "name": "mEresumen.html",
+   "title": "Resumen",
+   "description": "Resumen de la lección «1. Conceptos básicos."
+  }
+ ]
+}

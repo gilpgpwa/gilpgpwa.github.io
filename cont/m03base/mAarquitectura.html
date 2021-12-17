@@ -1,0 +1,45 @@
+<div class="lectura">
+ <p>
+  En las siguientes páginas se muestra la construcción de un sistema de
+  control de acceso.
+ </p>
+ <p>
+  También se ejemplifica la forma en que un PWA invoca procesos en el
+  servidor web.
+ </p>
+ <p>
+  Revisa el código y pruébalo en Replit con la url
+  <a href="https://replit.com/@GilbertoPachec3/aut?v=1"
+    target="_blank"
+    rel="nooper">https://replit.com/@GilbertoPachec3/aut?v=1</a>.
+ </p>
+ <p>
+  Cada <dfn>servicio</dfn> es una función y para accederlo, el servidor le
+  asigna un <dfn>nombre de recurso</dfn>, el cual es una ruta dentro de la
+  URL; es como si fuera el nombre del archivo. Por ejemplo, en la URL
+  <q>https://aut--gilbertopachec3.repl.co/valida</q>, el nombre del recurso es
+  <q>/valida</q>.
+ </p>
+ <p>
+  En este caso, a todos los archivos de HTML y JavaScript les llamaremos
+  <df>www</df>.
+ </p>
+ <p>
+  Para validar el acceso usaremos un servicio llamado
+  <dfn>validaUsuario</dfn>
+  que tiene asociado el nombre de recurso
+  <dfn>valida</dfn>.
+ </p>
+ <p>
+  Para poder validar el acceso, <q>validaUsuario</q> guarda la contraseña
+  de cada usuario en una entidad llamada <dfn>Usuario</dfn>. En este ejemplo
+  se usa el servidor Atlas para la base de datos tipo MongoDB.
+ </p>
+ <section>
+  <h1>Diagrama de componentes</h1>
+  <figure>
+   <img class="dc" src="/img/m04sesion/aut_componentes.svg"
+     alt="Diagrama de Componentes">
+  </figure>
+ </section>
+</div>

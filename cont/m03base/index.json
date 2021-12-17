@@ -1,0 +1,58 @@
+{
+ "type": "A",
+ "title": "Control de sesión",
+ "description": "Contenido de la lección «4. Control de sesión».",
+ "printDescription": "Página para imprimir de la lección «4. Control de sesión».",
+ "listado": [
+  {
+   "name": "mAarquitectura.html",
+   "title": "Arquitectura",
+   "description": "Arquitectura del ejemplo de control de sesión."
+  },
+  {
+   "name": "mBdespliegue.html",
+   "title": "Diagrama de despliegue",
+   "description": "Diagrama de despliegue del ejemplo de control de sesión."
+  },
+  {
+   "name": "mCer.html",
+   "title": "Diagrama entidad relación",
+   "description": "Diagrama entidad relación del ejemplo de control de sesión."
+  },
+  {
+   "name": "mDinstrucciones.html",
+   "title": "Instrucciones",
+   "description": "Instrucciones para construir y ejecutar el ejemplo de control de sesión."
+  },
+  {
+   "name": "mEarchivos.html",
+   "title": "Archivos",
+   "description": "Árbol de archivos del ejemplo de control de sesión."
+  },
+  {
+   "name": "mFindexHtml.html",
+   "title": "www/index.html",
+   "description": "Contenido del archivo «www/index.html»."
+  },
+  {
+   "name": "mGctrlSesion.html",
+   "title": "www/CtrlSesion.js",
+   "description": "Contenido del archivo «www/CtrlSesion.js»."
+  },
+  {
+   "name": "mHindexJs.html",
+   "title": "index.js",
+   "description": "Contenido del archivo «index.js»."
+  },
+  {
+   "name": "mIvalidaUsuario.html",
+   "title": "validaUsuario.js",
+   "description": "Contenido del archivo «validaUsuario.js»."
+  },
+  {
+   "name": "mJresumen.html",
+   "title": "Resumen",
+   "description": "Resumen de la lección «4. Control de sesión»."
+  }
+ ]
+}
