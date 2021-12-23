@@ -14,13 +14,19 @@
    "name": "m03base"
   },
   {
-   "name": "m04acceso"
+   "name": "m04renderCliente"
   },
   {
-   "name": "m05renderCliente"
+   "name": "m05renderServidor"
   },
   {
-   "name": "m06renderServidor"
+   "name": "m06sincronizacion"
+  },
+  {
+   "name": "m07notificaciones"
+  },
+  {
+   "name": "m08distribucion"
   }
  ]
 }

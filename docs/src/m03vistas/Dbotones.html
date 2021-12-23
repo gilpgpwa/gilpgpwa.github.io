@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+   content="width=device-width">
+ <title>Botones</title>
+ <style>
+  html {
+   --colTxt: black;
+   --colBk: white;
+   --colCnt: white;
+   --colCntBk: #6a0080;
+   --colCntBkHv: #6a0080dd;
+   --colCntBkFc: #6a0080bb;
+   --colCntBkAc: #d05ce3;
+   --colCntSh: #00000055;
+   --fntFam: -apple-system,
+    BlinkMacSystemFont, sans-serif;
+   color: var(--colTxt);
+   font-family: var(--fntFam);
+   background-color: var(--colBk);
+  }
+
+  .contained {
+   font-family: var(--fntFam);
+   text-transform: uppercase;
+   color: var(--colCnt);
+   background-color:
+    var(--colCntBk);
+   font-size: 0.875rem;
+   padding: 0.5rem 1rem;
+   border: none;
+   border-radius: 4px;
+  }
+
+  .contained:hover,
+  .contained:focus {
+   box-shadow:
+    0 3px 6px var(--colCntSh);
+  }
+
+  .contained:hover {
+   background-color:
+    var(--colCntBkHv);
+  }
+
+  .contained:focus {
+   outline: none;
+   background-color:
+    var(--colCntBkFc);
+  }
+
+  .contained:active {
+   box-shadow:
+    0 6px 12px var(--colCntSh);
+   background-color:
+    var(--colCntBkAc);
+   background-position: center;
+   background-image:
+    radial-gradient(circle,
+     transparent 1%,
+     var(--colCntBkHv) 1%);
+   background-size: 15000%;
+   animation-name: ripple;
+   animation-duration: 0.5s;
+  }
+
+  @keyframes ripple {
+   from {
+    background-size: 100%;
+   }
+
+   to {
+    background-size: 15000%;
+   }
+  }
+ </style>
+</head>
+<body>
+ <h1>Botones</h1>
+ <p>
+  <button class="contained">
+   Haz Clic
+  </button>
+ </p>
+</body>
+</html>

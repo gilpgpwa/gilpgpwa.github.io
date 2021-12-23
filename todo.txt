@@ -1,2 +1,2 @@
-* Ok hasta m02herramientas
+* En m03base faltan explicaciones e instrucciones
 * Agregar metadatos para que los enlaces puedan obtener el ícono de la página.

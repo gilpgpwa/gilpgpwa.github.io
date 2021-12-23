@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+   content="width=device-width">
+ <title>GPS</title>
+</head>
+<body>
+ <h1>GPS</h1>
+ <p>
+  <label>
+   Latitud
+   <output id="latitud"></output>
+  </label>
+ </p>
+ <p>
+  <label>
+   Longitud
+   <output id="longitud"></output>
+  </label>
+ </p>
+ <script>
+  navigator.geolocation.
+   watchPosition(p => {
+    latitud.value =
+     p.coords.latitude;
+    longitud.value =
+     p.coords.longitude;
+   });
+ </script>
+</body>
+</html>
