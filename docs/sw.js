@@ -1,20 +1,11 @@
+/// <reference lib="webworker" />
+
 /* Espera 11 minutos después de hacer los cambios en tu sitio, para depués
  * actualizar este archivo. */
 
-/**
- * @typedef {Object} ExtendableEvent
- * @property {(promise: Promise) => any} waitUntil
- */
-
-/**
- * @typedef {Object} FetchEvent
- * @property {Request} request
- * @property {(promise: Promise) => any} respondWith
- */
-
 const CACHE = "cache"
 
-const VERSION = "1.0"
+const VERSION = "1.1"
 
 const ARCHIVOS = [
   "/favicon.ico",
@@ -138,11 +129,11 @@ const ARCHIVOS = [
    "/src/m03vistas/Garchivos.html",
     "/"]
 
-// @ts-ignore
-addEventListener("install", installListener)
-// @ts-ignore
-addEventListener("fetch", fetchListener)
-addEventListener("activate", () => console.log("Service Worker activo."))
+if (self instanceof ServiceWorkerGlobalScope) {
+ self.addEventListener("install", installListener)
+ self.addEventListener("fetch", fetchListener)
+ self.addEventListener("activate", () => console.log("Service Worker activo."))
+}
 
 /**
  * @param {ExtendableEvent} evt
