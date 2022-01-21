@@ -7,16 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>Aprende Progressive Web Apps - GilPG PWA</title>
- <meta name="description" content="Página de inicio de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas.">
- <script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "Curso",
-    "name": "Aprende Progressive Web Apps",
-    "description": "Página de inicio de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas."
-  }
-  </script>
+ <title>A. Diagrama de casos de uso - GilPG PWA</title>
+ <meta name="description" content="Diagrama de casos de uso del ejemplo de Distribución de PWA.">
  <style>
  :root {
   --introDuracion: 2s;
@@ -397,24 +389,6 @@
  }
 </style>
  
- <meta name="apple-mobile-web-app-title" content="ijs">
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-status-bar-style" content="default">
- <link rel="apple-touch-icon" href="/img/icono/maskable_icon_x192.png">
- <link rel="apple-touch-icon" sizes="48x48"
-   href="/img/icono/maskable_icon_x48.png">
- <link rel="apple-touch-icon" sizes="72x72"
-   href="/img/icono/maskable_icon_x72.png">
- <link rel="apple-touch-icon" sizes="96x96"
-   href="/img/icono/maskable_icon_x96.png">
- <link rel="apple-touch-icon" sizes="128x128"
-   href="/img/icono/maskable_icon_x128.png">
- <link rel="apple-touch-icon" sizes="192x192"
-   href="/img/icono/maskable_icon_x192.png">
- <link rel="apple-touch-icon" sizes="384x384"
-   href="/img/icono/maskable_icon_x384.png">
- <link rel="apple-touch-icon" sizes="512x512"
-   href="/img/icono/maskable_icon_x512.png">
 </head>
 <body class="xmenu">
  <div id="principal">
@@ -422,111 +396,22 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  
-  <a class="siguiente" href="/m01notificaciones/index.html" title="1. Notificaciones">▶</a>
+  <a class="anterior" href="/m04distribucion/index.html" title="4. Distribución de PWA">◀</a>
+  <a class="siguiente" href="/m04distribucion/mBdespliegue.html" title="B. Diagrama de despliegue">▶</a>
  </div>
-   <h1 class="sitio">Aprende Progressive Web Apps</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
-<div class="lectura">
- <p class="autor">por Gilberto Pacheco Gallegos</p>
+   <h1 >A. Diagrama de casos de uso</h1><div class="lectura">
  <ul>
   <li>
    <p>
-    Este sitio es continuación de
-    <a href="https://gilpgijs.github.io" rel="nooper"
-      target="_blank">https://gilpgijs.github.io</a>,
-    <a href="https://gilpgpoojs.github.io" rel="nooper"
-      target="_blank">https://gilpgpoojs.github.io</a>,
-    <a href="https://gilpgihc.github.io" rel="nooper"
-      target="_blank">https://gilpgihc.github.io</a>,
-    <a href="https://gilpgawoas.github.io" rel="nooper"
-      target="_blank">https://gilpgawoas.github.io</a>
-    y
-    <a href="https://gilpgdm.github.io" rel="nooper"
-      target="_blank">https://gilpgdm.github.io</a>
+    Revisa el código y pruébalo en Replit conla URL
+    <a href="https://replit.com/@GilbertoPachec3/iot?v=1" rel="nooper"
+      target="_blank">https://replit.com/@GilbertoPachec3/iot?v=1</a>.
    </p>
   </li>
  </ul>
- <section class="noPrint">
- <h1>Instrucciones de navegación</h1>
- <ul>
-  <li>
-   <p>
-    Los siguientes controles te permitirán navegar por todo el contenido del
-    sitio.
-   </p>
-   <dl>
-    <dt>
-     <button type="button" title="Cierra">&#x2715;</button>
-    </dt>
-    <dd>
-     <p>Oculta el menú de navegación.</p>
-    </dd>
-    <dt>
-     <button type="button" title="Menú">&#x2630;</button>
-    </dt>
-    <dd>
-     <p>Muestra el menú de navegación.</p>
-    </dd>
-    <dt>
-     <span class="anterior" title="Página anterior">◀</span>
-    </dt>
-    <dt>
-     <kbd>←</kbd> (Tecla flecha a la izquierda)
-    </dt>
-    <dt>
-     Swipe hacia la derecha
-    </dt>
-    <dd>
-     <p>Regresa a la página anterior.</p>
-    </dd>
-    <dt>
-     <span class="siguiente" title="Página siguiente">▶</span>
-    </dt>
-    <dt>
-     <kbd>→</kbd> (Tecla flecha a la derecha)
-    </dt>
-    <dt>
-     Swipe hacia la izquierda
-    </dt>
-    <dd>
-     <p>Avanza a la página siguiente.</p>
-    </dd>
-   </dl>
-  </li>
- </ul>
-</section>
- <nav>
-  <h1>Lecciones</h1>
-  
-   <ol type="1">
-    <li>
-     <p>
-      <a href="/m01notificaciones">Notificaciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02push">Notificaciones push</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion">Sincronización de datos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m04distribucion">Distribución de PWA</a>
-     </p>
-    </li>
-   </ol>
- </nav>
+ <figure>
+  <img src="/img/m05iot/casos_iot.svg" alt="Diagrama de Casos de Uso">
+ </figure>
 </div>
  <footer>
  <p>
@@ -555,29 +440,77 @@
   &#x2715;
  </button>
  <p>
-    <a href="/index.html" class="actual"
+    <a href="/index.html"
       data-logo="true">GilPG PWA</a>
+   </p><p>
+    <a class="paginaAnterior" href="/m03sincronizacion/mDresumen.html"
+      title="D. Resumen">▲</a>
    </p>
-     <h1>Lecciones</h1>
-   <ol type="1">
+     <h1><a href="/m04distribucion/index.html">4. Distribución de PWA</a></h1>
+   <ol type="A">
     <li>
      <p>
-      <a href="/m01notificaciones">Notificaciones</a>
+      <a href="/m04distribucion/mAcasos.html" class="actual">Diagrama de casos de uso</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push">Notificaciones push</a>
+      <a href="/m04distribucion/mBdespliegue.html">Diagrama de despliegue</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion">Sincronización de datos</a>
+      <a href="/m04distribucion/mCer.html">Diagrama entidad relación</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04distribucion">Distribución de PWA</a>
+      <a href="/m04distribucion/mDnoRel.html">Diseño no relacional</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mEinstrucciones.html">Instrucciones</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mFarchivos.html">Archivos</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mGtipos.html">tipos.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mHcliente.html">cliente.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mIgetValor.html">getValor.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mJsetValor.html">setValor.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mKindexJs.html">index.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mLindexHtml.html">www/index.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04distribucion/mMresumen.html">Resumen</a>
      </p>
     </li>
    </ol>
@@ -591,9 +524,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = ""
+ let urlAnterior = "/m04distribucion/index.html"
  /**@type {string} */
- let urlSiguiente = "/m01notificaciones/index.html"
+ let urlSiguiente = "/m04distribucion/mBdespliegue.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

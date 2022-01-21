@@ -5,28 +5,16 @@
  "printDescription": "Página para imprimir todo el contenido de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas.",
  "listado": [
   {
-   "name": "m01conceptos"
+   "name": "m01notificaciones"
   },
   {
-   "name": "m02herramientas"
+   "name": "m02push"
   },
   {
-   "name": "m03base"
+   "name": "m03sincronizacion"
   },
   {
-   "name": "m04renderCliente"
-  },
-  {
-   "name": "m05renderServidor"
-  },
-  {
-   "name": "m06sincronizacion"
-  },
-  {
-   "name": "m07notificaciones"
-  },
-  {
-   "name": "m08distribucion"
+   "name": "m04distribucion"
   }
  ]
 }

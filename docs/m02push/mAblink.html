@@ -7,16 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>Aprende Progressive Web Apps - GilPG PWA</title>
- <meta name="description" content="Página de inicio de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas.">
- <script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "Curso",
-    "name": "Aprende Progressive Web Apps",
-    "description": "Página de inicio de GilPG PWA, que introduce conceptos de aplicaciones web pregresivas."
-  }
-  </script>
+ <title>A. Blink.ino - GilPG PWA</title>
+ <meta name="description" content="Código de «Blink.ino».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -397,24 +389,6 @@
  }
 </style>
  
- <meta name="apple-mobile-web-app-title" content="ijs">
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-status-bar-style" content="default">
- <link rel="apple-touch-icon" href="/img/icono/maskable_icon_x192.png">
- <link rel="apple-touch-icon" sizes="48x48"
-   href="/img/icono/maskable_icon_x48.png">
- <link rel="apple-touch-icon" sizes="72x72"
-   href="/img/icono/maskable_icon_x72.png">
- <link rel="apple-touch-icon" sizes="96x96"
-   href="/img/icono/maskable_icon_x96.png">
- <link rel="apple-touch-icon" sizes="128x128"
-   href="/img/icono/maskable_icon_x128.png">
- <link rel="apple-touch-icon" sizes="192x192"
-   href="/img/icono/maskable_icon_x192.png">
- <link rel="apple-touch-icon" sizes="384x384"
-   href="/img/icono/maskable_icon_x384.png">
- <link rel="apple-touch-icon" sizes="512x512"
-   href="/img/icono/maskable_icon_x512.png">
 </head>
 <body class="xmenu">
  <div id="principal">
@@ -422,112 +396,118 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  
-  <a class="siguiente" href="/m01notificaciones/index.html" title="1. Notificaciones">▶</a>
+  <a class="anterior" href="/m02push/index.html" title="2. Notificaciones push">◀</a>
+  <a class="siguiente" href="/m02push/mBbutton.html" title="B. Button.ino">▶</a>
  </div>
-   <h1 class="sitio">Aprende Progressive Web Apps</h1>
-   <div class="lectura"> 
-    <p class="noPrint">
-     <a href="print.html" target="_blank" rel="noopener">Versión para
-      imprimir.</a>
-    </p>
-   </div>
+   <h1 >A. Blink.ino</h1><figure>
+ <img src="/img/m06esp8266/Video-Blink.gif" alt="Video de la placa">
+</figure>
 <div class="lectura">
- <p class="autor">por Gilberto Pacheco Gallegos</p>
- <ul>
-  <li>
-   <p>
-    Este sitio es continuación de
-    <a href="https://gilpgijs.github.io" rel="nooper"
-      target="_blank">https://gilpgijs.github.io</a>,
-    <a href="https://gilpgpoojs.github.io" rel="nooper"
-      target="_blank">https://gilpgpoojs.github.io</a>,
-    <a href="https://gilpgihc.github.io" rel="nooper"
-      target="_blank">https://gilpgihc.github.io</a>,
-    <a href="https://gilpgawoas.github.io" rel="nooper"
-      target="_blank">https://gilpgawoas.github.io</a>
-    y
-    <a href="https://gilpgdm.github.io" rel="nooper"
-      target="_blank">https://gilpgdm.github.io</a>
-   </p>
-  </li>
- </ul>
- <section class="noPrint">
- <h1>Instrucciones de navegación</h1>
- <ul>
-  <li>
-   <p>
-    Los siguientes controles te permitirán navegar por todo el contenido del
-    sitio.
-   </p>
-   <dl>
-    <dt>
-     <button type="button" title="Cierra">&#x2715;</button>
-    </dt>
-    <dd>
-     <p>Oculta el menú de navegación.</p>
-    </dd>
-    <dt>
-     <button type="button" title="Menú">&#x2630;</button>
-    </dt>
-    <dd>
-     <p>Muestra el menú de navegación.</p>
-    </dd>
-    <dt>
-     <span class="anterior" title="Página anterior">◀</span>
-    </dt>
-    <dt>
-     <kbd>←</kbd> (Tecla flecha a la izquierda)
-    </dt>
-    <dt>
-     Swipe hacia la derecha
-    </dt>
-    <dd>
-     <p>Regresa a la página anterior.</p>
-    </dd>
-    <dt>
-     <span class="siguiente" title="Página siguiente">▶</span>
-    </dt>
-    <dt>
-     <kbd>→</kbd> (Tecla flecha a la derecha)
-    </dt>
-    <dt>
-     Swipe hacia la izquierda
-    </dt>
-    <dd>
-     <p>Avanza a la página siguiente.</p>
-    </dd>
-   </dl>
-  </li>
- </ul>
-</section>
- <nav>
-  <h1>Lecciones</h1>
-  
-   <ol type="1">
-    <li>
-     <p>
-      <a href="/m01notificaciones">Notificaciones</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m02push">Notificaciones push</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion">Sincronización de datos</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m04distribucion">Distribución de PWA</a>
-     </p>
-    </li>
-   </ol>
- </nav>
+ <p>
+  Para empezar a programar, revisa que al conectar tu dispositivo ESP8266,
+  Arduino IDE lo reconozca y tenga habilitado el menú
+  <q>Herramientas > Puerto</q>;
+  si no es así, tienes que revisar que el driver para Windows esté bien
+  cargado.
+ </p>
+ <p>
+  <a href="https://drive.google.com/file/d/1dXv5jirpTN09kPwgxMthgKtV-fc2YOU0/view?usp=sharing"
+    target="_blank" rel="nooper">Revisa que el driver para Windows esté bien
+   cargado.</a>
+ </p>
+ <p class="noPrint">
+  <a href="https://drive.google.com/file/d/1buuaEpXd02E8eeHhDwzxcC4sZsvcVV5A/view?usp=sharing"
+    target="_blank" rel="nooper">Ve como capturar y ejecutar un ejemplo parecido
+   a este.</a>
+ </p>
+ <p class="noPrint">
+  <a href="https://drive.google.com/file/d/1yqVaTYYt8BxQLhvmZW2bwdiTkqxPQKcB/view?usp=sharing"
+    target="_blank" rel="nooper">Ve como desplegar este ejemplo en Tinkercad y
+   compartirlo.</a>
+ </p>
 </div>
+<muestra-codigo>
+ <div>
+  <div><span
+     style="color: #008000;">/*&nbsp;Este&nbsp;programa&nbsp;es&nbsp;un&nbsp;derivado&nbsp;de</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;ESP8266&nbsp;Blink&nbsp;by&nbsp;Simon&nbsp;Peter&nbsp;*/</span>
+  </div><br>
+  <div><span
+     style="color: #008000;">/**&nbsp;Función&nbsp;que&nbsp;se&nbsp;invoca&nbsp;una&nbsp;sola</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;vez&nbsp;al&nbsp;inicio&nbsp;del&nbsp;programa.&nbsp;*/</span>
+  </div>
+  <div><span style="color: #0000ff;">void</span>&nbsp;<span
+     style="color: #795e26;">setup</span>()&nbsp;{</div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Todas&nbsp;las&nbsp;placas&nbsp;compatibles</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;con&nbsp;Arduino&nbsp;incluyen&nbsp;un&nbsp;led</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de&nbsp;prueba&nbsp;ligado&nbsp;a&nbsp;un&nbsp;pin</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cuyo&nbsp;número&nbsp;está&nbsp;definido&nbsp;por</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la&nbsp;constante&nbsp;LED_BUILTIN.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inicializa&nbsp;el&nbsp;pin&nbsp;para</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LED_BUILTIN&nbsp;como&nbsp;salida.&nbsp;*/</span>
+  </div>
+  <div>&nbsp;&nbsp;<span style="color: #795e26;">pinMode</span>(<span
+     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
+     style="color: #0000ff;">OUTPUT</span>);</div>
+  <div>}</div><br>
+  <div><span
+     style="color: #008000;">/*&nbsp;Función&nbsp;que&nbsp;se&nbsp;invoca</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;repetidamente&nbsp;mientras&nbsp;el</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;programa&nbsp;esté&nbsp;activo.&nbsp;*/</span>
+  </div>
+  <div><span style="color: #0000ff;">void</span>&nbsp;<span
+     style="color: #795e26;">loop</span>()&nbsp;{</div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Enciende&nbsp;el&nbsp;LED_BUILTIN&nbsp;(LOW</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;es&nbsp;el&nbsp;nivel&nbsp;de&nbsp;voltaje).&nbsp;*/</span>
+  </div>
+  <div>&nbsp;&nbsp;<span style="color: #795e26;">digitalWrite</span>(<span
+     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
+     style="color: #0000ff;">LOW</span>);</div>
+  <div>&nbsp;&nbsp;<span style="color: #795e26;">delay</span>(<span
+     style="color: #098658;">1000</span>);<span
+     style="color: #008000;">&nbsp;//&nbsp;Espera&nbsp;1&nbsp;segundo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Apaga&nbsp;el&nbsp;LED_BUILTIN&nbsp;haciendo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;que&nbsp;el&nbsp;nivel&nbsp;de&nbsp;voltaje&nbsp;sea</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HIGH.&nbsp;*/</span>
+  </div>
+  <div>&nbsp;&nbsp;<span style="color: #795e26;">digitalWrite</span>(<span
+     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
+     style="color: #0000ff;">HIGH</span>);</div>
+  <div>&nbsp;&nbsp;<span style="color: #795e26;">delay</span>(<span
+     style="color: #098658;">1000</span>);</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -555,32 +535,38 @@
   &#x2715;
  </button>
  <p>
-    <a href="/index.html" class="actual"
+    <a href="/index.html"
       data-logo="true">GilPG PWA</a>
+   </p><p>
+    <a class="paginaAnterior" href="/m01notificaciones/mDresumen.html"
+      title="D. Resumen">▲</a>
    </p>
-     <h1>Lecciones</h1>
-   <ol type="1">
+     <h1><a href="/m02push/index.html">2. Notificaciones push</a></h1>
+   <ol type="A">
     <li>
      <p>
-      <a href="/m01notificaciones">Notificaciones</a>
+      <a href="/m02push/mAblink.html" class="actual">Blink.ino</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push">Notificaciones push</a>
+      <a href="/m02push/mBbutton.html">Button.ino</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion">Sincronización de datos</a>
+      <a href="/m02push/mCdispositivo.html">Dispositivo.ino</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04distribucion">Distribución de PWA</a>
+      <a href="/m02push/mDresumen.html">Resumen</a>
      </p>
     </li>
-   </ol>
+   </ol><p>
+    <a class="paginaSiguiente" href="/m03sincronizacion/index.html"
+      title="3. Sincronización de datos">▼</a>
+   </p>
 </nav>
  <script>
  // registraServiceWorker("/sw.js")
@@ -591,9 +577,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = ""
+ let urlAnterior = "/m02push/index.html"
  /**@type {string} */
- let urlSiguiente = "/m01notificaciones/index.html"
+ let urlSiguiente = "/m02push/mBbutton.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

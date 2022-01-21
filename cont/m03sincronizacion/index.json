@@ -1,0 +1,28 @@
+{
+ "type": "A",
+ "title": "Sincronización de datos",
+ "description": "Contenido de la lección «3. Sincronización de datos».",
+ "printDescription": "Página para imprimir de la lección «3. Sincronización de datos».",
+ "listado": [
+  {
+   "name": "mAblink.html",
+   "title": "Blink.ino",
+   "description": "Código de «Blink.ino»."
+  },
+  {
+   "name": "mBbutton.html",
+   "title": "Button.ino",
+   "description": "Código de «Button.ino»."
+  },
+  {
+   "name": "mCdispositivo.html",
+   "title": "Dispositivo.ino",
+   "description": "Código de «Dispositivo.ino»."
+  },
+  {
+   "name": "mDresumen.html",
+   "title": "Resumen",
+   "description": "Resumen de la lección «3. Sincronización de datos»."
+  }
+ ]
+}
