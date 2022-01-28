@@ -1,0 +1,64 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">ejecuta</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./ejecuta.js"</span></div><br>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Envía los datos de la forma a la</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;* url con el método POST usando la</span>
+  </div>
+  <div><span style="color: #008000;">&nbsp;* función ejecuta. </span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Event}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">evt</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">url</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{HTMLFormElement}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">forma</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span style="color: #795e26;">submit</span>(<span
+     style="color: #001080;">evt</span>, <span
+     style="color: #001080;">url</span>, <span
+     style="color: #001080;">forma</span>) {</div>
+  <div>&nbsp;<span style="color: #001080;">evt</span>.<span
+     style="color: #795e26;">preventDefault</span>()</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(</div>
+  <div>&nbsp; <span style="color: #795e26;">fetch</span>(<span
+     style="color: #001080;">url</span>, {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">method</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #a31515;">"POST"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">FormData</span>(<span
+     style="color: #001080;">forma</span>)
+  </div>
+  <div>&nbsp; }))</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>

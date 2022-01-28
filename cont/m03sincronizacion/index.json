@@ -1,28 +1,168 @@
 {
- "type": "A",
- "title": "Sincronización de datos",
- "description": "Contenido de la lección «3. Sincronización de datos».",
- "printDescription": "Página para imprimir de la lección «3. Sincronización de datos».",
+ "type": "1",
+ "title": "Sincronización",
+ "description": "Contenido de la lección «3. Sincronización».",
+ "printDescription": "Página para imprimir de la lección «3. Sincronización».",
  "listado": [
   {
-   "name": "mAblink.html",
-   "title": "Blink.ino",
-   "description": "Código de «Blink.ino»."
+   "name": "m01instrucciones.html",
+   "title": "Instrucciones",
+   "description": "Instrucciones."
   },
   {
-   "name": "mBbutton.html",
-   "title": "Button.ino",
-   "description": "Código de «Button.ino»."
+   "name": "m02archivos.html",
+   "title": "Archivos",
+   "description": "Archivos."
   },
   {
-   "name": "mCdispositivo.html",
-   "title": "Dispositivo.ino",
-   "description": "Código de «Dispositivo.ino»."
+   "name": "m03mensajes.html",
+   "title": "Mensajes",
+   "description": "Subsección «Mensajes»."
   },
   {
-   "name": "mDresumen.html",
-   "title": "Resumen",
-   "description": "Resumen de la lección «3. Sincronización de datos»."
+   "name": "m04msgFaltaElIdPhp.html",
+   "title": "srv/mensajes/msgFaltaElId.php",
+   "description": "Código de «srv/mensajes/msgFaltaElId.php»."
+  },
+  {
+   "name": "m05msgFaltaElNombrePhp.html",
+   "title": "srv/mensajes/msgFaltaElNombre.php",
+   "description": "Código de «srv/mensajes/msgFaltaElNombre.php»."
+  },
+  {
+   "name": "m06bd.html",
+   "title": "Base de datos",
+   "description": "Subsección «Base de datos»."
+  },
+  {
+   "name": "m07PasatiempoPhp.html",
+   "title": "srv/modelo/Pasatiempo.php",
+   "description": "Código de «srv/modelo/Pasatiempo.php»."
+  },
+  {
+   "name": "m08pasatiempoCreaPhp.html",
+   "title": "srv/dao/pasatiempoCrea.php",
+   "description": "Código de «srv/dao/pasatiempoCrea.php»."
+  },
+  {
+   "name": "m09AccesoBdPhp.html",
+   "title": "srv/dao/AccesoBd.php",
+   "description": "Código de «srv/dao/AccesoBd.php»."
+  },
+  {
+   "name": "m10listado.html",
+   "title": "Listar",
+   "description": "Subsección «Listar»."
+  },
+  {
+   "name": "m11pasatiempoConsultaPhp.html",
+   "title": "srv/dao/pasatiempoConsulta.php",
+   "description": "Código de «srv/dao/pasatiempoConsulta.php»."
+  },
+  {
+   "name": "m12SrvPasatiempos.html",
+   "title": "srv/SrvPasatiempos.php",
+   "description": "Código de «srv/SrvPasatiempos.php»."
+  },
+  {
+   "name": "m13indexHtml.html",
+   "title": "index.html",
+   "description": "Código de «index.html»."
+  },
+  {
+   "name": "m14agrega.html",
+   "title": "Agregar",
+   "description": "Subsección «Agregar»."
+  },
+  {
+   "name": "m15pasatiempoAgregaPhp.html",
+   "title": "srv/dao/pasatiempoAgrega.php",
+   "description": "Código de «srv/dao/pasatiempoAgrega.php»."
+  },
+  {
+   "name": "m16SrvPasatiempoAgrega.html",
+   "title": "srv/SrvPasatiempoAgrega.php",
+   "description": "Código de «srv/SrvPasatiempoAgrega.php»."
+  },
+  {
+   "name": "m17agregaHtml.html",
+   "title": "agrega.html",
+   "description": "Código de «agrega.html»."
+  },
+  {
+   "name": "m18modifica.html",
+   "title": "Modificar",
+   "description": "Subsección «Modificar»."
+  },
+  {
+   "name": "m19pasatiempoBuscaPhp.html",
+   "title": "srv/dao/pasatiempoBusca.php",
+   "description": "Código de «srv/dao/pasatiempoBusca.php»."
+  },
+  {
+   "name": "m20SrvPasatiempoBusca.html",
+   "title": "srv/SrvPasatiempoBusca.php",
+   "description": "Código de «srv/SrvPasatiempoBusca.php»."
+  },
+  {
+   "name": "m21pasatiempoEliminaPhp.html",
+   "title": "srv/dao/pasatiempoElimina.php",
+   "description": "Código de «srv/dao/pasatiempoElimina.php»."
+  },
+  {
+   "name": "m22SrvPasatiempoElimina.html",
+   "title": "srv/SrvPasatiempoElimina.php",
+   "description": "Código de «srv/SrvPasatiempoElimina.php»."
+  },
+  {
+   "name": "m23pasatiempoModificaPhp.html",
+   "title": "srv/dao/pasatiempoModifica.php",
+   "description": "Código de «srv/dao/pasatiempoModifica.php»."
+  },
+  {
+   "name": "m24SrvPasatiempoModifica.html",
+   "title": "srv/SrvPasatiempoModifica.php",
+   "description": "Código de «srv/SrvPasatiempoModifica.php»."
+  },
+  {
+   "name": "m25modificaHtml.html",
+   "title": "modifica.html",
+   "description": "Código de «modifica.html»."
+  },
+  {
+   "name": "m26frecuentes.html",
+   "title": "Archivos frecuentes",
+   "description": "Subsección «Archivos frecuentes»."
+  },
+  {
+   "name": "m27jsconfigJson.html",
+   "title": "jsconfig.json",
+   "description": "Código de «jsconfig.json»."
+  },
+  {
+   "name": "m28ejecutaJs.html",
+   "title": "lib/ejecuta.js",
+   "description": "Código de «lib/ejecuta.js»."
+  },
+  {
+   "name": "m29muestraErrorJs.html",
+   "title": "lib/muestraError.js",
+   "description": "Código de «lib/muestraError.js»."
+  },
+  {
+   "name": "m30submitJs.html",
+   "title": "lib/submit.js",
+   "description": "Código de «lib/submit.js»."
+  },
+  {
+   "name": "m31leeValorPhp.html",
+   "title": "srv/lib/leeValor.php",
+   "description": "Código de «srv/lib/leeValor.php»."
+  },
+  {
+   "name": "m32ServicioPhp.html",
+   "title": "srv/lib/Servicio.php",
+   "description": "Código de «srv/lib/Servicio.php»."
   }
  ]
 }

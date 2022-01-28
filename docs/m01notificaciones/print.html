@@ -345,7 +345,7 @@
    </div>
 <div class="lectura">
  <p>
-  En esta lección se presentan programas para el NODE MCU ESP8266.
+  En esta lección se muestra un ejemplo sencillo de notificaciones.
  </p>
  <nav>
   <h1>Contenido</h1>
@@ -353,520 +353,126 @@
    <ol type="A">
     <li>
      <p>
-      <a href="/m01notificaciones/mAblink.html">Blink.ino</a>
+      <a href="/m01notificaciones/mAejemplo.html">Ejemplo</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m01notificaciones/mBbutton.html">Button.ino</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m01notificaciones/mCdispositivo.html">Dispositivo.ino</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m01notificaciones/mDresumen.html">Resumen</a>
+      <a href="/m01notificaciones/mBresumen.html">Resumen</a>
      </p>
     </li>
    </ol>
  </nav>
 </div>
      <section >
-         <h1 >A. Blink.ino</h1><figure>
- <img src="/img/m06esp8266/Video-Blink.gif" alt="Video de la placa">
-</figure>
-<div class="lectura">
+         <h1 >A. Ejemplo</h1><div class="lectura noPrint">
  <p>
-  Para empezar a programar, revisa que al conectar tu dispositivo ESP8266,
-  Arduino IDE lo reconozca y tenga habilitado el menú
-  <q>Herramientas > Puerto</q>;
-  si no es así, tienes que revisar que el driver para Windows esté bien
-  cargado.
+  <a href="/src/m01notificaciones/index.html" target="_blank"
+    rel="nooper">Ábrelo en otra pestaña.</a>
  </p>
  <p>
-  <a href="https://drive.google.com/file/d/1dXv5jirpTN09kPwgxMthgKtV-fc2YOU0/view?usp=sharing"
-    target="_blank" rel="nooper">Revisa que el driver para Windows esté bien
-   cargado.</a>
- </p>
- <p class="noPrint">
-  <a href="https://drive.google.com/file/d/1buuaEpXd02E8eeHhDwzxcC4sZsvcVV5A/view?usp=sharing"
-    target="_blank" rel="nooper">Ve como capturar y ejecutar un ejemplo parecido
-   a este.</a>
- </p>
- <p class="noPrint">
-  <a href="https://drive.google.com/file/d/1yqVaTYYt8BxQLhvmZW2bwdiTkqxPQKcB/view?usp=sharing"
-    target="_blank" rel="nooper">Ve como desplegar este ejemplo en Tinkercad y
-   compartirlo.</a>
+  <a target="_blank" rel="nooper"
+    href="https://gilpgedit.github.io/#%3C!DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22es%22%3E%0A%0A%3Chead%3E%0A%20%3Cmeta%20charset%3D%22UTF-8%22%3E%0A%20%3Cmeta%20name%3D%22viewport%22%0A%20%20%20content%3D%22width%3Ddevice-width%22%3E%0A%20%3Ctitle%3ENotificaciones%3C%2Ftitle%3E%0A%3C%2Fhead%3E%0A%0A%3Cbody%3E%0A%20%3Ch1%3ENotificaciones%3C%2Fh1%3E%0A%20%3Cbutton%20onclick%3D%22notifica()%22%3E%0A%20%20Muestra%0A%20%3C%2Fbutton%3E%0A%20%3Cscript%3E%0A%20%20const%20MENSAJE%20%3D%20%22Hola%22%0A%20%20async%20function%20notifica()%20%7B%0A%20%20%20let%20permitida%20%3D%20false%0A%20%20%20if%20(%22Notification%22%20in%20window)%20%7B%0A%20%20%20%20let%20permiso%20%3D%0A%20%20%20%20%20Notification.permission%0A%20%20%20%20if%20(permiso%20%3D%3D%3D%20%22default%22)%20%7B%0A%20%20%20%20%20permiso%20%3D%20await%20Notification.%0A%20%20%20%20%20%20requestPermission()%0A%20%20%20%20%7D%0A%20%20%20%20permitida%20%3D%0A%20%20%20%20%20permiso%20%3D%3D%3D%20%22granted%22%0A%20%20%20%7D%0A%20%20%20if%20(permitida)%20%7B%0A%20%20%20%20notificacion%20%3D%0A%20%20%20%20%20new%20Notification(MENSAJE)%0A%20%20%20%7D%20else%20%7B%0A%20%20%20%20alert(MENSAJE)%0A%20%20%20%7D%0A%20%20%7D%0A%20%3C%2Fscript%3E%0A%3C%2Fbody%3E%0A%0A%3C%2Fhtml%3E">
+   Revísalo en gilpgedit.</a>
  </p>
 </div>
 <muestra-codigo>
  <div>
-  <div><span
-     style="color: #008000;">/*&nbsp;Este&nbsp;programa&nbsp;es&nbsp;un&nbsp;derivado&nbsp;de</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;ESP8266&nbsp;Blink&nbsp;by&nbsp;Simon&nbsp;Peter&nbsp;*/</span>
-  </div><br>
-  <div><span
-     style="color: #008000;">/**&nbsp;Función&nbsp;que&nbsp;se&nbsp;invoca&nbsp;una&nbsp;sola</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;vez&nbsp;al&nbsp;inicio&nbsp;del&nbsp;programa.&nbsp;*/</span>
-  </div>
-  <div><span style="color: #0000ff;">void</span>&nbsp;<span
-     style="color: #795e26;">setup</span>()&nbsp;{</div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Todas&nbsp;las&nbsp;placas&nbsp;compatibles</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;con&nbsp;Arduino&nbsp;incluyen&nbsp;un&nbsp;led</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de&nbsp;prueba&nbsp;ligado&nbsp;a&nbsp;un&nbsp;pin</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cuyo&nbsp;número&nbsp;está&nbsp;definido&nbsp;por</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la&nbsp;constante&nbsp;LED_BUILTIN.</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inicializa&nbsp;el&nbsp;pin&nbsp;para</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LED_BUILTIN&nbsp;como&nbsp;salida.&nbsp;*/</span>
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">pinMode</span>(<span
-     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
-     style="color: #0000ff;">OUTPUT</span>);</div>
-  <div>}</div><br>
-  <div><span
-     style="color: #008000;">/*&nbsp;Función&nbsp;que&nbsp;se&nbsp;invoca</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;repetidamente&nbsp;mientras&nbsp;el</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;programa&nbsp;esté&nbsp;activo.&nbsp;*/</span>
-  </div>
-  <div><span style="color: #0000ff;">void</span>&nbsp;<span
-     style="color: #795e26;">loop</span>()&nbsp;{</div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Enciende&nbsp;el&nbsp;LED_BUILTIN&nbsp;(LOW</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;es&nbsp;el&nbsp;nivel&nbsp;de&nbsp;voltaje).&nbsp;*/</span>
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">digitalWrite</span>(<span
-     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
-     style="color: #0000ff;">LOW</span>);</div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">delay</span>(<span
-     style="color: #098658;">1000</span>);<span
-     style="color: #008000;">&nbsp;//&nbsp;Espera&nbsp;1&nbsp;segundo</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Apaga&nbsp;el&nbsp;LED_BUILTIN&nbsp;haciendo</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;que&nbsp;el&nbsp;nivel&nbsp;de&nbsp;voltaje&nbsp;sea</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HIGH.&nbsp;*/</span>
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">digitalWrite</span>(<span
-     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
-     style="color: #0000ff;">HIGH</span>);</div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">delay</span>(<span
-     style="color: #098658;">1000</span>);</div>
-  <div>}</div><br>
- </div>
-</muestra-codigo>
-      </section>
-     <section >
-         <h1 >B. Button.ino</h1><figure>
- <img src="/img/m06esp8266/Video-Button.gif" alt="Video de la placa">
-</figure>
-<div class="lectura">
- <p class="noPrint">
-  <a href="https://drive.google.com/file/d/1dFU-A3HvWAyTSyquOT1C2N5b6dUyQywq/view?usp=sharing"
-    target="_blank" rel="nooper">Ve como desplegar este ejemplo en Tinkercad y
-   compartirlo.</a>
- </p>
-</div>
-<muestra-codigo>
- <div>
-  <div><span
-     style="color: #008000;">/*&nbsp;Este&nbsp;es&nbsp;un&nbsp;derivado&nbsp;de&nbsp;Button</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;por&nbsp;DojoDave&nbsp;y&nbsp;Tom&nbsp;Igoe&nbsp;*/</span>
-  </div><br>
-  <div><span
-     style="color: #008000;">/*&nbsp;Pin&nbsp;para&nbsp;el&nbsp;botón.&nbsp;*/</span>
-  </div>
-  <div><span style="color: #0000ff;">const</span>&nbsp;<span
-     style="color: #0000ff;">int</span>&nbsp;<span
-     style="color: #001080;">BOTON</span>&nbsp;=&nbsp;<span
-     style="color: #098658;">0</span>;</div><br>
-  <div><span style="color: #0000ff;">int</span>&nbsp;<span
-     style="color: #001080;">estadoDelBoton</span>&nbsp;=&nbsp;<span
-     style="color: #098658;">0</span>;</div><br>
-  <div><span style="color: #0000ff;">void</span>&nbsp;<span
-     style="color: #795e26;">setup</span>()&nbsp;{</div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Inicializa&nbsp;el&nbsp;pin&nbsp;para</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LED_BUILTIN&nbsp;como&nbsp;salida.&nbsp;*/</span>
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">pinMode</span>(<span
-     style="color: #0000ff;">LED_BUILTIN</span>,&nbsp;<span
-     style="color: #0000ff;">OUTPUT</span>);</div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Initializa&nbsp;el&nbsp;pin&nbsp;para</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOTON&nbsp;como&nbsp;entrada.&nbsp;*/</span>
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #795e26;">pinMode</span>(<span
-     style="color: #001080;">BOTON</span>,&nbsp;<span
-     style="color: #0000ff;">INPUT</span>);</div>
-  <div>}</div><br>
-  <div><span style="color: #0000ff;">void</span>&nbsp;<span
-     style="color: #795e26;">loop</span>()&nbsp;{</div>
-  <div>&nbsp;&nbsp;<span
-     style="color: #001080;">estadoDelBoton</span>&nbsp;=</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">digitalRead</span>(<span
-     style="color: #001080;">BOTON</span>);</div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;/*&nbsp;Checa&nbsp;si&nbsp;el&nbsp;botón&nbsp;está</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;presionado.&nbsp;Esto&nbsp;es,&nbsp;si</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estadoDelBotón&nbsp;es&nbsp;LOW:&nbsp;*/</span>
-  </div>
-  <div>&nbsp;&nbsp;<span style="color: #af00db;">if</span>&nbsp;(<span
-     style="color: #001080;">estadoDelBoton</span>&nbsp;==&nbsp;<span
-     style="color: #0000ff;">LOW</span>)&nbsp;{</div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Enciende&nbsp;el&nbsp;LED_BUILTIN.</span>
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">digitalWrite</span>(<span
-     style="color: #0000ff;">LED_BUILTIN</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">LOW</span>);</div>
-  <div>&nbsp;&nbsp;}&nbsp;<span style="color: #af00db;">else</span>&nbsp;{
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Apaga&nbsp;el&nbsp;LED_BUILTIN.</span>
-  </div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #795e26;">digitalWrite</span>(<span
-     style="color: #0000ff;">LED_BUILTIN</span>,</div>
-  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-     style="color: #0000ff;">HIGH</span>);</div>
-  <div>&nbsp;&nbsp;}</div>
-  <div>}</div><br>
- </div>
-      </section>
-     <section >
-         <h1 >C. Dispositivo.ino</h1><figure>
- <img src="/img/m06esp8266/dispositivo.gif" alt="Video del dispositivo">
- <figcaption>
-  Implementación del ejemplo de IoT con web sockets en Arduino IDE.
- </figcaption>
-</figure>
-<div class="lectura">
- <ul>
-  <li>
-   <p>
-    En el siguiente código, sustituye la configuración por los datos de
-    tu red WiFi. La URL y la huella digital deben correspponder a tu
-    proyecto de IoT.
-   </p>
-  </li>
-  <li>
-   <p>Las siguientes instrucciones son para obtener la huella digital:</p>
-   <ol>
-    <li>
-     <p>
-      Usa Chrome para abrir la URL del código de la lección IoT. En este caso
-      es
-      <a href="https://iot.gilbertopachec3.repl.co/" rel="nooper"
-        target="_blank">https://iot.gilbertopachec3.repl.co/</a>.
-     </p>
-    </li>
-    <li>
-     <p>
-      Haz clic en el candadito que está junto a la URL. Se abre un menú
-      contextual.
-     </p>
-    </li>
-    <li>
-     <p>
-      Haz clic en donde dice <q>Certificado (válido)</q>. Aparece
-      un cuadro de diálogo. Observa hasta cuando puedes usar esta
-      información. Despues de la fecha indicada, debes actualizar tu
-      código.
-     </p>
-    </li>
-    <li>
-     <p>
-      Selecciona la pestaña <q>Detalles</q>. Haz scroll hasta que
-      aparezca la <q>Huella digital</q>. Haz clic en esta propiedad
-      y abajo se muestra su valor. Copia y pega este valor a tu
-      código.
-     </p>
-    </li>
-   </ol>
-  </li>
-  <li>
-   <p>
-    Para monitorear su funcionamiento, debes hacer clic en el botón de
-    arriba a la derecha en la ventana de Arduino, que tiene una lupa y
-    tiene el mensaje flotante que dice <strong>Monitor Serie</strong>.
-    Debes ajustar los baudios a la misma velocidad que en el código,
-    donde dice
-    <code class="language-cpp">Serial.begin(115200);</code>
-    que en este caso es 115200 baudios. Si no se ven los mensajes,
-    baja la velocidad tanto en el código, como en el monitor.
-   </p>
-  </li>
-  <li class="noPrint">
-   <p class="noPrint">
-    <a href="https://drive.google.com/file/d/1az-Brq31wdorrqchkezANCuzRm9XNg_7/view?usp=sharing"
-      target="_blank" rel="nooper">Ve como configurar y ejecutar este ejemplo.</a>
-   </p>
-  </li>
- </ul>
-</div>
-<muestra-codigo>
- <div>
-  <div><span style="color: #af00db;">#include</span><span
-     style="color: #0000ff;"> </span><span
-     style="color: #a31515;">&lt;ESP8266WiFi.h&gt;</span></div>
-  <div><span style="color: #af00db;">#include</span><span
-     style="color: #0000ff;"> </span><span
-     style="color: #a31515;">&lt;ESP8266WiFiMulti.h&gt;</span></div>
-  <div><span style="color: #af00db;">#include</span><span
-     style="color: #0000ff;"> </span><span
-     style="color: #a31515;">&lt;ArduinoWebsockets.h&gt;</span></div><br>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0000ff;">char</span>* <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #001080;">SSID</span> =</div>
-  <div>&nbsp;<span style="color: #a31515;">"*******"</span>;</div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0000ff;">char</span>* <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #001080;">PASS</span> =</div>
-  <div>&nbsp;<span style="color: #a31515;">"*******"</span>;</div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0000ff;">char</span>* <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #001080;">HUELLA_DIGITAL</span> =</div>
+  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
+     style="color: #ff0000;">html</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div><span style="color: #800000;">&lt;html</span> <span
+     style="color: #ff0000;">lang</span>=<span
+     style="color: #0000ff;">"es"</span><span
+     style="color: #800000;">&gt;</span></div><br>
+  <div><span style="color: #800000;">&lt;head&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+     style="color: #ff0000;">charset</span>=<span
+     style="color: #0000ff;">"UTF-8"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
+     style="color: #ff0000;">name</span>=<span
+     style="color: #0000ff;">"viewport"</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
+     style="color: #0000ff;">"width=device-width"</span><span
+     style="color: #800000;">&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #a31515;">"*************"</span>;
-  </div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0000ff;">char</span>* <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #001080;">URL</span> =</div>
+     style="color: #800000;">&lt;title&gt;</span>Notificaciones<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
+  <div><span style="color: #800000;">&lt;body&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #a31515;">"wss://iot.gilbertopachec3.repl.co/"</span>;</div>
-  <br>
-  <div><span style="color: #af00db;">using</span> <span
-     style="color: #0000ff;">namespace</span> <span
-     style="color: #267f99;">websockets</span>;</div>
-  <div>ESP8266WiFiMulti <span style="color: #001080;">WiFiMulti</span>;</div>
-  <div>WebsocketsClient &nbsp;<span style="color: #001080;">client</span>;
-  </div><br>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0000ff;">int</span> <span
-     style="color: #001080;">BOTON</span> = <span
-     style="color: #098658;">0</span>;</div>
-  <div><span style="color: #0000ff;">bool</span> <span
-     style="color: #001080;">presionado</span> = <span
-     style="color: #0000ff;">false</span>;</div>
-  <div><span style="color: #0000ff;">bool</span> <span
-     style="color: #001080;">conectado</span> = <span
-     style="color: #0000ff;">false</span>;</div>
-  <div><span style="color: #0000ff;">String</span> <span
-     style="color: #001080;">valor</span>;</div><br>
-  <div><span style="color: #0000ff;">void</span> <span
-     style="color: #795e26;">onMessageCallback</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">WebsocketsMessage</span> <span
-     style="color: #001080;">message</span>) {</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">print</span>(<span style="color: #a31515;">"Recibe
-    "</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">valor</span> = <span
-     style="color: #001080;">message</span>.<span
-     style="color: #795e26;">data</span>();</div>
-  <div>&nbsp;<span style="color: #795e26;">digitalWrite</span>(LED_BUILTIN,
-  </div>
-  <div>&nbsp; <span style="color: #001080;">valor</span> == <span
-     style="color: #a31515;">"1"</span> ? LOW : HIGH);</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(<span
-     style="color: #001080;">message</span>.<span
-     style="color: #795e26;">data</span>());</div>
-  <div>}</div><br>
-  <div><span style="color: #0000ff;">void</span> <span
-     style="color: #795e26;">onEventsCallback</span>(</div>
-  <div>&nbsp; <span style="color: #267f99;">WebsocketsEvent</span> <span
-     style="color: #001080;">event</span>,</div>
-  <div>&nbsp; <span style="color: #267f99;">String</span> <span
-     style="color: #001080;">data</span>) {</div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #001080;">event</span> ==</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #267f99;">WebsocketsEvent</span>::ConnectionOpened) {</div>
-  <div>&nbsp; <span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(<span
-     style="color: #a31515;">"Conectado."</span>);</div>
-  <div>&nbsp; <span style="color: #001080;">conectado</span> = <span
-     style="color: #0000ff;">true</span>;</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (<span
-     style="color: #001080;">event</span> ==</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #267f99;">WebsocketsEvent</span>::ConnectionClosed) {</div>
-  <div>&nbsp; <span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(<span
-     style="color: #a31515;">"Desconectado."</span>);</div>
-  <div>&nbsp; <span style="color: #001080;">conectado</span> = <span
-     style="color: #0000ff;">false</span>;</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #0000ff;">void</span> <span
-     style="color: #795e26;">setup</span>() {</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">begin</span>(<span
-     style="color: #098658;">115200</span>);</div>
-  <div><span style="color: #008000;">&nbsp;//
-    Serial.setDebugOutput(true);</span></div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>();</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>();</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>();</div>
-  <div>&nbsp;<span style="color: #795e26;">pinMode</span>(LED_BUILTIN, OUTPUT);
-  </div>
-  <div>&nbsp;<span style="color: #795e26;">pinMode</span>(<span
-     style="color: #001080;">BOTON</span>, INPUT);</div>
-  <div>&nbsp;<span style="color: #af00db;">for</span> (<span
-     style="color: #0000ff;">uint8_t</span> <span
-     style="color: #001080;">t</span> = <span style="color: #098658;">4</span>;
-   <span style="color: #001080;">t</span> &gt; <span
-     style="color: #098658;">0</span>;
-  </div>
-  <div>&nbsp; <span style="color: #001080;">t</span>--) {</div>
-  <div>&nbsp; <span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">printf</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #a31515;">"ESPERANDO </span><span
-     style="color: #001080;">%d</span><span
-     style="color: #a31515;">...</span><span
-     style="color: #ee0000;">\n</span><span style="color: #a31515;">"</span>,
-   <span style="color: #001080;">t</span>);
-  </div>
-  <div>&nbsp; <span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">flush</span>();</div>
-  <div>&nbsp; <span style="color: #795e26;">delay</span>(<span
-     style="color: #098658;">1000</span>);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(</div>
-  <div>&nbsp; <span style="color: #a31515;">"Conectando WiFi..."</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">WiFi</span>.<span
-     style="color: #795e26;">mode</span>(WIFI_STA);</div>
-  <div>&nbsp;<span style="color: #001080;">WiFiMulti</span>.<span
-     style="color: #795e26;">addAP</span>(<span
-     style="color: #001080;">SSID</span>, <span
-     style="color: #001080;">PASS</span>);</div>
-  <div>&nbsp;<span style="color: #af00db;">while</span> (<span
-     style="color: #001080;">WiFiMulti</span>.<span
-     style="color: #795e26;">run</span>() !=</div>
-  <div>&nbsp; &nbsp;WL_CONNECTED) {</div>
-  <div>&nbsp; <span style="color: #795e26;">delay</span>(<span
-     style="color: #098658;">500</span>);</div>
-  <div>&nbsp;}</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(<span style="color: #a31515;">"WiFi
-    conectado."</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">client</span>.</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">onMessage</span>(<span
-     style="color: #795e26;">onMessageCallback</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">client</span>.<span
-     style="color: #795e26;">onEvent</span>(<span
-     style="color: #795e26;">onEventsCallback</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">client</span>.</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">setFingerprint</span>(<span
-     style="color: #001080;">HUELLA_DIGITAL</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(<span
-     style="color: #a31515;">"Conectando WS."</span>);</div>
-  <div>&nbsp;<span style="color: #001080;">client</span>.<span
-     style="color: #795e26;">connect</span>(<span
-     style="color: #001080;">URL</span>);</div>
-  <div>}</div><br>
-  <div><span style="color: #0000ff;">void</span> <span
-     style="color: #795e26;">loop</span>() {</div>
-  <div>&nbsp;<span style="color: #001080;">client</span>.<span
-     style="color: #795e26;">poll</span>();</div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #001080;">conectado</span>) {</div>
-  <div>&nbsp; <span style="color: #0000ff;">bool</span> <span
-     style="color: #001080;">actual</span> = <span
-     style="color: #795e26;">digitalRead</span>(<span
-     style="color: #001080;">BOTON</span>);</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (!<span
-     style="color: #001080;">presionado</span> &amp;&amp;</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">actual</span> == LOW) {
-  </div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">client</span>.<span
-     style="color: #795e26;">send</span>(<span
-     style="color: #001080;">valor</span>);</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">print</span>(<span
-     style="color: #a31515;">"Envía"</span>);</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">Serial</span>.<span
-     style="color: #795e26;">println</span>(<span
-     style="color: #001080;">valor</span>);</div>
+     style="color: #800000;">&lt;h1&gt;</span>Notificaciones<span
+     style="color: #800000;">&lt;/h1&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
+     style="color: #ff0000;">onclick</span>=<span
+     style="color: #0000ff;">"</span><span
+     style="color: #795e26;">notifica</span><span
+     style="color: #0000ff;">()</span><span
+     style="color: #0000ff;">"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; Muestra</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;script&gt;</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">MENSAJE</span> = <span
+     style="color: #a31515;">"Hola"</span></div>
+  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">notifica</span>() {</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">permitida</span> = <span
+     style="color: #0000ff;">false</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #a31515;">"Notification"</span> <span
+     style="color: #0000ff;">in</span> <span
+     style="color: #001080;">window</span>) {</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">permiso</span> =</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #267f99;">Notification</span>.<span
+     style="color: #0070c1;">permission</span></div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">permiso</span> === <span
+     style="color: #a31515;">"default"</span>) {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #001080;">permiso</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #267f99;">Notification</span>.</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #795e26;">requestPermission</span>()</div>
+  <div>&nbsp; &nbsp; }</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #001080;">permitida</span> =</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #001080;">permiso</span> === <span
+     style="color: #a31515;">"granted"</span></div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">permitida</span>) {</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #001080;">notificacion</span> =</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Notification</span>(<span
+     style="color: #0070c1;">MENSAJE</span>)</div>
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">alert</span>(<span
+     style="color: #0070c1;">MENSAJE</span>)</div>
+  <div>&nbsp; &nbsp;}</div>
   <div>&nbsp; }</div>
-  <div>&nbsp; <span style="color: #001080;">presionado</span> = (<span
-     style="color: #001080;">actual</span> == LOW);</div>
-  <div>&nbsp;}</div>
-  <div>}</div><br>
+  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
+  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
+  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
  </div>
 </muestra-codigo>
       </section>
      <section >
-         <h1 >D. Resumen</h1><div class="lectura">
+         <h1 >B. Resumen</h1><div class="lectura">
  <ul>
   <li>
    <p>
-    En esta lección se presentaron los siguientes archivos:
+    En esta lección se presentó un ejemplo simple de notificaciones.
    </p>
-   <ul>
-    <li>
-     <p>Blinkt.ino</p>
-    </li>
-    <li>
-     <p>Button.ino</p>
-    </li>
-    <li>
-     <p>Dispositivo.ino</p>
-    </li>
-   </ul>
   </li>
  </ul>
 </div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+   content="width=device-width">
+ <title>Notificaciones</title>
+</head>
+
+<body>
+ <h1>Notificaciones</h1>
+ <button onclick="notifica()">
+  Muestra
+ </button>
+ <script>
+  const MENSAJE = "Hola"
+  async function notifica() {
+   let permitida = false
+   if ("Notification" in window) {
+    let permiso =
+     Notification.permission
+    if (permiso === "default") {
+     permiso = await Notification.
+      requestPermission()
+    }
+    permitida =
+     permiso === "granted"
+   }
+   if (permitida) {
+    notificacion =
+     new Notification(MENSAJE)
+   } else {
+    alert(MENSAJE)
+   }
+  }
+ </script>
+</body>
+
+</html>

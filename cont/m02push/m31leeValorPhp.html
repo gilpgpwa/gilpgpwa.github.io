@@ -1,0 +1,28 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Recupera un valor enviado al</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* servicio por medio de GET, POST</span>
+  </div>
+  <div><span style="color: #008000;">&nbsp;* o cookie.</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">leeValor</span>(</div>
+  <div>&nbsp; <span style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$nombre</span></div>
+  <div>): <span style="color: #0000ff;">string</span> {</div>
+  <div>&nbsp; <span style="color: #001080;">$valor</span> =</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">isset</span>(<span
+     style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>])</div>
+  <div>&nbsp; &nbsp; ? <span style="color: #001080;">$_REQUEST</span>[<span
+     style="color: #001080;">$nombre</span>]</div>
+  <div>&nbsp; &nbsp; : <span style="color: #a31515;">""</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #001080;">$valor</span>;</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
