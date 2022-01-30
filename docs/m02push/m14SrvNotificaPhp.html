@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>1. Instrucciones - GilPG PWA</title>
- <meta name="description" content="Instrucciones.">
+ <title>14. srv/SrvNotifica.php - GilPG PWA</title>
+ <meta name="description" content="Código de «srv/SrvNotifica.php».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,52 +396,59 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m03sincronizacion/index.html" title="3. Sincronización">◀</a>
-  <a class="siguiente" href="/m03sincronizacion/m02archivos.html" title="2. Archivos">▶</a>
+  <a class="anterior" href="/m02push/m13SrvSuscripcionPhp.html" title="13. srv/SrvSuscripcion.php">◀</a>
+  <a class="siguiente" href="/m02push/m15indexHtml.html" title="15. index.html">▶</a>
  </div>
-   <h1 >1. Instrucciones</h1><div class="lectura">
- <ol>
-  <li>
-   <p>
-    Revisa el proyecto en Replit con la URl
-    <a href="https://replit.com/@GilbertoPacheco/sincro?v=1" rel="nooper"
-      target="_blank">https://replit.com/@GilbertoPacheco/sincro?v=1</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1ujeNp8TaHjqqRXl_TFT0omUGymmFWTLm/view?usp=sharing"
-      target="_blank" rel="nooper">Usa o crea una cuenta de Google.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1dmifWNqm_gRmQuMEe67HqKBYzzDTwEHt/view?usp=sharing"
-      target="_blank" rel="nooper">Crea una cuenta de Replit usando la cuenta de
-     Google.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1uH3T58ZJrmihJb3wRdnEFhtbgil9ED6w/view?usp=sharing"
-      target="_blank" rel="nooper">Crea un proyecto <em>PHP Web Server</em> en
-     Replit y edita o sube los archivos de este proyecto.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1F3sHMnear4JOu1NVKIkkjVBKFg-eoMX4/view?usp=sharing"
-      target="_blank" rel="nooper">Depura el proyecto.</a>
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1LphPNEygv1rV2Bx0fEJQH5O88e7u5dvJ/view?usp=sharing"
-      target="_blank" rel="nooper">Crea la página de spotlight del proyecto.</a>
-   </p>
-  </li>
- </ol>
-</div>
+   <h1 >14. srv/SrvNotifica.php</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/dao/pasatiempoAgrega.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">SrvPasatiempoAgrega</span></div>
+  <div><span style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Pasatiempo</span>();</div>
+  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
+     style="color: #001080;">nombre</span> =</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">leeValor</span>(<span
+     style="color: #a31515;">"nombre"</span>);</div>
+  <div>&nbsp; <span style="color: #795e26;">pasatiempoAgrega</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$modelo</span>,</div>
+  <div>&nbsp; &nbsp;<span
+    style="color: #a31515;">"Falta el nombre."</span></div>
+  <div>&nbsp; );</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span style="color: #001080;">$servicio</span> =</div>
+  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SrvPasatiempoAgrega</span>();</div>
+  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+     style="color: #795e26;">ejecuta</span>();</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -472,172 +479,175 @@
     <a href="/index.html"
       data-logo="true">GilPG PWA</a>
    </p><p>
-    <a class="paginaAnterior" href="/m02push/m32ServicioPhp.html"
-      title="32. srv/lib/Servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m01notificaciones/mBresumen.html"
+      title="B. Resumen">▲</a>
    </p>
-     <h1><a href="/m03sincronizacion/index.html">3. Sincronización</a></h1>
+     <h1><a href="/m02push/index.html">2. Notificaciones push</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m03sincronizacion/m01instrucciones.html" class="actual">Instrucciones</a>
+      <a href="/m02push/m01instrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m02archivos.html">Archivos</a>
+      <a href="/m02push/m02archivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m03mensajes.html">Mensajes</a>
+      <a href="/m02push/m03bd.html">Base de datos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m04msgFaltaElIdPhp.html">srv/mensajes/msgFaltaElId.php</a>
+      <a href="/m02push/m04SuscripcionPhp.html">srv/modelo/Suscripcion.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m05msgFaltaElNombrePhp.html">srv/mensajes/msgFaltaElNombre.php</a>
+      <a href="/m02push/m05bdCreaPhp.html">srv/dao/bdCrea.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m06bd.html">Base de datos</a>
+      <a href="/m02push/m06AccesoBdPhp.html">srv/dao/AccesoBd.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m07PasatiempoPhp.html">srv/modelo/Pasatiempo.php</a>
+      <a href="/m02push/m07suscripcionAgregaPhp.html">srv/dao/suscripcionAgrega.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m08pasatiempoCreaPhp.html">srv/dao/pasatiempoCrea.php</a>
+      <a href="/m02push/m08suscripcionBuscaPhp.html">srv/dao/suscripcionBusca.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m09AccesoBdPhp.html">srv/dao/AccesoBd.php</a>
+      <a href="/m02push/m09suscripcionConsultaPhp.html">srv/dao/suscripcionConsulta.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m10listado.html">Listar</a>
+      <a href="/m02push/m10suscripcionEliminaPhp.html">srv/dao/suscripcionElimina.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m11pasatiempoConsultaPhp.html">srv/dao/pasatiempoConsulta.php</a>
+      <a href="/m02push/m11suscripcionModificaPhp.html">srv/dao/suscripcionModifica.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m12SrvPasatiempos.html">srv/SrvPasatiempos.php</a>
+      <a href="/m02push/m12funcionalidad.html">Funcionalidad</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m13indexHtml.html">index.html</a>
+      <a href="/m02push/m13SrvSuscripcionPhp.html">srv/SrvSuscripcion.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m14agrega.html">Agregar</a>
+      <a href="/m02push/m14SrvNotificaPhp.html" class="actual">srv/SrvNotifica.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m15pasatiempoAgregaPhp.html">srv/dao/pasatiempoAgrega.php</a>
+      <a href="/m02push/m15indexHtml.html">index.html</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m16SrvPasatiempoAgrega.html">srv/SrvPasatiempoAgrega.php</a>
+      <a href="/m02push/m16indexJs.html">js/index.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m17agregaHtml.html">agrega.html</a>
+      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m18modifica.html">Modificar</a>
+      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m19pasatiempoBuscaPhp.html">srv/dao/pasatiempoBusca.php</a>
+      <a href="/m02push/m19swJs.html">sw.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m20SrvPasatiempoBusca.html">srv/SrvPasatiempoBusca.php</a>
+      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m21pasatiempoEliminaPhp.html">srv/dao/pasatiempoElimina.php</a>
+      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m22SrvPasatiempoElimina.html">srv/SrvPasatiempoElimina.php</a>
+      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m23pasatiempoModificaPhp.html">srv/dao/pasatiempoModifica.php</a>
+      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m24SrvPasatiempoModifica.html">srv/SrvPasatiempoModifica.php</a>
+      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m25modificaHtml.html">modifica.html</a>
+      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m26frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m27jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m27Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m28ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m29muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m30submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m30copiaCamposPhp.html">srv/lib/copiaCampos.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m31leeValorPhp.html">srv/lib/leeValor.php</a>
+      <a href="/m02push/m31leeJsonPhp.html">srv/lib/leeJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m32ServicioPhp.html">srv/lib/Servicio.php</a>
+      <a href="/m02push/m32ServicioPhp.html">srv/lib/Servicio.php</a>
      </p>
     </li>
-   </ol>
+   </ol><p>
+    <a class="paginaSiguiente" href="/m03sincronizacion/index.html"
+      title="3. Sincronización">▼</a>
+   </p>
 </nav>
  <script>
  registraServiceWorker("/sw.js")
@@ -648,9 +658,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m03sincronizacion/index.html"
+ let urlAnterior = "/m02push/m13SrvSuscripcionPhp.html"
  /**@type {string} */
- let urlSiguiente = "/m03sincronizacion/m02archivos.html"
+ let urlSiguiente = "/m02push/m15indexHtml.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

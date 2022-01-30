@@ -1,0 +1,63 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Espera a que la promesa de un</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* fetch termine. Si hay error</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* lanza una excepción. Si no hay</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* error, interpreta la respuesta</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* del servidor como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
+  <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span style="color: #008000;">
+   </span><span style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">fetch</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">export</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">fetch</span>) {</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">resp</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #001080;">fetch</span></div>
+  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">ok</span>) {</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">json</span>()</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (</div>
+  <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>) {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">text</span>())</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">statusText</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
