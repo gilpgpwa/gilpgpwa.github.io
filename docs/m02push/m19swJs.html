@@ -396,68 +396,62 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m18detectaJs.html" title="18. js/detecta.js">◀</a>
-  <a class="siguiente" href="/m02push/m20habilitaNotificacionesJs.html" title="20. js/habilitaNotificaciones.js">▶</a>
+  <a class="anterior" href="/m02push/m18notificaJs.html" title="18. js/notifica.js">◀</a>
+  <a class="siguiente" href="/m02push/m20frecuentes.html" title="20. Archivos frecuentes">▶</a>
  </div>
    <h1 >19. sw.js</h1><muestra-codigo>
  <div>
+  <div><span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">self</span> <span
+     style="color: #0000ff;">instanceof</span></div>
+  <div>&nbsp;<span
+     style="color: #267f99;">ServiceWorkerGlobalScope</span>) {</div>
+  <div>&nbsp;<span style="color: #001080;">self</span>.<span
+     style="color: #795e26;">addEventListener</span>(<span
+     style="color: #a31515;">"push"</span>,</div>
+  <div>&nbsp; <span style="color: #795e26;">notifica</span>)</div>
+  <div>}</div>
   <div><span style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* Espera a que la promesa de un</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* fetch termine. Si hay error</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* lanza una excepción. Si no hay</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* error, interpreta la respuesta</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* del servidor como JSON y</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
-  <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
   <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@param</span><span style="color: #008000;">
-   </span><span style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
+     style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #001080;">fetch</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@returns</span><span
+     style="color: #267f99;">{PushEvent}</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
+     style="color: #001080;">evt</span></div>
   <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div><span style="color: #0000ff;">export</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">async</span> <span
+  <div><span style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">fetch</span>) {</div>
+     style="color: #795e26;">notifica</span>(<span
+     style="color: #001080;">evt</span>) {</div>
   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">resp</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #001080;">fetch</span></div>
+     style="color: #0070c1;">data</span> = <span
+     style="color: #001080;">evt</span>.<span
+     style="color: #0070c1;">data</span></div>
   <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">ok</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> <span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">resp</span>.<span
-     style="color: #795e26;">json</span>()</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (</div>
-  <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">status</span> === <span
-     style="color: #098658;">500</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">resp</span>.<span
-     style="color: #795e26;">text</span>())</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">statusText</span>)</div>
+     style="color: #0070c1;">data</span> != <span
+     style="color: #0000ff;">null</span></div>
+  <div>&nbsp; &amp;&amp; <span
+     style="color: #001080;">self</span> <span
+     style="color: #0000ff;">instanceof</span></div>
+  <div>&nbsp; <span
+     style="color: #267f99;">ServiceWorkerGlobalScope</span></div>
+  <div>&nbsp; &amp;&amp; <span
+     style="color: #001080;">self</span>.<span
+     style="color: #267f99;">Notification</span></div>
+  <div>&nbsp; &nbsp;.<span
+     style="color: #0070c1;">permission</span> === <span
+     style="color: #a31515;">'granted'</span>) {</div>
+  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">mensaje</span> = <span
+     style="color: #0070c1;">data</span>.<span
+     style="color: #795e26;">text</span>()</div>
+  <div>&nbsp; <span style="color: #001080;">evt</span>.<span
+     style="color: #795e26;">waitUntil</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">self</span>.<span
+     style="color: #0070c1;">registration</span>.</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">showNotification</span>(<span
+     style="color: #0070c1;">mensaje</span>))</div>
   <div>&nbsp;}</div>
   <div>}</div>
  </div>
@@ -579,12 +573,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -594,52 +588,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -671,9 +665,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m18detectaJs.html"
+ let urlAnterior = "/m02push/m18notificaJs.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m20habilitaNotificacionesJs.html"
+ let urlSiguiente = "/m02push/m20frecuentes.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

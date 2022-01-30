@@ -1,0 +1,70 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span style="color: #008000;">* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{string}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">base64String</span></div>
+  <div><span style="color: #008000;">*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">urlBase64ToUint8Array</span>(</div>
+  <div>&nbsp; <span
+     style="color: #001080;">base64String</span>) {</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">padding</span> = <span
+     style="color: #a31515;">'='</span>.<span
+     style="color: #795e26;">repeat</span>(</div>
+  <div>&nbsp; (<span style="color: #098658;">4</span> - (<span
+     style="color: #001080;">base64String</span>.<span
+     style="color: #0070c1;">length</span> % <span
+     style="color: #098658;">4</span>))</div>
+  <div>&nbsp; % <span style="color: #098658;">4</span>);</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">base64</span> =</div>
+  <div>&nbsp; (<span
+     style="color: #001080;">base64String</span> + <span
+     style="color: #0070c1;">padding</span>).</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/</span><span
+     style="color: #ee0000;">\-</span><span
+     style="color: #811f3f;">/</span><span
+     style="color: #0000ff;">g</span>, <span
+     style="color: #a31515;">'+'</span>).</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/_/</span><span
+     style="color: #0000ff;">g</span>, <span
+     style="color: #a31515;">'/'</span>)</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">rawData</span> = <span
+     style="color: #795e26;">atob</span>(<span
+     style="color: #0070c1;">base64</span>)</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">outputArray</span> =</div>
+  <div>&nbsp; <span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Uint8Array</span>(<span
+     style="color: #0070c1;">rawData</span>.<span
+     style="color: #0070c1;">length</span>)</div><br>
+  <div>&nbsp;<span style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">i</span> = <span
+     style="color: #098658;">0</span></div>
+  <div>&nbsp; ; <span style="color: #001080;">i</span> &lt; <span
+     style="color: #0070c1;">rawData</span>.<span
+     style="color: #0070c1;">length</span>; ++<span
+     style="color: #001080;">i</span>) {</div>
+  <div>&nbsp; <span style="color: #0070c1;">outputArray</span>[<span
+     style="color: #001080;">i</span>] =</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">rawData</span>.<span
+     style="color: #795e26;">charCodeAt</span>(<span
+     style="color: #001080;">i</span>)</div>
+  <div>&nbsp;}</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #0070c1;">outputArray</span></div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

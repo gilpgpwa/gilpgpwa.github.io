@@ -4,15 +4,15 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
+     style="color: #a31515;">"/../modelo/Suscripcion.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
   <div><span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">pasatiempoBusca</span>(</div>
+     style="color: #795e26;">suscripcionBusca</span>(</div>
   <div>&nbsp;<span style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$id</span></div>
+     style="color: #001080;">$endpoint</span></div>
   <div>) {</div>
   <div>&nbsp;<span style="color: #001080;">$con</span> = <span
      style="color: #267f99;">AccesoBd</span>::<span
@@ -22,31 +22,44 @@
      style="color: #795e26;">prepare</span>(</div>
   <div>&nbsp; <span style="color: #a31515;">"</span><span
      style="color: #0000ff;">SELECT</span></div>
-  <div><span style="color: #a31515;">&nbsp; &nbsp; PAS_ID </span><span
-     style="color: #0000ff;">as</span><span
-     style="color: #a31515;"> id,</span></div>
   <div><span
-     style="color: #a31515;">&nbsp; &nbsp; PAS_NOMBRE </span><span
+     style="color: #a31515;">&nbsp; &nbsp; SUS_ENDPOINT </span><span
      style="color: #0000ff;">as</span><span
-     style="color: #a31515;"> nombre</span></div>
+     style="color: #a31515;"> </span><span
+     style="color: #0000ff;">endpoint</span><span
+     style="color: #a31515;">,</span></div>
+  <div><span style="color: #a31515;">&nbsp; &nbsp; SUS_PUB_KEY </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> publicKey,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp; &nbsp; SUS_AUT_TOK </span><span
+     style="color: #0000ff;">as</span><span
+     style="color: #a31515;"> authToken,</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp; &nbsp; SUS_CONT_ENCOD </span><span
+     style="color: #0000ff;">as</span></div>
+  <div><span
+     style="color: #a31515;">&nbsp; &nbsp; &nbsp; contentEncoding</span></div>
   <div><span style="color: #a31515;">&nbsp; &nbsp;</span><span
      style="color: #0000ff;">FROM</span><span
-     style="color: #a31515;"> PASATIEMPO</span></div>
+     style="color: #a31515;"> SUSCRIPCION</span></div>
   <div><span style="color: #a31515;">&nbsp; &nbsp;</span><span
      style="color: #0000ff;">WHERE</span><span
-     style="color: #a31515;"> PAS_ID </span>=<span
-     style="color: #a31515;"> :id</span><span
+     style="color: #a31515;"> SUS_ENDPOINT </span>=<span
+     style="color: #a31515;"> :</span><span
+     style="color: #0000ff;">endpoint</span><span
      style="color: #a31515;">"</span></div>
   <div>&nbsp;);</div>
   <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
-     style="color: #795e26;">execute</span>([<span
-     style="color: #a31515;">":id"</span> =&gt; <span
-     style="color: #001080;">$id</span>]);</div>
+     style="color: #795e26;">execute</span>(</div>
+  <div>&nbsp; [<span
+     style="color: #a31515;">":endpoint"</span> =&gt; <span
+     style="color: #001080;">$endpoint</span>]</div>
+  <div>&nbsp;);</div>
   <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
      style="color: #795e26;">setFetchMode</span>(</div>
-  <div>&nbsp; <span
-     style="color: #267f99;">PDO</span>::FETCH_CLASS,</div>
-  <div>&nbsp; <span style="color: #a31515;">"Pasatiempo"</span></div>
+  <div>&nbsp; <span style="color: #267f99;">PDO</span>::FETCH_CLASS,</div>
+  <div>&nbsp; <span style="color: #a31515;">"Suscripcion"</span></div>
   <div>&nbsp;);</div>
   <div>&nbsp;<span style="color: #af00db;">return</span> <span
      style="color: #001080;">$stmt</span>-&gt;<span

@@ -85,14 +85,14 @@
    "description": "Código de «js/index.js»."
   },
   {
-   "name": "m17notificaJs.html",
-   "title": "js/notifica.js",
-   "description": "Código de «js/notifica.js»."
+   "name": "m17srvSuscripcionProxyJs.html",
+   "title": "js/srvSuscripcionProxy.js",
+   "description": "Código de «js/srvSuscripcionProxy.js»."
   },
   {
-   "name": "m18detectaJs.html",
-   "title": "js/detecta.js",
-   "description": "Código de «js/detecta.js»."
+   "name": "m18notificaJs.html",
+   "title": "js/notifica.js",
+   "description": "Código de «js/notifica.js»."
   },
   {
    "name": "m19swJs.html",
@@ -100,54 +100,54 @@
    "description": "Código de «sw.js»."
   },
   {
-   "name": "m20habilitaNotificacionesJs.html",
-   "title": "js/habilitaNotificaciones.js",
-   "description": "Código de «js/habilitaNotificaciones.js»."
-  },
-  {
-   "name": "m21urlBase64ToUint8ArrayJs.html",
-   "title": "js/urlBase64ToUint8Array.js",
-   "description": "Código de «js/urlBase64ToUint8Array.js»."
-  },
-  {
-   "name": "m22getSuscripcionJs.html",
-   "title": "js/getSuscripcion.js",
-   "description": "Código de «js/getSuscripcion.js»."
-  },
-  {
-   "name": "m23srvSuscripcionProxyJs.html",
-   "title": "js/srvSuscripcionProxy.js",
-   "description": "Código de «js/srvSuscripcionProxy.js»."
-  },
-  {
-   "name": "m24frecuentes.html",
+   "name": "m20frecuentes.html",
    "title": "Archivos frecuentes",
    "description": "Subsección «Archivos frecuentes»."
   },
   {
-   "name": "m25jsconfigJson.html",
+   "name": "m21jsconfigJson.html",
    "title": "jsconfig.json",
    "description": "Código de «jsconfig.json»."
   },
   {
-   "name": "m26ejecutaJs.html",
+   "name": "m22habilitaNotificacionesJs.html",
+   "title": "lib/habilitaNotificaciones.js",
+   "description": "Código de «js/habilitaNotificaciones.js»."
+  },
+  {
+   "name": "m23detectaJs.html",
+   "title": "lib/detecta.js",
+   "description": "Código de «js/detecta.js»."
+  },
+  {
+   "name": "m24ejecutaJs.html",
    "title": "lib/ejecuta.js",
    "description": "Código de «lib/ejecuta.js»."
   },
   {
-   "name": "m27Method.html",
+   "name": "m25getSuscripcionJs.html",
+   "title": "lib/getSuscripcion.js",
+   "description": "Código de «js/getSuscripcion.js»."
+  },
+  {
+   "name": "m26Method.html",
    "title": "lib/Method.js",
    "description": "Código de «lib/Method.js»."
   },
   {
-   "name": "m28muestraErrorJs.html",
+   "name": "m27muestraErrorJs.html",
    "title": "lib/muestraError.js",
    "description": "Código de «lib/muestraError.js»."
   },
   {
-   "name": "m29submitJs.html",
+   "name": "m28submitJs.html",
    "title": "lib/submit.js",
    "description": "Código de «lib/submit.js»."
+  },
+  {
+   "name": "m29urlBase64ToUint8ArrayJs.html",
+   "title": "lib/urlBase64ToUint8Array.js",
+   "description": "Código de «js/urlBase64ToUint8Array.js»."
   },
   {
    "name": "m30copiaCamposPhp.html",

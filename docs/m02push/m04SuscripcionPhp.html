@@ -401,64 +401,88 @@
  </div>
    <h1 >4. srv/modelo/Suscripcion.php</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/../mensajes/msgFaltaElNombre.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/../mensajes/msgFaltaElId.php"</span>;</div><br>
+  <div><span style="color: #800000;">&lt;?php</span></div><br>
+  <div><span style="color: #0000ff;">use</span> Minishlink\WebPush\<span
+     style="color: #267f99;">SubscriptionInterface</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">Pasatiempo</span></div>
+     style="color: #267f99;">Suscripcion</span></div>
+  <div><span style="color: #0000ff;">implements</span> <span
+     style="color: #267f99;">SubscriptionInterface</span></div>
   <div>{</div>
   <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #001080;">$id</span>;</div>
+     style="color: #001080;">$endpoint</span>;</div>
   <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #001080;">$nombre</span>;</div>
+     style="color: #001080;">$publicKey</span>;</div>
   <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">valida</span>()</div>
+     style="color: #001080;">$authToken</span>;</div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #001080;">$contentEncoding</span>;</div><br>
+  <div>&nbsp;<span style="color: #008000;">/**</span></div>
+  <div><span style="color: #008000;">&nbsp; * </span><span
+     style="color: #0000ff;">@return</span><span
+     style="color: #008000;"> </span><span
+     style="color: #0000ff;">string</span></div>
+  <div><span style="color: #008000;">&nbsp; */</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span style="color: #795e26;">getEndpoint</span>(): <span
+     style="color: #0000ff;">string</span></div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
      style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> === <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #795e26;">msgFaltaElNombre</span>()</div>
-  <div>&nbsp; &nbsp;);</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;}</div>
+     style="color: #001080;">endpoint</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #008000;">/**</span></div>
+  <div><span style="color: #008000;">&nbsp; * </span><span
+     style="color: #0000ff;">@return</span><span
+     style="color: #008000;"> </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #008000;">|</span><span
+     style="color: #0000ff;">string</span></div>
+  <div><span style="color: #008000;">&nbsp; */</span></div>
   <div>&nbsp;<span style="color: #0000ff;">public</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">validaCambio</span>()</div>
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span style="color: #795e26;">getPublicKey</span>(): ?<span
+     style="color: #0000ff;">string</span></div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
      style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">id</span> === <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #795e26;">msgFaltaElId</span>()</div>
-  <div>&nbsp; &nbsp;);</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">publicKey</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #008000;">/**</span></div>
+  <div><span style="color: #008000;">&nbsp; * </span><span
+     style="color: #0000ff;">@return</span><span
+     style="color: #008000;"> </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #008000;">|</span><span
+     style="color: #0000ff;">string</span></div>
+  <div><span style="color: #008000;">&nbsp; */</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span style="color: #795e26;">getAuthToken</span>(): ?<span
+     style="color: #0000ff;">string</span></div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
      style="color: #0000ff;">$this</span>-&gt;<span
-     style="color: #001080;">nombre</span> === <span
-     style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Exception</span>(</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #795e26;">msgFaltaElNombre</span>()</div>
-  <div>&nbsp; &nbsp;);</div>
-  <div>&nbsp; }</div>
+     style="color: #001080;">authToken</span>;</div>
+  <div>&nbsp;}</div><br>
+  <div>&nbsp;<span style="color: #008000;">/**</span></div>
+  <div><span style="color: #008000;">&nbsp; * </span><span
+     style="color: #0000ff;">@return</span><span
+     style="color: #008000;"> </span><span
+     style="color: #0000ff;">null</span><span
+     style="color: #008000;">|</span><span
+     style="color: #0000ff;">string</span></div>
+  <div><span style="color: #008000;">&nbsp; */</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">public</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">getContentEncoding</span>(): ?<span
+     style="color: #0000ff;">string</span></div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> <span
+     style="color: #0000ff;">$this</span>-&gt;<span
+     style="color: #001080;">contentEncoding</span>;</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
  </div>
@@ -580,12 +604,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -595,52 +619,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>

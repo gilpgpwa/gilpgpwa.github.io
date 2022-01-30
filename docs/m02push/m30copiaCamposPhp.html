@@ -396,35 +396,26 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m29submitJs.html" title="29. lib/submit.js">◀</a>
+  <a class="anterior" href="/m02push/m29urlBase64ToUint8ArrayJs.html" title="29. lib/urlBase64ToUint8Array.js">◀</a>
   <a class="siguiente" href="/m02push/m31leeJsonPhp.html" title="31. srv/lib/leeJson.php">▶</a>
  </div>
    <h1 >30. srv/lib/copiaCampos.php</h1><muestra-codigo>
  <div>
   <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* Recupera un valor enviado al</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* servicio por medio de GET, POST</span>
-  </div>
-  <div><span style="color: #008000;">&nbsp;* o cookie.</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div>
   <div><span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">leeValor</span>(</div>
-  <div>&nbsp; <span style="color: #0000ff;">string</span> <span
-     style="color: #001080;">$nombre</span></div>
-  <div>): <span style="color: #0000ff;">string</span> {</div>
-  <div>&nbsp; <span style="color: #001080;">$valor</span> =</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">isset</span>(<span
-     style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$nombre</span>])</div>
-  <div>&nbsp; &nbsp; ? <span style="color: #001080;">$_REQUEST</span>[<span
-     style="color: #001080;">$nombre</span>]</div>
-  <div>&nbsp; &nbsp; : <span style="color: #a31515;">""</span>;</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> <span
-     style="color: #001080;">$valor</span>;</div>
-  <div>}</div>
+     style="color: #795e26;">copiaCampos</span>(<span
+     style="color: #001080;">$dest</span>, <span
+     style="color: #001080;">$orig</span>)</div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$orig</span> as <span
+     style="color: #001080;">$key</span> =&gt; <span
+     style="color: #001080;">$val</span>) {</div>
+  <div>&nbsp; <span style="color: #001080;">$dest</span>-&gt;{<span
+     style="color: #001080;">$key</span>} = <span
+     style="color: #001080;">$val</span>;</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -544,12 +535,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -559,52 +550,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -636,7 +627,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m29submitJs.html"
+ let urlAnterior = "/m02push/m29urlBase64ToUint8ArrayJs.html"
  /**@type {string} */
  let urlSiguiente = "/m02push/m31leeJsonPhp.html"
  /**@type {number|null} */

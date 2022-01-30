@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>17. js/notifica.js - GilPG PWA</title>
- <meta name="description" content="Código de «js/notifica.js».">
+ <title>24. lib/ejecuta.js - GilPG PWA</title>
+ <meta name="description" content="Código de «lib/ejecuta.js».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,48 +396,70 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m16indexJs.html" title="16. js/index.js">◀</a>
-  <a class="siguiente" href="/m02push/m18detectaJs.html" title="18. js/detecta.js">▶</a>
+  <a class="anterior" href="/m02push/m23detectaJs.html" title="23. lib/detecta.js">◀</a>
+  <a class="siguiente" href="/m02push/m25getSuscripcionJs.html" title="25. lib/getSuscripcion.js">▶</a>
  </div>
-   <h1 >17. js/notifica.js</h1><muestra-codigo>
+   <h1 >24. lib/ejecuta.js</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/dao/pasatiempoBusca.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">SrvPasatiempoBusca</span></div>
-  <div><span style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">Servicio</span></div>
-  <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">implementacion</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$id</span> = <span
-     style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
-     style="color: #795e26;">pasatiempoBusca</span>(<span
-     style="color: #001080;">$id</span>);</div>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Espera a que la promesa de un</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* fetch termine. Si hay error</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* lanza una excepción. Si no hay</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* error, interpreta la respuesta</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* del servidor como JSON y</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
+  <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span style="color: #008000;">
+   </span><span style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">fetch</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@returns</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #0000ff;">export</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #001080;">fetch</span>) {</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">resp</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #001080;">fetch</span></div>
+  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">ok</span>) {</div>
   <div>&nbsp; <span style="color: #af00db;">return</span> <span
-     style="color: #001080;">$modelo</span>;</div>
+     style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">json</span>()</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (</div>
+  <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">status</span> === <span
+     style="color: #098658;">500</span>) {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
+     style="color: #0070c1;">resp</span>.<span
+     style="color: #795e26;">text</span>())</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">resp</span>.<span
+     style="color: #0070c1;">statusText</span>)</div>
   <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> =</div>
-  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">SrvPasatiempoBusca</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
-     style="color: #795e26;">ejecuta</span>();</div><br>
+  <div>}</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -557,12 +579,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html" class="actual">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -572,52 +594,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html" class="actual">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -649,9 +671,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m16indexJs.html"
+ let urlAnterior = "/m02push/m23detectaJs.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m18detectaJs.html"
+ let urlSiguiente = "/m02push/m25getSuscripcionJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

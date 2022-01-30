@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>23. js/srvSuscripcionProxy.js - GilPG PWA</title>
- <meta name="description" content="Código de «js/srvSuscripcionProxy.js».">
+ <title>21. jsconfig.json - GilPG PWA</title>
+ <meta name="description" content="Código de «jsconfig.json».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,62 +396,28 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m22getSuscripcionJs.html" title="22. js/getSuscripcion.js">◀</a>
-  <a class="siguiente" href="/m02push/m24frecuentes.html" title="24. Archivos frecuentes">▶</a>
+  <a class="anterior" href="/m02push/m20frecuentes.html" title="20. Archivos frecuentes">◀</a>
+  <a class="siguiente" href="/m02push/m22habilitaNotificacionesJs.html" title="22. lib/habilitaNotificaciones.js">▶</a>
  </div>
-   <h1 >23. js/srvSuscripcionProxy.js</h1><muestra-codigo>
+   <h1 >21. jsconfig.json</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/dao/pasatiempoModifica.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">SrvPasatiempoModifica</span></div>
-  <div><span style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">Servicio</span></div>
   <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">implementacion</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>();</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"nombre"</span>);</div>
-  <div>&nbsp; <span style="color: #795e26;">pasatiempoModifica</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$modelo</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #a31515;">"Falta el id."</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #a31515;">"Falta el nombre."</span>
-  </div>
-  <div>&nbsp; );</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
+  <div>&nbsp;<span style="color: #0451a5;">"compilerOptions"</span>: {</div>
+  <div>&nbsp; <span style="color: #0451a5;">"checkJs"</span>: <span
+     style="color: #0000ff;">true</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"strictNullChecks"</span>: <span
+     style="color: #0000ff;">true</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"module"</span>: <span
+     style="color: #a31515;">"ES6"</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"moduleResolution"</span>: <span
+     style="color: #a31515;">"classic"</span>,</div>
+  <div>&nbsp; <span style="color: #0451a5;">"lib"</span>: [</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"ES2015"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"WebWorker"</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"DOM"</span></div>
+  <div>&nbsp; ]</div>
   <div>&nbsp;}</div>
-  <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> =</div>
-  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">SrvPasatiempoModifica</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
-     style="color: #795e26;">ejecuta</span>();</div><br>
+  <div>}</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -571,12 +537,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -586,52 +552,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html" class="actual">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html" class="actual">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -663,9 +629,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m22getSuscripcionJs.html"
+ let urlAnterior = "/m02push/m20frecuentes.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m24frecuentes.html"
+ let urlSiguiente = "/m02push/m22habilitaNotificacionesJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

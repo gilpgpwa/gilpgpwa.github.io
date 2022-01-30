@@ -1,2 +1,2 @@
-* En m03base faltan explicaciones e instrucciones
+* Ok hasta m02push
 * Agregar metadatos para que los enlaces puedan obtener el ícono de la página.

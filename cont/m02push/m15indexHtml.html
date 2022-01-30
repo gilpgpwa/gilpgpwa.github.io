@@ -18,70 +18,55 @@
   <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
      style="color: #0000ff;">"width=device-width"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span></div>
-  <div>&nbsp; Acceso a base de datos</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/title&gt;</span></div>
+  <div>&nbsp;<span
+     style="color: #800000;">&lt;title&gt;</span>Web Push<span
+     style="color: #800000;">&lt;/title&gt;</span></div>
   <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;body&gt;</span></div>
   <div>&nbsp;<span
-     style="color: #800000;">&lt;h1&gt;</span>Acceso a base de datos<span
+     style="color: #800000;">&lt;h1&gt;</span>Web Push<span
      style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;a</span></div>
-  <div>&nbsp; &nbsp; <span style="color: #ff0000;">href</span>=<span
-     style="color: #0000ff;">"agrega.html"</span><span
-     style="color: #800000;">&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/a&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;ul</span> <span
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
      style="color: #ff0000;">id</span>=<span
-     style="color: #0000ff;">"lista"</span><span
+     style="color: #0000ff;">"btnSuscribe"</span><span
      style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;li&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;progress</span> <span
+  <div>&nbsp; Suscríbete</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"btnCancela"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; Cancela suscripción</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;button</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"btnNotifica"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; Notifica</div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/button&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;p&gt;</span></div>
+  <div>&nbsp; <span style="color: #800000;">&lt;output</span> <span
+     style="color: #ff0000;">id</span>=<span
+     style="color: #0000ff;">"outEstado"</span><span
+     style="color: #800000;">&gt;</span></div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #800000;">&lt;progress</span> <span
      style="color: #ff0000;">max</span>=<span
      style="color: #0000ff;">"100"</span><span
      style="color: #800000;">&gt;</span></div>
   <div>&nbsp; &nbsp; Cargando<span
-    style="color: #0000ff;">&amp;hellip;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/progress&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/li&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/ul&gt;</span></div>
+     style="color: #0000ff;">&amp;hellip;</span></div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #800000;">&lt;/progress&gt;</span></div>
+  <div>&nbsp; <span
+     style="color: #800000;">&lt;/output&gt;</span></div>
+  <div>&nbsp;<span style="color: #800000;">&lt;/p&gt;</span></div>
   <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
      style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"module"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">ejecuta</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/ejecuta.js"</span>;</div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/muestraError.js"</span>;</div>
-  <div>&nbsp; <span style="color: #795e26;">consulta</span>()</div>
-  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">consulta</span>() {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">json</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #795e26;">ejecuta</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">fetch</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp; <span
-     style="color: #a31515;">"srv/SrvPasatiempos.php"</span>))</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">lista</span>.<span
-     style="color: #001080;">innerHTML</span> = <span
-     style="color: #0070c1;">json</span>.<span
-     style="color: #001080;">render</span></div>
-  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
-     style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
-     style="color: #001080;">e</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
+     style="color: #0000ff;">"module"</span></div>
+  <div>&nbsp; &nbsp;<span style="color: #ff0000;">src</span>=<span
+     style="color: #0000ff;">"./js/index.js"</span><span
+     style="color: #800000;">&gt;&lt;/script&gt;</span></div>
   <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
   <div><span style="color: #800000;">&lt;/html&gt;</span></div>
  </div>

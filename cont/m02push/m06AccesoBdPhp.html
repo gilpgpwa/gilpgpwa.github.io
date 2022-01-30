@@ -3,8 +3,7 @@
   <div><span style="color: #800000;">&lt;?php</span></div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span style="color: #a31515;">"/pasatiempoCrea.php"</span>;</div>
-  <br>
+  <div>&nbsp;<span style="color: #a31515;">"/bdCrea.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">AccesoBd</span></div>
   <div>{</div>
@@ -41,7 +40,7 @@
      style="color: #0000ff;">new</span> <span
      style="color: #267f99;">PDO</span>(</div>
   <div>&nbsp; &nbsp;<span
-     style="color: #a31515;">"sqlite:phpbd.db"</span>,</div>
+     style="color: #a31515;">"sqlite:phppush.db"</span>,</div>
   <div>&nbsp; &nbsp;<span style="color: #0000ff;">null</span>,</div>
   <div>&nbsp; &nbsp;<span style="color: #0000ff;">null</span>,</div>
   <div>&nbsp; &nbsp;[<span
@@ -55,7 +54,7 @@
      style="color: #0000ff;">function</span> <span
      style="color: #795e26;">prepara</span>()</div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #795e26;">pasatiempoCrea</span>(<span
+  <div>&nbsp; <span style="color: #795e26;">bdCrea</span>(<span
      style="color: #0000ff;">self</span>::<span
      style="color: #795e26;">getCon</span>());</div>
   <div>&nbsp;}</div>

@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>27. lib/Method.js - GilPG PWA</title>
- <meta name="description" content="Código de «lib/Method.js».">
+ <title>29. lib/urlBase64ToUint8Array.js - GilPG PWA</title>
+ <meta name="description" content="Código de «js/urlBase64ToUint8Array.js».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,70 +396,77 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m26ejecutaJs.html" title="26. lib/ejecuta.js">◀</a>
-  <a class="siguiente" href="/m02push/m28muestraErrorJs.html" title="28. lib/muestraError.js">▶</a>
+  <a class="anterior" href="/m02push/m28submitJs.html" title="28. lib/submit.js">◀</a>
+  <a class="siguiente" href="/m02push/m30copiaCamposPhp.html" title="30. srv/lib/copiaCampos.php">▶</a>
  </div>
-   <h1 >27. lib/Method.js</h1><muestra-codigo>
+   <h1 >29. lib/urlBase64ToUint8Array.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #008000;">/**</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* Espera a que la promesa de un</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* fetch termine. Si hay error</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* lanza una excepción. Si no hay</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* error, interpreta la respuesta</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* del servidor como JSON y</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* la convierte en una literal de</span></div>
-  <div><span style="color: #008000;">&nbsp;* objeto. </span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@param</span><span style="color: #008000;">
-   </span><span style="color: #267f99;">{Promise&lt;Response&gt;}</span><span
+  <div><span style="color: #008000;">* </span><span
+     style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #001080;">fetch</span></div>
-  <div><span style="color: #008000;">&nbsp;* </span><span
-     style="color: #0000ff;">@returns</span><span
+     style="color: #267f99;">{string}</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{Promise&lt;any&gt;}</span></div>
-  <div><span style="color: #008000;">&nbsp;*/</span></div>
-  <div><span style="color: #0000ff;">export</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">async</span> <span
-     style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">ejecuta</span>(<span
-     style="color: #001080;">fetch</span>) {</div>
+     style="color: #001080;">base64String</span></div>
+  <div><span style="color: #008000;">*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">urlBase64ToUint8Array</span>(</div>
+  <div>&nbsp; <span
+     style="color: #001080;">base64String</span>) {</div>
   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">resp</span> = <span
-     style="color: #af00db;">await</span> <span
-     style="color: #001080;">fetch</span></div>
-  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">ok</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> <span
-     style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">resp</span>.<span
-     style="color: #795e26;">json</span>()</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> <span
-     style="color: #af00db;">if</span> (</div>
-  <div>&nbsp; <span style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">status</span> === <span
-     style="color: #098658;">500</span>) {</div>
-  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">resp</span>.<span
-     style="color: #795e26;">text</span>())</div>
-  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
-     style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Error</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">resp</span>.<span
-     style="color: #0070c1;">statusText</span>)</div>
+     style="color: #0070c1;">padding</span> = <span
+     style="color: #a31515;">'='</span>.<span
+     style="color: #795e26;">repeat</span>(</div>
+  <div>&nbsp; (<span style="color: #098658;">4</span> - (<span
+     style="color: #001080;">base64String</span>.<span
+     style="color: #0070c1;">length</span> % <span
+     style="color: #098658;">4</span>))</div>
+  <div>&nbsp; % <span style="color: #098658;">4</span>);</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">base64</span> =</div>
+  <div>&nbsp; (<span
+     style="color: #001080;">base64String</span> + <span
+     style="color: #0070c1;">padding</span>).</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/</span><span
+     style="color: #ee0000;">\-</span><span
+     style="color: #811f3f;">/</span><span
+     style="color: #0000ff;">g</span>, <span
+     style="color: #a31515;">'+'</span>).</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #795e26;">replace</span>(<span
+     style="color: #811f3f;">/_/</span><span
+     style="color: #0000ff;">g</span>, <span
+     style="color: #a31515;">'/'</span>)</div><br>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">rawData</span> = <span
+     style="color: #795e26;">atob</span>(<span
+     style="color: #0070c1;">base64</span>)</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">outputArray</span> =</div>
+  <div>&nbsp; <span style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Uint8Array</span>(<span
+     style="color: #0070c1;">rawData</span>.<span
+     style="color: #0070c1;">length</span>)</div><br>
+  <div>&nbsp;<span style="color: #af00db;">for</span> (<span
+     style="color: #0000ff;">let</span> <span
+     style="color: #001080;">i</span> = <span
+     style="color: #098658;">0</span></div>
+  <div>&nbsp; ; <span style="color: #001080;">i</span> &lt; <span
+     style="color: #0070c1;">rawData</span>.<span
+     style="color: #0070c1;">length</span>; ++<span
+     style="color: #001080;">i</span>) {</div>
+  <div>&nbsp; <span style="color: #0070c1;">outputArray</span>[<span
+     style="color: #001080;">i</span>] =</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">rawData</span>.<span
+     style="color: #795e26;">charCodeAt</span>(<span
+     style="color: #001080;">i</span>)</div>
   <div>&nbsp;}</div>
-  <div>}</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #0070c1;">outputArray</span></div>
+  <div>}</div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -579,12 +586,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -594,52 +601,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html" class="actual">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html" class="actual">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -671,9 +678,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m26ejecutaJs.html"
+ let urlAnterior = "/m02push/m28submitJs.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m28muestraErrorJs.html"
+ let urlSiguiente = "/m02push/m30copiaCamposPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

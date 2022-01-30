@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>24. Archivos frecuentes - GilPG PWA</title>
- <meta name="description" content="Subsección «Archivos frecuentes».">
+ <title>17. js/srvSuscripcionProxy.js - GilPG PWA</title>
+ <meta name="description" content="Código de «js/srvSuscripcionProxy.js».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,10 +396,115 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m23srvSuscripcionProxyJs.html" title="23. js/srvSuscripcionProxy.js">◀</a>
-  <a class="siguiente" href="/m02push/m25jsconfigJson.html" title="25. jsconfig.json">▶</a>
+  <a class="anterior" href="/m02push/m16indexJs.html" title="16. js/index.js">◀</a>
+  <a class="siguiente" href="/m02push/m18notificaJs.html" title="18. js/notifica.js">▶</a>
  </div>
-   <h1 >24. Archivos frecuentes</h1>
+   <h1 >17. js/srvSuscripcionProxy.js</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">ejecuta</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../lib/ejecuta.js"</span>;</div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">Method</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../lib/Method.js"</span>;</div><br>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span style="color: #008000;">* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{PushSubscription</span></div>
+  <div><span style="color: #008000;">*</span><span
+     style="color: #267f99;"> &nbsp; &nbsp; &nbsp; &nbsp;}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">suscripcion</span></div>
+  <div><span style="color: #008000;">* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Method}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">method</span></div>
+  <div><span style="color: #008000;">*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">srvSuscripcionProyx</span>(<span
+     style="color: #001080;">suscripcion</span>,</div>
+  <div>&nbsp; <span style="color: #001080;">method</span>) {</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">key</span> =</div>
+  <div>&nbsp; <span style="color: #001080;">suscripcion</span>.<span
+     style="color: #795e26;">getKey</span>(<span
+     style="color: #a31515;">"p256dh"</span>)</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">token</span> =</div>
+  <div>&nbsp; <span style="color: #001080;">suscripcion</span>.<span
+     style="color: #795e26;">getKey</span>(<span
+     style="color: #a31515;">"auth"</span>)</div>
+  <div>&nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">encodings</span> = <span
+     style="color: #267f99;">PushManager</span></div>
+  <div>&nbsp; .<span
+     style="color: #0070c1;">supportedContentEncodings</span> ||</div>
+  <div>&nbsp; [<span style="color: #a31515;">"aesgcm"</span>]</div>
+  <div>&nbsp;<span style="color: #af00db;">await</span> <span
+     style="color: #795e26;">ejecuta</span>(<span
+     style="color: #795e26;">fetch</span>(</div>
+  <div>&nbsp; <span
+     style="color: #a31515;">"srv/SrvSuscripcion.php"</span>, {</div>
+  <div>&nbsp; <span style="color: #001080;">method</span>,</div>
+  <div>&nbsp; <span style="color: #001080;">body</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">JSON</span>.<span
+     style="color: #795e26;">stringify</span>({</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">endpoint</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #001080;">suscripcion</span>.<span
+     style="color: #0070c1;">endpoint</span>,</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">publicKey</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0070c1;">key</span></div>
+  <div>&nbsp; &nbsp; ? <span style="color: #795e26;">btoa</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #267f99;">String</span>.<span
+     style="color: #795e26;">fromCharCode</span>.<span
+     style="color: #795e26;">apply</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #0000ff;">null</span>, <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Uint8Array</span>(<span
+     style="color: #0070c1;">key</span>)))</div>
+  <div>&nbsp; &nbsp; : <span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #001080;">authToken</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0070c1;">token</span></div>
+  <div>&nbsp; &nbsp; ? <span
+     style="color: #795e26;">btoa</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #267f99;">String</span>.<span
+     style="color: #795e26;">fromCharCode</span>.<span
+     style="color: #795e26;">apply</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Uint8Array</span>(<span
+     style="color: #0070c1;">token</span>)))</div>
+  <div>&nbsp; &nbsp; : <span
+     style="color: #0000ff;">null</span>,</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #001080;">contentEncoding</span><span
+     style="color: #001080;">:</span> <span
+     style="color: #0070c1;">encodings</span>[<span
+     style="color: #098658;">0</span>]</div>
+  <div>&nbsp; })</div>
+  <div>&nbsp;}));</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -517,12 +622,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html" class="actual">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -532,52 +637,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html" class="actual">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -609,9 +714,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m23srvSuscripcionProxyJs.html"
+ let urlAnterior = "/m02push/m16indexJs.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m25jsconfigJson.html"
+ let urlSiguiente = "/m02push/m18notificaJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

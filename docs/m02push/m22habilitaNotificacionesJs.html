@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>22. js/getSuscripcion.js - GilPG PWA</title>
- <meta name="description" content="Código de «js/getSuscripcion.js».">
+ <title>22. lib/habilitaNotificaciones.js - GilPG PWA</title>
+ <meta name="description" content="Código de «js/habilitaNotificaciones.js».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,62 +396,56 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m21urlBase64ToUint8ArrayJs.html" title="21. js/urlBase64ToUint8Array.js">◀</a>
-  <a class="siguiente" href="/m02push/m23srvSuscripcionProxyJs.html" title="23. js/srvSuscripcionProxy.js">▶</a>
+  <a class="anterior" href="/m02push/m21jsconfigJson.html" title="21. jsconfig.json">◀</a>
+  <a class="siguiente" href="/m02push/m23detectaJs.html" title="23. lib/detecta.js">▶</a>
  </div>
-   <h1 >22. js/getSuscripcion.js</h1><muestra-codigo>
+   <h1 >22. lib/habilitaNotificaciones.js</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;?php</span></div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/dao/pasatiempoModifica.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
-  <div><span style="color: #af00db;">require_once</span> <span
-     style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeValor.php"</span>;</div><br>
-  <div><span style="color: #0000ff;">class</span> <span
-     style="color: #267f99;">SrvPasatiempoModifica</span></div>
-  <div><span style="color: #0000ff;">extends</span> <span
-     style="color: #267f99;">Servicio</span></div>
-  <div>{</div>
-  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
-  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">implementacion</span>()</div>
-  <div>&nbsp;{</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span> = <span
+     style="color: #795e26;">habilitaNotificaciones</span>() {</div>
+  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #a31515;">"Notification"</span> <span
+     style="color: #0000ff;">in</span> <span
+     style="color: #001080;">window</span>) {</div>
+  <div>&nbsp; <span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">permiso</span> =</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #267f99;">Notification</span>.<span
+     style="color: #0070c1;">permission</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">permiso</span> === <span
+     style="color: #a31515;">"default"</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #001080;">permiso</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #267f99;">Notification</span>.</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">requestPermission</span>()</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">permiso</span> === <span
+     style="color: #a31515;">"denied"</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #af00db;">throw</span> <span
      style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Pasatiempo</span>();</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">id</span> = <span
-     style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"id"</span>);</div>
-  <div>&nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
-     style="color: #001080;">nombre</span> =</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">leeValor</span>(<span
-     style="color: #a31515;">"nombre"</span>);</div>
-  <div>&nbsp; <span style="color: #795e26;">pasatiempoModifica</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">$modelo</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #a31515;">"Falta el id."</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #a31515;">"Falta el nombre."</span>
-  </div>
-  <div>&nbsp; );</div>
-  <div>&nbsp; <span style="color: #af00db;">return</span> [];</div>
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #a31515;">"Notificaciones bloqueadas."</span>)</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #a31515;">"Este "</span> +</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"navegador no soporta "</span> +</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"notificaciones."</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div><br>
-  <div><span style="color: #001080;">$servicio</span> =</div>
-  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">SrvPasatiempoModifica</span>();</div>
-  <div><span style="color: #001080;">$servicio</span>-&gt;<span
-     style="color: #795e26;">ejecuta</span>();</div><br>
  </div>
 </muestra-codigo>
  <footer>
@@ -571,12 +565,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -586,52 +580,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html" class="actual">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html" class="actual">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -663,9 +657,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m21urlBase64ToUint8ArrayJs.html"
+ let urlAnterior = "/m02push/m21jsconfigJson.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m23srvSuscripcionProxyJs.html"
+ let urlSiguiente = "/m02push/m23detectaJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

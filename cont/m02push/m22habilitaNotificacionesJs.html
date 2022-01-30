@@ -1,0 +1,49 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">habilitaNotificaciones</span>() {</div>
+  <div>&nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #a31515;">"Notification"</span> <span
+     style="color: #0000ff;">in</span> <span
+     style="color: #001080;">window</span>) {</div>
+  <div>&nbsp; <span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">permiso</span> =</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #267f99;">Notification</span>.<span
+     style="color: #0070c1;">permission</span>;</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">permiso</span> === <span
+     style="color: #a31515;">"default"</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #001080;">permiso</span> = <span
+     style="color: #af00db;">await</span> <span
+     style="color: #267f99;">Notification</span>.</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">requestPermission</span>()</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">permiso</span> === <span
+     style="color: #a31515;">"denied"</span>) {</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #a31515;">"Notificaciones bloqueadas."</span>)</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; <span style="color: #af00db;">throw</span> <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">Error</span>(<span
+     style="color: #a31515;">"Este "</span> +</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"navegador no soporta "</span> +</div>
+  <div>&nbsp; &nbsp;<span
+     style="color: #a31515;">"notificaciones."</span>)</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

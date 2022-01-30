@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>18. js/detecta.js - GilPG PWA</title>
- <meta name="description" content="Código de «js/detecta.js».">
+ <title>27. lib/muestraError.js - GilPG PWA</title>
+ <meta name="description" content="Código de «lib/muestraError.js».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,100 +396,35 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m02push/m17notificaJs.html" title="17. js/notifica.js">◀</a>
-  <a class="siguiente" href="/m02push/m19swJs.html" title="19. sw.js">▶</a>
+  <a class="anterior" href="/m02push/m26Method.html" title="26. lib/Method.js">◀</a>
+  <a class="siguiente" href="/m02push/m28submitJs.html" title="28. lib/submit.js">▶</a>
  </div>
-   <h1 >18. js/detecta.js</h1><muestra-codigo>
+   <h1 >27. lib/muestraError.js</h1><muestra-codigo>
  <div>
-  <div><span style="color: #800000;">&lt;!DOCTYPE</span> <span
-     style="color: #ff0000;">html</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div><span style="color: #800000;">&lt;html</span> <span
-     style="color: #ff0000;">lang</span>=<span
-     style="color: #0000ff;">"es"</span><span
-     style="color: #800000;">&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;head&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
-     style="color: #ff0000;">charset</span>=<span
-     style="color: #0000ff;">"UTF-8"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;meta</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"viewport"</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #ff0000;">content</span>=<span
-     style="color: #0000ff;">"width=device-width"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;title&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/title&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/head&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;body&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;h1&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/h1&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;form</span> <span
-     style="color: #ff0000;">id</span>=<span
-     style="color: #0000ff;">"forma"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;label&gt;</span></div>
-  <div>&nbsp; &nbsp; Nombre</div>
-  <div>&nbsp; &nbsp; <span style="color: #800000;">&lt;input</span> <span
-     style="color: #ff0000;">name</span>=<span
-     style="color: #0000ff;">"nombre"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;/label&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;p&gt;</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #800000;">&lt;a</span></div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #ff0000;">href</span>=<span
-     style="color: #0000ff;">"index.html"</span><span
-     style="color: #800000;">&gt;</span>Cancelar<span
-     style="color: #800000;">&lt;/a&gt;</span></div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #800000;">&lt;button&gt;</span>Agregar<span
-     style="color: #800000;">&lt;/button&gt;</span></div>
-  <div>&nbsp; <span style="color: #800000;">&lt;/p&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/form&gt;</span></div>
-  <div>&nbsp;<span style="color: #800000;">&lt;script</span> <span
-     style="color: #ff0000;">type</span>=<span
-     style="color: #0000ff;">"module"</span><span
-     style="color: #800000;">&gt;</span></div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">submit</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/submit.js"</span>;</div>
-  <div>&nbsp; <span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp; &nbsp;<span style="color: #001080;">muestraError</span></div>
-  <div>&nbsp; } <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./lib/muestraError.js"</span>;</div><br>
-  <div>&nbsp; <span style="color: #001080;">forma</span>.<span
-     style="color: #795e26;">addEventListener</span>(<span
-     style="color: #a31515;">"submit"</span>,</div>
-  <div>&nbsp; &nbsp;<span style="color: #795e26;">agrega</span>)</div><br>
-  <div>&nbsp; <span
-     style="color: #008000;">/** @param {Event} evt */</span></div>
-  <div>&nbsp; <span style="color: #0000ff;">async</span> <span
+  <div><span
+     style="color: #008000;">/** Muestra un error en la consola</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* y un cuadro de alerta con el</span></div>
+  <div><span style="color: #008000;">&nbsp;* mensaje.</span></div>
+  <div><span style="color: #008000;">&nbsp;* </span><span
+     style="color: #0000ff;">@param</span><span
+     style="color: #008000;"> </span><span
+     style="color: #267f99;">{Error}</span><span
+     style="color: #008000;"> </span><span
+     style="color: #001080;">e</span><span
+     style="color: #008000;"> descripción</span></div>
+  <div><span style="color: #008000;">&nbsp;* &nbsp;del error. */</span></div>
+  <div><span style="color: #af00db;">export</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">agrega</span>(<span
-     style="color: #001080;">evt</span>) {</div>
-  <div>&nbsp; &nbsp;<span style="color: #af00db;">try</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #af00db;">await</span> <span
-     style="color: #795e26;">submit</span>(<span
-     style="color: #001080;">evt</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #a31515;">"srv/SrvPasatiempoAgrega.php"</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #001080;">forma</span>)</div>
-  <div>&nbsp; &nbsp; <span style="color: #001080;">location</span>.<span
-     style="color: #001080;">href</span> = <span
-     style="color: #a31515;">"index.html"</span></div>
-  <div>&nbsp; &nbsp;} <span style="color: #af00db;">catch</span> (<span
+     style="color: #795e26;">muestraError</span>(<span
      style="color: #001080;">e</span>) {</div>
-  <div>&nbsp; &nbsp; <span style="color: #795e26;">muestraError</span>(<span
+  <div>&nbsp;<span style="color: #001080;">console</span>.<span
+     style="color: #795e26;">error</span>(<span
      style="color: #001080;">e</span>)</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp; }</div>
-  <div>&nbsp;<span style="color: #800000;">&lt;/script&gt;</span></div>
-  <div><span style="color: #800000;">&lt;/body&gt;</span></div><br>
-  <div><span style="color: #800000;">&lt;/html&gt;</span></div>
+  <div>&nbsp;<span style="color: #795e26;">alert</span>(<span
+     style="color: #001080;">e</span>.<span
+     style="color: #001080;">message</span>)</div>
+  <div>}</div>
  </div>
 </muestra-codigo>
  <footer>
@@ -609,12 +544,12 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m17notificaJs.html">js/notifica.js</a>
+      <a href="/m02push/m17srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m18detectaJs.html" class="actual">js/detecta.js</a>
+      <a href="/m02push/m18notificaJs.html">js/notifica.js</a>
      </p>
     </li>
     <li>
@@ -624,52 +559,52 @@
     </li>
     <li>
      <p>
-      <a href="/m02push/m20habilitaNotificacionesJs.html">js/habilitaNotificaciones.js</a>
+      <a href="/m02push/m20frecuentes.html">Archivos frecuentes</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m21urlBase64ToUint8ArrayJs.html">js/urlBase64ToUint8Array.js</a>
+      <a href="/m02push/m21jsconfigJson.html">jsconfig.json</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m22getSuscripcionJs.html">js/getSuscripcion.js</a>
+      <a href="/m02push/m22habilitaNotificacionesJs.html">lib/habilitaNotificaciones.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m23srvSuscripcionProxyJs.html">js/srvSuscripcionProxy.js</a>
+      <a href="/m02push/m23detectaJs.html">lib/detecta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m24frecuentes.html">Archivos frecuentes</a>
+      <a href="/m02push/m24ejecutaJs.html">lib/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m25jsconfigJson.html">jsconfig.json</a>
+      <a href="/m02push/m25getSuscripcionJs.html">lib/getSuscripcion.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m26ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m02push/m26Method.html">lib/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m27Method.html">lib/Method.js</a>
+      <a href="/m02push/m27muestraErrorJs.html" class="actual">lib/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m28muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m02push/m28submitJs.html">lib/submit.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m02push/m29submitJs.html">lib/submit.js</a>
+      <a href="/m02push/m29urlBase64ToUint8ArrayJs.html">lib/urlBase64ToUint8Array.js</a>
      </p>
     </li>
     <li>
@@ -701,9 +636,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m02push/m17notificaJs.html"
+ let urlAnterior = "/m02push/m26Method.html"
  /**@type {string} */
- let urlSiguiente = "/m02push/m19swJs.html"
+ let urlSiguiente = "/m02push/m28submitJs.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
