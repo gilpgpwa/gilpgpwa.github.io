@@ -1,0 +1,61 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/../modelo/Pasatiempo.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/AccesoBd.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">pasatiempoBusca</span>(</div>
+  <div>&nbsp;<span style="color: #0000ff;">string</span> <span
+     style="color: #001080;">$uuid</span></div>
+  <div>) {</div>
+  <div>&nbsp;<span style="color: #001080;">$con</span> = <span
+     style="color: #267f99;">AccesoBd</span>::<span
+     style="color: #795e26;">getCon</span>();</div>
+  <div>&nbsp;<span style="color: #001080;">$stmt</span> = <span
+     style="color: #001080;">$con</span>-&gt;<span
+     style="color: #795e26;">prepare</span>(</div>
+  <div>&nbsp; <span style="color: #a31515;">"</span><span
+     style="color: #0000ff;">SELECT</span></div>
+  <div><span style="color: #a31515;">&nbsp; PAS_UUID </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> uuid,</span></div>
+  <div><span style="color: #a31515;">&nbsp; PAS_NOMBRE </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> nombre,</span></div>
+  <div><span style="color: #a31515;">&nbsp; PAS_MODIFICACION </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> modificacion,</span></div>
+  <div><span style="color: #a31515;">&nbsp; PAS_ELIMINADO </span><span
+     style="color: #0000ff;">AS</span><span
+     style="color: #a31515;"> eliminado</span></div>
+  <div><span style="color: #a31515;">&nbsp;</span><span
+     style="color: #0000ff;">FROM</span><span
+     style="color: #a31515;"> PASATIEMPO</span></div>
+  <div><span style="color: #a31515;">&nbsp;</span><span
+     style="color: #0000ff;">WHERE</span><span
+     style="color: #a31515;"> PAS_UUID </span>=<span
+     style="color: #a31515;"> :uuid</span><span
+     style="color: #a31515;">"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">execute</span>(</div>
+  <div>&nbsp; [<span style="color: #a31515;">":uuid"</span> =&gt; <span
+     style="color: #001080;">$uuid</span>]</div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">setFetchMode</span>(</div>
+  <div>&nbsp; <span style="color: #267f99;">PDO</span>::FETCH_CLASS,</div>
+  <div>&nbsp; <span style="color: #a31515;">"Pasatiempo"</span></div>
+  <div>&nbsp;);</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #001080;">$stmt</span>-&gt;<span
+     style="color: #795e26;">fetch</span>();</div>
+  <div>}</div><br>
+ </div>
+</muestra-codigo>

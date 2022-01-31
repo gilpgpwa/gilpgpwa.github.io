@@ -1,0 +1,66 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">query</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../../lib/query.js"</span>;</div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">conn</span>,</div>
+  <div>&nbsp;<span style="color: #001080;">PASATIEMPO</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./conn.js"</span>;</div><br>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Lista todos los objetos,</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* incluyendo los que tienen</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* borrado lógico. */</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">pasatiempoConsultaTodos</span>() {</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #795e26;">query</span>(<span
+     style="color: #0070c1;">conn</span>,</div>
+  <div>&nbsp; [<span style="color: #0070c1;">PASATIEMPO</span>], (<span
+     style="color: #001080;">tx</span>, <span
+     style="color: #795e26;">resolve</span>) <span
+     style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">modelos</span> = []</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">proc</span> = <span
+     style="color: #001080;">tx</span>.</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">objectStore</span>(<span
+     style="color: #0070c1;">PASATIEMPO</span>).</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">openCursor</span>()</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">proc</span>.<span
+     style="color: #795e26;">onsuccess</span> = () <span
+     style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">cursor</span> = <span
+     style="color: #0070c1;">proc</span>.<span
+     style="color: #0070c1;">result</span></div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">cursor</span> === <span
+     style="color: #0000ff;">null</span>) {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #795e26;">resolve</span>(<span
+     style="color: #0070c1;">modelos</span>)</div>
+  <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #0070c1;">modelos</span>.<span
+     style="color: #795e26;">push</span>(<span
+     style="color: #0070c1;">cursor</span>.<span
+     style="color: #0070c1;">value</span>)</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #0070c1;">cursor</span>.<span
+     style="color: #795e26;">continue</span>()</div>
+  <div>&nbsp; &nbsp; }</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; })</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" sizes="32x32" href="/favicon.ico">
+<meta name="theme-color" content="#039623">
+<link rel="manifest" href="/site.webmanifest">
+<script src="/js/muestra-codigo.js"></script>
+ <title>16. js/dao/pasatiempoConsulta.js - GilPG PWA</title>
+ <meta name="description" content="Código de «js/dao/pasatiempoConsulta.js».">
+ <style>
+ :root {
+  --introDuracion: 2s;
+  --introFuncion: ease-out;
+  --padCont: 0.5rem;
+  --padNav: 0.75rem 0.5rem;
+  --anchoNav: 300px;
+  --anchoLectura: 900px;
+  --colLetra: black;
+  --colFondo: white;
+  --colTituloLetra: #00811c;
+  --colTituloShadow: 3px 1px 2px #bdbdbd;
+  --colTituloStrong: #684601;
+  --colTituloStrongSel: #ffdc97;
+  --colTarget: #cef4ff;
+  --colSombra: #49494980;
+  --navSombra: 0.5rem 0 0.5rem var(--colSombra);
+  --padCtrl: 0.2rem 0.3rem;
+  --borderCtrl: solid thin;
+  --colFondoNav: #f2f2f2;
+  --colNavResaltada: #7a2c99;
+  --colSecundario: #ffff82;
+  --colStack1: black;
+  --colStack2: #224ba5;
+  --colStack3: #92731f;
+  --colScrollbar: #CFD8DC;
+  --colThumb: #90a4ae;
+  --colThumbActivo: #3f3f3f;
+  --anchoThumb: 7px;
+  --borderRadiusThumb: 3.5px;
+  --gap: 0.5rem;
+  --fontMono: monospace;
+  --fontSans: sans-serif;
+  --fontSerif: serif;
+  font-family: var(--fontSerif);
+  color: var(--colLetra);
+  background-color: var(--colFondo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar {
+  width: var(--anchoThumb);
+  height: var(--anchoThumb);
+ }
+
+ body::-webkit-scrollbar-track {
+  background: var(--colScrollbar);
+ }
+
+ body::-webkit-scrollbar-thumb {
+  background-color: var(--colThumb);
+  border-radius: var(--borderRadiusThumb);
+ }
+
+ body::-webkit-scrollbar-thumb:active {
+  background-color: var(--colThumbActivo);
+ }
+
+ .anterior,
+ .siguiente {
+  display: inline-block;
+  text-decoration: none;
+  padding: var(--padCtrl);
+  border: var(--borderCtrl);
+  cursor: pointer;
+ }
+
+ .anterior.bye,
+ .siguiente.bye {
+  display: none;
+ }
+
+ a[data-logo] {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  padding-left: 54px;
+  margin-top: 1rem;
+  background-image: url("/img/icono/maskable_icon_x48.png");
+  background-position: 3px center;
+  background-repeat: no-repeat;
+ }
+
+ a strong,
+ a code,
+ h1 strong,
+ h1 code {
+  color: var(--colTituloStrong);
+ }
+
+ nav a {
+  font-family: var(--fontSans);
+ }
+
+ pre {
+  font-family: var(--fontMono);
+ }
+
+ code {
+  color: var(--colTituloStrong);
+  font-family: var(--fontMono);
+ }
+
+ h1:not(.default) {
+  font-family: var(--fontSans);
+  color: var(--colTituloLetra);
+ }
+
+ .autor {
+  font-family: var(--fontSans);
+  font-size: 1.5rem;
+  color: var(--colTituloLetra);
+ }
+
+ figure {
+  text-align: center;
+ }
+
+ figure img {
+  max-width: 100%;
+  max-height: 65vh;
+ }
+
+ figure img.med {
+  max-height: 55vh;
+ }
+
+ figcaption {
+  font-family: var(--fontMono);
+ }
+
+ .print .noPrint {
+  display: none;
+ }
+
+ @media print {
+  .noPrint {
+   display: none;
+  }
+
+  .pruebaDeEscritorio {
+   page-break-before: always;
+  }
+ }
+
+ iframe {
+  box-sizing: border-box;
+  width: 100%;
+ }
+
+ .lectura {
+  max-width: var(--anchoLectura);
+  margin: 1rem auto;
+ }
+
+ .lectura p,
+ .lectura blockquote {
+  text-align: justify;
+ }
+
+ /* No funciona bien con display:flex en pantallas pequeñas. */
+ .horizontal {
+  text-align: center;
+ }
+
+ .horizontal>* {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+ }
+
+ .horizontal>*:not(:first-child) {
+  margin-left: 1rem;
+ }
+
+ .columnas4 {
+  columns: 4 180px;
+  column-gap: 1rem;
+ }
+
+ .columnas2 {
+  columns: 2 360px;
+  column-gap: 1rem;
+ }
+
+ .resaltado {
+  background-color: rgb(255, 255, 89);
+ }
+
+ .resaltado2 {
+  background-color: rgb(255, 214, 139);
+ }
+
+ table.borde {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ table.borde,
+ table.borde td {
+  border: thin solid;
+  border-collapse: collapse;
+ }
+
+ table.borde th,
+ table.borde td {
+  padding: 0.4rem;
+ }
+
+ muestra-codigo>div>div {
+  white-space: nowrap;
+ }
+
+ footer {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  font-family: var(--fontSans);
+  font-size: small;
+ }
+</style>
+ <style>
+ #principal {
+  transition: margin-left 0.7s ease-in-out;
+ }
+
+ body:not(.sinTransicion) #principal {
+  animation-timing-function: var(--introFuncion);
+  animation-duration: var(--introDuracion);
+  animation-fill-mode: forwards;
+  animation-name: aparece;
+ }
+
+ @keyframes aparece {
+  from {
+   opacity: 0;
+  }
+
+  to {
+   opacity: 1;
+  }
+ }
+
+ #principal>.controles {
+  display: flex;
+  gap: var(--gap);
+ }
+
+ #principal>.controles>.siguiente {
+  margin-left: auto
+ }
+
+ #principal h1:not(.default) {
+  text-shadow: var(--colTituloShadow);
+ }
+
+ #nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  overflow: auto;
+  color: var(--colLetra);
+  background-color: var(--colFondoNav);
+  padding: var(--padCont);
+  transition: transform 0.7s ease-in-out;
+  scrollbar-width: thin;
+  scrollbar-color: var(--colThumb) var(--colScrollbar);
+ }
+
+ #nav::-webkit-scrollbar {
+  width: var(--anchoThumb);
+  height: var(--anchoThumb);
+ }
+
+ #nav::-webkit-scrollbar-track {
+  background: var(--colScrollbar);
+ }
+
+ #nav::-webkit-scrollbar-thumb {
+  background-color: var(--colThumb);
+  border-radius: var(--borderRadiusThumb);
+ }
+
+ #nav::-webkit-scrollbar-thumb:active {
+  background-color: var(--colThumbActivo);
+ }
+
+ #nav p {
+  margin: 0;
+ }
+
+ #nav a:not([data-logo]) {
+  display: block;
+  padding: var(--padNav);
+ }
+
+ #nav a.actual code,
+ #nav a.actual strong {
+  color: var(--colTituloStrongSel);
+ }
+
+ #nav h1 a {
+  color: var(--colTituloLetra);
+ }
+
+ #nav a.actual {
+  color: var(--colFondo);
+  background-color: var(--colNavResaltada);
+ }
+
+ #nav a.paginaAnterior,
+ #nav a.paginaSiguiente {
+  text-align: center;
+  text-decoration: none;
+  padding: var(--padCtrl);
+  border: var(--borderCtrl);
+  cursor: pointer;
+ }
+
+ @media screen and (max-width: 999px) {
+  #cierra {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: var(--colSombra);
+   transform: translateX(-120%);
+   transition: transform 0.7s ease-out;
+  }
+
+  #nav {
+   width: min(var(--anchoNav), 70%);
+   box-shadow: var(--navSombra);
+  }
+
+  .xmenu>#nav {
+   transform: translateX(-120%);
+  }
+
+  .menu>#cierra,
+  .menu>#nav {
+   transform: translateX(0);
+  }
+ }
+
+ @media screen and (min-width: 1000px) {
+  #cierra {
+   display: none;
+  }
+
+  #nav {
+   width: var(--anchoNav);
+  }
+
+  .menu>#nav {
+   transform: translateX(-120%);
+  }
+
+  .xmenu>#principal {
+   margin-left: var(--anchoNav)
+  }
+
+  .xmenu #abre {
+   display: none
+  }
+ }
+
+ @media print {
+
+  #nav,
+  #principal>.controles {
+   display: none;
+  }
+ }
+</style>
+ 
+</head>
+<body class="xmenu">
+ <div id="principal">
+ <div class="controles">
+  <button id="abre" type="button" title="Menú" class="cambiaMenu">
+   &#x2630;
+  </button>
+  <a class="anterior" href="/m03sincronizacion/m15pasatiempoBuscaJs.html" title="15. js/dao/pasatiempoBusca.js">◀</a>
+  <a class="siguiente" href="/m03sincronizacion/m17pasatiempoConsultaTodosJs.html" title="17. js/dao/pasatiempoConsultaTodos.js">▶</a>
+ </div>
+   <h1 >16. js/dao/pasatiempoConsulta.js</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">query</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"../../lib/query.js"</span>;</div>
+  <div><span style="color: #af00db;">import</span> {</div>
+  <div>&nbsp;<span style="color: #001080;">conn</span>,</div>
+  <div>&nbsp;<span style="color: #001080;">PASATIEMPO</span></div>
+  <div>} <span style="color: #af00db;">from</span> <span
+     style="color: #a31515;">"./conn.js"</span>;</div><br>
+  <div><span style="color: #008000;">/**</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Lista todos los objetos que no</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* tienen borrado lógico.</span></div>
+  <div><span style="color: #008000;">&nbsp;*/</span></div>
+  <div><span style="color: #af00db;">export</span> <span
+     style="color: #0000ff;">async</span> <span
+     style="color: #0000ff;">function</span></div>
+  <div>&nbsp;<span
+     style="color: #795e26;">pasatiempoConsulta</span>() {</div>
+  <div>&nbsp;<span style="color: #af00db;">return</span> <span
+     style="color: #795e26;">query</span>(<span
+     style="color: #0070c1;">conn</span>,</div>
+  <div>&nbsp; [<span style="color: #0070c1;">PASATIEMPO</span>], (<span
+     style="color: #001080;">tx</span>, <span
+     style="color: #795e26;">resolve</span>) <span
+     style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">modelos</span> = []</div>
+  <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">proc</span> = <span
+     style="color: #001080;">tx</span>.</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">objectStore</span>(<span
+     style="color: #0070c1;">PASATIEMPO</span>).</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">openCursor</span>()</div>
+  <div>&nbsp; &nbsp;<span style="color: #0070c1;">proc</span>.<span
+     style="color: #795e26;">onsuccess</span> = () <span
+     style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
+     style="color: #0070c1;">cursor</span> = <span
+     style="color: #0070c1;">proc</span>.<span
+     style="color: #0070c1;">result</span></div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
+     style="color: #0070c1;">cursor</span> === <span
+     style="color: #0000ff;">null</span>) {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #795e26;">resolve</span>(<span
+     style="color: #0070c1;">modelos</span>)</div>
+  <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">let</span> <span
+     style="color: #001080;">modelo</span> = <span
+     style="color: #0070c1;">cursor</span>.<span
+     style="color: #0070c1;">value</span></div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">modelo</span>.<span
+     style="color: #001080;">eliminado</span> == <span
+     style="color: #098658;">0</span>) {</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #0070c1;">modelos</span>.<span
+     style="color: #795e26;">push</span>(<span
+     style="color: #001080;">modelo</span>);</div>
+  <div>&nbsp; &nbsp; &nbsp;}</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #0070c1;">cursor</span>.<span
+     style="color: #795e26;">continue</span>()</div>
+  <div>&nbsp; &nbsp; }</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; })</div>
+  <div>}</div>
+ </div>
+</muestra-codigo>
+ <footer>
+ <p>
+  <a rel="license"
+    href="http://creativecommons.org/licenses/by/4.0/"><img
+     alt="Licencia Creative Commons" style="border-width:0"
+     src="/img/icono/160x30.webp" width="80" height="15" /></a>
+  <br />Esta
+  <span xmlns:dct="http://purl.org/dc/terms/"
+    href="http://purl.org/dc/dcmitype/InteractiveResource"
+    rel="dct:type">obra</span>
+  de
+  <a xmlns:cc="http://creativecommons.org/ns#"
+    href="https://gilpgijs.github.io" property="cc:attributionName"
+    rel="cc:attributionURL">Gilberto Pacheco Gallegos</a>
+  está bajo una
+  <a rel="license"
+    href="http://creativecommons.org/licenses/by/4.0/">Licencia
+   Creative Commons Atribución 4.0 Internacional</a>.
+ </p>
+</footer>
+</div>
+<div id="cierra" class="cambiaMenu"></div>
+<nav id="nav">
+ <button type="button" title="Cierra" class="cambiaMenu">
+  &#x2715;
+ </button>
+ <p>
+    <a href="/index.html"
+      data-logo="true">GilPG PWA</a>
+   </p><p>
+    <a class="paginaAnterior" href="/m02push/m32ServicioPhp.html"
+      title="32. srv/lib/Servicio.php">▲</a>
+   </p>
+     <h1><a href="/m03sincronizacion/index.html">3. Sincronización</a></h1>
+   <ol type="1">
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m01instrucciones.html">Instrucciones</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m02archivos.html">Archivos</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m03servidor.html">Servidor</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m04PasatiempoPhp.html">srv/modelo/Pasatiempo.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m05SrvSincroPhp.html">srv/SrvSincro.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m06bdCreaPhp.html">srv/dao/bdCrea.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m07AccesoBdPhp.html">srv/dao/AccesoBd.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m08pasatiempoAgregaPhp.html">srv/dao/pasatiempoAgrega.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m09pasatiempoBuscaPhp.html">srv/dao/pasatiempoBusca.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m10pasatiempoConsultaPhp.html">srv/dao/pasatiempoConsulta.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m11pasatiempoModificaPhp.html">srv/dao/pasatiempoModifica.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m12bdCli.html">Base de datos en el cliente</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m13connJs.html">js/dao/conn.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m14pasatiempoAgregaJs.html">js/dao/pasatiempoAgrega.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m15pasatiempoBuscaJs.html">js/dao/pasatiempoBusca.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m16pasatiempoConsultaJs.html" class="actual">js/dao/pasatiempoConsulta.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m17pasatiempoConsultaTodosJs.html">js/dao/pasatiempoConsultaTodos.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m18pasatiempoEliminaJs.html">js/dao/pasatiempoElimina.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m19pasatiempoModificaJs.html">js/dao/pasatiempoModifica.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m20reemplazaJs.html">js/dao/reemplaza.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m21funcionalidad.html">Funcionalidad</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m22indexHtml.html">index.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m23indexJs.html">js/index.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m24agregaHtml.html">agrega.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m25agregaJs.html">js/agrega.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m26modificaHtml.html">modifica.html</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m27modificaJs.html">js/modifica.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m38configJs.html">js/config.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m40siteWebmanifest.html">site.webmanifest</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m41swJs.html">sw.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m28frecuentes.html">Archivos frecuentes</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m29jsconfigJson.html">jsconfig.json</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m30codJs.html">lib/cod.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m31ejecutaJs.html">lib/ejecuta.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m32executeJs.html">lib/execute.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m33Method.html">lib/Method.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m34muestraErrorJs.html">lib/muestraError.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m35queryJs.html">lib/query.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m39regSwJs.html">lib/regSw.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m36leeJsonPhp.html">srv/lib/leeJson.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m37ServicioPhp.html">srv/lib/Servicio.php</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m42imagenes.html">Imágenes</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m43faviconIco.html">favicon.ico</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m44icono2048png.html">img/icono2048.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m45maskable_icon_x48png.html">img/maskable_icon_x48.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m46maskable_icon_x72png.html">img/maskable_icon_x72.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m47maskable_icon_x96png.html">img/maskable_icon_x96.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m48maskable_icon_x128png.html">img/maskable_icon_x128.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m49maskable_icon_x192png.html">img/maskable_icon_x192.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m50maskable_icon_x384png.html">img/maskable_icon_x384.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m51maskable_icon_x512png.html">img/maskable_icon_x512.png</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m52maskable_iconPng.html">img/maskable_icon.png</a>
+     </p>
+    </li>
+   </ol>
+</nav>
+ <script>
+ registraServiceWorker("/sw.js")
+ const LOCAL_STORAGE_MENU = "menu"
+ const MENU = "menu"
+ const XMENU = "xmenu"
+ const nav = document.querySelector("#nav")
+ const abre = document.querySelector("#abre")
+
+ /**@type {string} */
+ let urlAnterior = "/m03sincronizacion/m15pasatiempoBuscaJs.html"
+ /**@type {string} */
+ let urlSiguiente = "/m03sincronizacion/m17pasatiempoConsultaTodosJs.html"
+ /**@type {number|null} */
+ let iniciaX = null
+ /**@type {number|null} */
+ let iniciaY = null
+
+ document.addEventListener("keydown", teclas)
+ document.addEventListener("touchstart", iniciaTouch)
+ document.addEventListener("touchmove", desplazaTouch)
+ if (abre) {
+  abre.addEventListener("click", cambiaMenu)
+ }
+ const cambian = Array.from(document.querySelectorAll(".cambiaMenu"))
+ for (const c of cambian) {
+  c.addEventListener("click", cambiaMenu)
+ }
+ const menu = localStorage.getItem(LOCAL_STORAGE_MENU)
+ if (menu) {
+  if (menu === MENU) {
+   document.body.classList.remove(XMENU)
+   document.body.classList.add(MENU)
+  } else {
+   document.body.classList.remove(MENU)
+   document.body.classList.add(XMENU)
+  }
+ }
+
+ function registraServiceWorker(url) {
+  if (navigator.serviceWorker) {
+   navigator.serviceWorker.register(url).
+    then(registro => {
+     console.log("Service Worker registrado.")
+     console.log(registro)
+    }).
+    catch(muestraError)
+  }
+ }
+ function muestraError(e) {
+  console.error(e)
+  alert(e.message)
+ }
+ function cambiaMenu() {
+  document.body.classList.toggle(XMENU)
+  document.body.classList.toggle(MENU)
+  if (document.body.classList.contains(MENU)) {
+   localStorage.setItem(LOCAL_STORAGE_MENU, MENU)
+  } else {
+   localStorage.setItem(LOCAL_STORAGE_MENU, XMENU)
+  }
+ }
+ /** @param {KeyboardEvent} ev*/
+ function teclas(ev) {
+  switch (ev.key) {
+   case "ArrowLeft":
+    retrocede()
+    break
+   case "ArrowRight":
+    avanza()
+    break
+  }
+ }
+ function retrocede() {
+  if (urlAnterior) {
+   location.href = urlAnterior
+  }
+ }
+ function avanza() {
+  if (urlSiguiente) {
+   location.href = urlSiguiente
+  }
+ }
+ /** @param {TouchEvent} ev*/
+ function iniciaTouch(ev) {
+  const toqueInicial = ev.touches[0]
+  iniciaX = toqueInicial.clientX
+  iniciaY = toqueInicial.clientY
+ }
+ /** @param {TouchEvent} ev*/
+ function desplazaTouch(ev) {
+  if (iniciaX && iniciaY) {
+   const desplazamiento = ev.touches[0]
+   var desplazamientoX = desplazamiento.clientX
+   var desplazamientoY = desplazamiento.clientY
+   var difX = desplazamientoX - iniciaX
+   var difY = desplazamientoY - iniciaY
+   // Checa que el movimiento no sea muy corto.
+   if (Math.abs(difX) + Math.abs(difY) > 90) {
+    if (Math.abs(difX) > Math.abs(difY)) {
+     if (difX > 70) {
+      retrocede()
+     } else {
+      avanza()
+     }
+     // Reinicia valores.
+     iniciaX = null
+     iniciaY = null
+    }
+   }
+  }
+ }
+</script>
+</body>
+</html>

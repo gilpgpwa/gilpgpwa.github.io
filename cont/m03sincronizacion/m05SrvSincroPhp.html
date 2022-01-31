@@ -1,0 +1,167 @@
+<muestra-codigo>
+ <div>
+  <div><span style="color: #800000;">&lt;?php</span></div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/dao/pasatiempoAgrega.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/dao/pasatiempoBusca.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/dao/pasatiempoConsulta.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/dao/pasatiempoModifica.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+  <div><span style="color: #af00db;">require_once</span> <span
+     style="color: #0000ff;">__DIR__</span> .</div>
+  <div>&nbsp;<span style="color: #a31515;">"/lib/leeJson.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">class</span> <span
+     style="color: #267f99;">SrvSincro</span> <span
+     style="color: #0000ff;">extends</span> <span
+     style="color: #267f99;">Servicio</span></div>
+  <div>{</div>
+  <div>&nbsp;<span style="color: #0000ff;">protected</span></div>
+  <div>&nbsp;<span style="color: #0000ff;">function</span> <span
+     style="color: #795e26;">implementacion</span>()</div>
+  <div>&nbsp;{</div>
+  <div>&nbsp; <span style="color: #001080;">$lista</span> = <span
+     style="color: #795e26;">leeJson</span>();</div>
+  <div>&nbsp; <span style="color: #af00db;">if</span> (!<span
+     style="color: #001080;">$lista</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$lista</span> = [];</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
+     style="color: #001080;">$lista</span> as <span
+     style="color: #001080;">$modCli</span>) {</div>
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$modServ</span> =</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #795e26;">pasatiempoBusca</span>(<span
+     style="color: #001080;">$modCli</span>-&gt;<span
+     style="color: #001080;">uuid</span>);</div>
+  <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
+     style="color: #001080;">$modServ</span>) {</div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (</div>
+  <div>&nbsp; &nbsp; &nbsp;!<span
+     style="color: #001080;">$modServ</span>-&gt;<span
+     style="color: #001080;">eliminado</span></div>
+  <div>&nbsp; &nbsp; &nbsp;&amp;&amp; <span
+     style="color: #001080;">$modCli</span>-&gt;<span
+     style="color: #001080;">eliminado</span></div>
+  <div>&nbsp; &nbsp; ) {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #008000;">/* CONFLICTO. El registro está</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;en&nbsp;el&nbsp;servidor,&nbsp;donde&nbsp;no&nbsp;se</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;ha&nbsp;eliminado,&nbsp;pero&nbsp;ha&nbsp;sido</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;eliminado&nbsp;en&nbsp;el&nbsp;cliente.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gana&nbsp;el&nbsp;cliente,&nbsp;porque</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;optamos&nbsp;por&nbsp;no&nbsp;revivir&nbsp;lo</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp; &nbsp; &nbsp; * que se ha borrado. */</span>
+  </div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #795e26;">pasatiempoModifica</span>(<span
+     style="color: #001080;">$modCli</span>);</div>
+  <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> <span
+     style="color: #af00db;">if</span> (</div>
+  <div>&nbsp; &nbsp; &nbsp;!<span
+     style="color: #001080;">$modCli</span>-&gt;<span
+     style="color: #001080;">eliminado</span></div>
+  <div>&nbsp; &nbsp; &nbsp;&amp;&amp; !<span
+     style="color: #001080;">$modServ</span>-&gt;<span
+     style="color: #001080;">eliminado</span></div>
+  <div>&nbsp; &nbsp; ) {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #008000;">/* CONFLICTO. El registro está</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;tanto&nbsp;en&nbsp;el&nbsp;servidor&nbsp;como</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;en&nbsp;el&nbsp;cliente.&nbsp;Los&nbsp;datos</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;pueden&nbsp;ser&nbsp;diferentes.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;PREVALECE&nbsp;LA&nbsp;FECHA&nbsp;MÁS</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;GRANDE.&nbsp;Cuando&nbsp;gana&nbsp;el</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;servidor&nbsp;no&nbsp;se&nbsp;hace&nbsp;nada.*/</span>
+  </div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #af00db;">if</span> (</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #001080;">$modCli</span>-&gt;<span
+     style="color: #001080;">modificacion</span></div>
+  <div>&nbsp; &nbsp; &nbsp; &gt; <span
+     style="color: #001080;">$modServ</span>-&gt;<span
+     style="color: #001080;">modificacion</span></div>
+  <div>&nbsp; &nbsp; &nbsp;) {</div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #008000;">/* La versión del cliente es</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;más&nbsp;nueva&nbsp;y&nbsp;prevalece.&nbsp;*/</span>
+  </div>
+  <div>&nbsp; &nbsp; &nbsp; <span
+     style="color: #795e26;">pasatiempoModifica</span>(<span
+     style="color: #001080;">$modCli</span>);</div>
+  <div>&nbsp; &nbsp; &nbsp;}</div>
+  <div>&nbsp; &nbsp; }</div>
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; &nbsp; <span
+     style="color: #008000;">/* CONFLICTO. El objeto no ha</span></div>
+  <div><span
+     style="color: #008000;">&nbsp; &nbsp; &nbsp;* estado en el servidor.</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;AGREGARLO&nbsp;solamente&nbsp;si&nbsp;no</span>
+  </div>
+  <div><span
+     style="color: #008000;">&nbsp; &nbsp; &nbsp;* está eliminado. */</span>
+  </div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (!<span
+     style="color: #001080;">$modCli</span>-&gt;<span
+     style="color: #001080;">eliminado</span>) {</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #795e26;">pasatiempoAgrega</span>(<span
+     style="color: #001080;">$modCli</span>);</div>
+  <div>&nbsp; &nbsp; }</div>
+  <div>&nbsp; &nbsp;}</div>
+  <div>&nbsp; }</div>
+  <div>&nbsp; <span style="color: #001080;">$lista</span> = <span
+     style="color: #795e26;">pasatiempoConsulta</span>();</div>
+  <div>&nbsp; <span style="color: #af00db;">return</span> [<span
+     style="color: #a31515;">"lista"</span> =&gt; <span
+     style="color: #001080;">$lista</span>];</div>
+  <div>&nbsp;}</div>
+  <div>}</div><br>
+  <div><span style="color: #001080;">$servicio</span> = <span
+     style="color: #0000ff;">new</span> <span
+     style="color: #267f99;">SrvSincro</span>();</div>
+  <div><span style="color: #001080;">$servicio</span>-&gt;<span
+     style="color: #795e26;">ejecuta</span>();</div><br>
+ </div>
+</muestra-codigo>
