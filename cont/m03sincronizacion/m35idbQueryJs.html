@@ -16,18 +16,24 @@
   <div><span style="color: #008000;">&nbsp;* </span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{(</span></div>
+     style="color: #267f99;">{ (</span></div>
   <div><span style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;"> &nbsp; tx: IDBTransaction) =&gt; void</span></div>
+     style="color: #267f99;"> &nbsp;tx:</span></div>
   <div><span style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;"> &nbsp;}</span><span
+     style="color: #267f99;"> &nbsp; IDBTransaction,</span></div>
+  <div><span style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;"> &nbsp;resolve:</span></div>
+  <div><span style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;"> &nbsp; (value: any)=&gt;void</span></div>
+  <div><span style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;"> &nbsp;) =&gt; void }</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">funcion</span></div>
   <div><span style="color: #008000;">&nbsp;*/</span></div>
   <div><span style="color: #af00db;">export</span> <span
      style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">cambio</span>(<span
+     style="color: #795e26;">idbQuery</span>(<span
      style="color: #001080;">bd</span>,</div>
   <div>&nbsp;<span style="color: #001080;">entidades</span>, <span
      style="color: #795e26;">funcion</span>) {</div>
@@ -44,20 +50,13 @@
   <div>&nbsp; &nbsp;<span
      style="color: #008000;">/* Inicia una transacción de</span></div>
   <div><span
-     style="color: #008000;">&nbsp; &nbsp; * lectura y escritura. */</span>
-  </div>
+     style="color: #008000;">&nbsp; &nbsp; * solo lectura. */</span></div>
   <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">tx</span> = <span
      style="color: #0070c1;">con</span>.<span
      style="color: #795e26;">transaction</span>(</div>
   <div>&nbsp; &nbsp; <span style="color: #001080;">entidades</span>, <span
-     style="color: #a31515;">"readwrite"</span>)</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #008000;">/* Al terminar con éxito hace</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp; * resolve. */</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">tx</span>.<span
-     style="color: #795e26;">oncomplete</span> = <span
-     style="color: #795e26;">resolve</span>;</div>
+     style="color: #a31515;">"readonly"</span>)</div>
   <div>&nbsp; &nbsp;<span
      style="color: #008000;">/* Al terminar con error hace</span></div>
   <div><span style="color: #008000;">&nbsp; &nbsp; * reject. */</span></div>
@@ -72,7 +71,8 @@
   <div><span
      style="color: #008000;">&nbsp; &nbsp; * la transacción. */</span></div>
   <div>&nbsp; &nbsp;<span style="color: #795e26;">funcion</span>(<span
-     style="color: #0070c1;">tx</span>)</div>
+     style="color: #0070c1;">tx</span>, <span
+     style="color: #795e26;">resolve</span>)</div>
   <div>&nbsp; })</div>
   <div>}</div><br>
  </div>

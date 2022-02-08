@@ -407,7 +407,8 @@
   </div>
   <div><span style="color: #008000;">&nbsp;* sitio.</span></div>
   <div><span style="color: #008000;">&nbsp;* </span></div>
-  <div><span style="color: #008000;">&nbsp;* Cualquier cambio en el</span></div>
+  <div><span
+     style="color: #008000;">&nbsp;* Cualquier cambio en el</span></div>
   <div><span
      style="color: #008000;">&nbsp;* contenido de este archivo hace</span></div>
   <div><span
@@ -459,11 +460,11 @@
   <div>&nbsp;<span style="color: #a31515;">"lib/css/lista.css"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"lib/js/cod.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"lib/js/ejecuta.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/js/cambio.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/idbExecute.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/idbQuery.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"lib/js/Method.js"</span>,</div>
   <div>&nbsp;<span
      style="color: #a31515;">"lib/js/muestraError.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/js/consulta.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"lib/js/regSw.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"agrega.html"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"index.html"</span>,</div>
@@ -474,32 +475,32 @@
      style="color: #001080;">self</span> <span
      style="color: #0000ff;">instanceof</span></div>
   <div>&nbsp;<span
-     style="color: #267f99;">ServiceWorkerGlobalScope</span>) {</div>
+     style="color: #001080;">ServiceWorkerGlobalScope</span>) {</div>
   <div>&nbsp;<span
      style="color: #008000;">// Evento al empezar a instalar</span></div>
   <div>&nbsp;<span style="color: #001080;">self</span>.<span
      style="color: #795e26;">addEventListener</span>(<span
      style="color: #a31515;">"install"</span>,</div>
-  <div>&nbsp; <span style="color: #795e26;">instala</span>)</div><br>
+  <div>&nbsp; <span style="color: #001080;">instala</span>)</div><br>
   <div>&nbsp;<span
      style="color: #008000;">// Evento al solicitar a la red</span></div>
   <div>&nbsp;<span style="color: #001080;">self</span>.<span
      style="color: #795e26;">addEventListener</span>(<span
      style="color: #a31515;">"fetch"</span>,</div>
-  <div>&nbsp; <span style="color: #795e26;">descargaDatos</span>)</div><br>
+  <div>&nbsp; <span style="color: #001080;">descargaDatos</span>)</div><br>
   <div>&nbsp;<span
      style="color: #008000;">// Evento cuando está activo.</span></div>
   <div>&nbsp;<span style="color: #001080;">self</span>.<span
      style="color: #795e26;">addEventListener</span>(<span
      style="color: #a31515;">"activate"</span>,</div>
-  <div>&nbsp; <span style="color: #795e26;">activo</span>)</div>
+  <div>&nbsp; <span style="color: #001080;">activo</span>)</div>
   <div>}</div><br>
   <div><span style="color: #0000ff;">function</span> <span
      style="color: #795e26;">activo</span>() {</div>
   <div>&nbsp;<span style="color: #001080;">console</span>.<span
      style="color: #795e26;">log</span>(</div>
   <div>&nbsp; <span
-     style="color: #a31515;">"Service Worker activo."</span>)</div>
+     style="color: #a31515;">"Service Worker activo."</span>) </div>
   <div>}</div><br>
   <div><span style="color: #008000;">/**</span></div>
   <div><span style="color: #008000;">&nbsp;* </span><span
@@ -533,8 +534,8 @@
      style="color: #001080;">evt</span>) {</div>
   <div>&nbsp;<span style="color: #af00db;">if</span> (</div>
   <div>&nbsp; <span style="color: #001080;">evt</span>.<span
-     style="color: #001080;">request</span>.<span
-     style="color: #001080;">method</span> === <span
+     style="color: #0070c1;">request</span>.<span
+     style="color: #0070c1;">method</span> === <span
      style="color: #a31515;">"GET"</span>) {</div>
   <div>&nbsp; <span style="color: #001080;">evt</span>.<span
      style="color: #795e26;">respondWith</span>(<span
@@ -561,11 +562,11 @@
      style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">key</span> <span
      style="color: #0000ff;">of</span> <span
-     style="color: #001080;">keys</span>) {</div>
+     style="color: #0070c1;">keys</span>) {</div>
   <div>&nbsp; <span style="color: #af00db;">await</span> <span
      style="color: #001080;">caches</span>.<span
      style="color: #795e26;">delete</span>(<span
-     style="color: #001080;">key</span>)</div>
+     style="color: #0070c1;">key</span>)</div>
   <div>&nbsp;}</div>
   <div>&nbsp;<span
      style="color: #008000;">// Carga el nuevo contenido.</span></div>
@@ -576,7 +577,7 @@
      style="color: #795e26;">open</span>(<span
      style="color: #0070c1;">CACHE</span>)</div>
   <div>&nbsp;<span style="color: #af00db;">await</span> <span
-     style="color: #001080;">cache</span>.<span
+     style="color: #0070c1;">cache</span>.<span
      style="color: #795e26;">addAll</span>(<span
      style="color: #0070c1;">ARCHIVOS</span>)</div>
   <div>&nbsp;<span style="color: #001080;">console</span>.</div>
@@ -610,20 +611,21 @@
   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">response</span> =</div>
   <div>&nbsp; <span style="color: #af00db;">await</span> <span
-     style="color: #001080;">cache</span>.<span
+     style="color: #0070c1;">cache</span>.<span
      style="color: #795e26;">match</span>(<span
      style="color: #001080;">evt</span>.<span
-     style="color: #001080;">request</span>,</div>
-  <div>&nbsp; &nbsp;{ <span style="color: #001080;">ignoreSearch:</span> <span
+     style="color: #0070c1;">request</span>,</div>
+  <div>&nbsp; &nbsp;{ <span style="color: #001080;">ignoreSearch</span><span
+     style="color: #001080;">:</span> <span
      style="color: #0000ff;">true</span> })</div>
   <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #001080;">response</span>) {</div>
+     style="color: #0070c1;">response</span>) {</div>
   <div>&nbsp; <span
      style="color: #008000;">/* Si lo encuentra, devuelve el</span></div>
   <div><span
      style="color: #008000;">&nbsp; &nbsp;* archivo del cache. */</span></div>
   <div>&nbsp; <span style="color: #af00db;">return</span> <span
-     style="color: #001080;">response</span></div>
+     style="color: #0070c1;">response</span></div>
   <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
   <div>&nbsp; <span
      style="color: #008000;">/* Si no lo encuentra, lo</span></div>
@@ -636,7 +638,7 @@
   <div>&nbsp; <span style="color: #af00db;">return</span> <span
      style="color: #795e26;">fetch</span>(<span
      style="color: #001080;">evt</span>.<span
-     style="color: #001080;">request</span>)</div>
+     style="color: #0070c1;">request</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div>
  </div>
@@ -838,17 +840,17 @@
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m32cambioJs.html">lib/js/cambio.js</a>
+      <a href="/m03sincronizacion/m32idbExecuteJs.html">lib/js/idbExecute.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m35idbQueryJs.html">lib/js/idbQuery.js</a>
      </p>
     </li>
     <li>
      <p>
       <a href="/m03sincronizacion/m30codJs.html">lib/js/cod.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m35consultaJs.html">lib/js/consulta.js</a>
      </p>
     </li>
     <li>

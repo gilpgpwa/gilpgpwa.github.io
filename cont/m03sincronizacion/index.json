@@ -165,19 +165,19 @@
    "description": "Código de «lib/css/lista.css»."
   },
   {
-   "name": "m32cambioJs.html",
-   "title": "lib/js/cambio.js",
-   "description": "Código de «lib/js/cambio.js»."
+   "name": "m32idbExecuteJs.html",
+   "title": "lib/js/idbExecute.js",
+   "description": "Código de «lib/js/idbExecute.js»."
+  },
+  {
+   "name": "m35idbQueryJs.html",
+   "title": "lib/js/idbQuery.js",
+   "description": "Código de «lib/js/idbQuery.js»."
   },
   {
    "name": "m30codJs.html",
    "title": "lib/js/cod.js",
    "description": "Código de «lib/js/cod.js»."
-  },
-  {
-   "name": "m35consultaJs.html",
-   "title": "lib/js/consulta.js",
-   "description": "Código de «lib/js/consulta.js»."
   },
   {
    "name": "m31ejecutaJs.html",

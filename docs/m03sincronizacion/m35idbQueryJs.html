@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>33. lib/js/cambio.js - GilPG PWA</title>
- <meta name="description" content="Código de «lib/js/cambio.js».">
+ <title>34. lib/js/idbQuery.js - GilPG PWA</title>
+ <meta name="description" content="Código de «lib/js/idbQuery.js».">
  <style>
  :root {
   --introDuracion: 2s;
@@ -396,10 +396,10 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m03sincronizacion/m53listaCss.html" title="32. lib/css/lista.css">◀</a>
-  <a class="siguiente" href="/m03sincronizacion/m30codJs.html" title="34. lib/js/cod.js">▶</a>
+  <a class="anterior" href="/m03sincronizacion/m32idbExecuteJs.html" title="33. lib/js/idbExecute.js">◀</a>
+  <a class="siguiente" href="/m03sincronizacion/m30codJs.html" title="35. lib/js/cod.js">▶</a>
  </div>
-   <h1 >33. lib/js/cambio.js</h1><muestra-codigo>
+   <h1 >34. lib/js/idbQuery.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #008000;">/**</span></div>
   <div><span style="color: #008000;">&nbsp;* </span><span
@@ -417,18 +417,24 @@
   <div><span style="color: #008000;">&nbsp;* </span><span
      style="color: #0000ff;">@param</span><span
      style="color: #008000;"> </span><span
-     style="color: #267f99;">{(</span></div>
+     style="color: #267f99;">{ (</span></div>
   <div><span style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;"> &nbsp; tx: IDBTransaction) =&gt; void</span></div>
+     style="color: #267f99;"> &nbsp;tx:</span></div>
   <div><span style="color: #008000;">&nbsp;*</span><span
-     style="color: #267f99;"> &nbsp;}</span><span
+     style="color: #267f99;"> &nbsp; IDBTransaction,</span></div>
+  <div><span style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;"> &nbsp;resolve:</span></div>
+  <div><span style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;"> &nbsp; (value: any)=&gt;void</span></div>
+  <div><span style="color: #008000;">&nbsp;*</span><span
+     style="color: #267f99;"> &nbsp;) =&gt; void }</span><span
      style="color: #008000;"> </span><span
      style="color: #001080;">funcion</span></div>
   <div><span style="color: #008000;">&nbsp;*/</span></div>
   <div><span style="color: #af00db;">export</span> <span
      style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span> <span
-     style="color: #795e26;">cambio</span>(<span
+     style="color: #795e26;">idbQuery</span>(<span
      style="color: #001080;">bd</span>,</div>
   <div>&nbsp;<span style="color: #001080;">entidades</span>, <span
      style="color: #795e26;">funcion</span>) {</div>
@@ -445,20 +451,13 @@
   <div>&nbsp; &nbsp;<span
      style="color: #008000;">/* Inicia una transacción de</span></div>
   <div><span
-     style="color: #008000;">&nbsp; &nbsp; * lectura y escritura. */</span>
-  </div>
+     style="color: #008000;">&nbsp; &nbsp; * solo lectura. */</span></div>
   <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">tx</span> = <span
      style="color: #0070c1;">con</span>.<span
      style="color: #795e26;">transaction</span>(</div>
   <div>&nbsp; &nbsp; <span style="color: #001080;">entidades</span>, <span
-     style="color: #a31515;">"readwrite"</span>)</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #008000;">/* Al terminar con éxito hace</span></div>
-  <div><span style="color: #008000;">&nbsp; &nbsp; * resolve. */</span></div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">tx</span>.<span
-     style="color: #795e26;">oncomplete</span> = <span
-     style="color: #795e26;">resolve</span>;</div>
+     style="color: #a31515;">"readonly"</span>)</div>
   <div>&nbsp; &nbsp;<span
      style="color: #008000;">/* Al terminar con error hace</span></div>
   <div><span style="color: #008000;">&nbsp; &nbsp; * reject. */</span></div>
@@ -473,7 +472,8 @@
   <div><span
      style="color: #008000;">&nbsp; &nbsp; * la transacción. */</span></div>
   <div>&nbsp; &nbsp;<span style="color: #795e26;">funcion</span>(<span
-     style="color: #0070c1;">tx</span>)</div>
+     style="color: #0070c1;">tx</span>, <span
+     style="color: #795e26;">resolve</span>)</div>
   <div>&nbsp; })</div>
   <div>}</div><br>
  </div>
@@ -675,17 +675,17 @@
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m32cambioJs.html" class="actual">lib/js/cambio.js</a>
+      <a href="/m03sincronizacion/m32idbExecuteJs.html">lib/js/idbExecute.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m03sincronizacion/m35idbQueryJs.html" class="actual">lib/js/idbQuery.js</a>
      </p>
     </li>
     <li>
      <p>
       <a href="/m03sincronizacion/m30codJs.html">lib/js/cod.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m35consultaJs.html">lib/js/consulta.js</a>
      </p>
     </li>
     <li>
@@ -729,7 +729,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m03sincronizacion/m53listaCss.html"
+ let urlAnterior = "/m03sincronizacion/m32idbExecuteJs.html"
  /**@type {string} */
  let urlSiguiente = "/m03sincronizacion/m30codJs.html"
  /**@type {number|null} */
