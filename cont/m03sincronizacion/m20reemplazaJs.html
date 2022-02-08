@@ -1,14 +1,14 @@
 <muestra-codigo>
  <div>
   <div><span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp;<span style="color: #001080;">execute</span></div>
+  <div>&nbsp;<span style="color: #001080;">cambio</span></div>
   <div>} <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../../lib/execute.js"</span>;</div>
+     style="color: #a31515;">"../../lib/js/cambio.js"</span></div>
   <div><span style="color: #af00db;">import</span> {</div>
   <div>&nbsp;<span style="color: #001080;">conn</span>,</div>
   <div>&nbsp;<span style="color: #001080;">PASATIEMPO</span></div>
   <div>} <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./conn.js"</span>;</div><br>
+     style="color: #a31515;">"./conn.js"</span></div><br>
   <div><span style="color: #008000;">/**</span></div>
   <div><span
      style="color: #008000;">&nbsp;* Borra el contenido del almacén y</span>
@@ -23,15 +23,14 @@
      style="color: #008000;"> </span><span
      style="color: #001080;">lista</span><span
      style="color: #008000;"> nuevos</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* &nbsp; datos. */</span></div>
+  <div><span style="color: #008000;">&nbsp;* &nbsp; datos. */</span></div>
   <div><span style="color: #af00db;">export</span> <span
      style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span></div>
   <div>&nbsp;<span style="color: #795e26;">reemplaza</span>(<span
      style="color: #001080;">lista</span>) {</div>
   <div>&nbsp;<span style="color: #af00db;">return</span> <span
-     style="color: #795e26;">execute</span>(<span
+     style="color: #795e26;">cambio</span>(<span
      style="color: #0070c1;">conn</span>,</div>
   <div>&nbsp; [<span style="color: #0070c1;">PASATIEMPO</span>], <span
      style="color: #001080;">tx</span> <span
@@ -42,7 +41,7 @@
      style="color: #795e26;">objectStore</span>(<span
      style="color: #0070c1;">PASATIEMPO</span>)</div>
   <div>&nbsp; &nbsp;<span style="color: #0070c1;">store</span>.<span
-     style="color: #795e26;">clear</span>();</div>
+     style="color: #795e26;">clear</span>()</div>
   <div>&nbsp; &nbsp;<span style="color: #af00db;">for</span> (<span
      style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">modelo</span> <span
@@ -50,7 +49,7 @@
      style="color: #001080;">lista</span>) {</div>
   <div>&nbsp; &nbsp; <span style="color: #0070c1;">store</span>.<span
      style="color: #795e26;">add</span>(<span
-     style="color: #0070c1;">modelo</span>);</div>
+     style="color: #0070c1;">modelo</span>)</div>
   <div>&nbsp; &nbsp;}</div>
   <div>&nbsp; })</div>
   <div>}</div>

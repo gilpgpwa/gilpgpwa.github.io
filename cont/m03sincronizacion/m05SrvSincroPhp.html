@@ -23,10 +23,12 @@
      style="color: #a31515;">"/modelo/Pasatiempo.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
-  <div>&nbsp;<span style="color: #a31515;">"/lib/leeJson.php"</span>;</div><br>
+  <div>&nbsp;<span
+     style="color: #a31515;">"/../lib/php/leeJson.php"</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvSincro</span> <span
      style="color: #0000ff;">extends</span> <span
@@ -46,8 +48,7 @@
      style="color: #001080;">$lista</span> as <span
      style="color: #001080;">$modCli</span>) {</div>
   <div>&nbsp; &nbsp;<span style="color: #001080;">$modServ</span> =</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #795e26;">pasatiempoBusca</span>(<span
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">pasatiempoBusca</span>(<span
      style="color: #001080;">$modCli</span>-&gt;<span
      style="color: #001080;">uuid</span>);</div>
   <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
@@ -78,7 +79,7 @@
      style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;optamos&nbsp;por&nbsp;no&nbsp;revivir&nbsp;lo</span>
   </div>
   <div><span
-     style="color: #008000;">&nbsp; &nbsp; &nbsp; * que se ha borrado. */</span>
+     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;que&nbsp;se&nbsp;ha&nbsp;borrado.&nbsp;*/</span>
   </div>
   <div>&nbsp; &nbsp; &nbsp;<span
      style="color: #795e26;">pasatiempoModifica</span>(<span

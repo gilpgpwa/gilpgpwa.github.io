@@ -111,58 +111,58 @@
   },
   {
    "name": "m22habilitaNotificacionesJs.html",
-   "title": "lib/habilitaNotificaciones.js",
-   "description": "Código de «js/habilitaNotificaciones.js»."
+   "title": "lib/js/habilitaNotificaciones.js",
+   "description": "Código de «js/js/habilitaNotificaciones.js»."
   },
   {
    "name": "m23detectaJs.html",
-   "title": "lib/detecta.js",
-   "description": "Código de «js/detecta.js»."
+   "title": "lib/js/detecta.js",
+   "description": "Código de «js/js/detecta.js»."
   },
   {
    "name": "m24ejecutaJs.html",
-   "title": "lib/ejecuta.js",
-   "description": "Código de «lib/ejecuta.js»."
+   "title": "lib/js/ejecuta.js",
+   "description": "Código de «lib/js/ejecuta.js»."
   },
   {
    "name": "m25getSuscripcionJs.html",
-   "title": "lib/getSuscripcion.js",
-   "description": "Código de «js/getSuscripcion.js»."
+   "title": "lib/js/getSuscripcion.js",
+   "description": "Código de «js/js/getSuscripcion.js»."
   },
   {
    "name": "m26Method.html",
-   "title": "lib/Method.js",
-   "description": "Código de «lib/Method.js»."
+   "title": "lib/js/Method.js",
+   "description": "Código de «lib/js/Method.js»."
   },
   {
    "name": "m27muestraErrorJs.html",
-   "title": "lib/muestraError.js",
-   "description": "Código de «lib/muestraError.js»."
+   "title": "lib/js/muestraError.js",
+   "description": "Código de «lib/js/muestraError.js»."
   },
   {
    "name": "m28submitJs.html",
-   "title": "lib/submit.js",
-   "description": "Código de «lib/submit.js»."
+   "title": "lib/js/submit.js",
+   "description": "Código de «lib/js/submit.js»."
   },
   {
    "name": "m29urlBase64ToUint8ArrayJs.html",
-   "title": "lib/urlBase64ToUint8Array.js",
-   "description": "Código de «js/urlBase64ToUint8Array.js»."
+   "title": "lib/js/urlBase64ToUint8Array.js",
+   "description": "Código de «js/js/urlBase64ToUint8Array.js»."
   },
   {
    "name": "m30copiaCamposPhp.html",
-   "title": "srv/lib/copiaCampos.php",
-   "description": "Código de «srv/lib/copiaCampos.php»."
+   "title": "lib/php/copiaCampos.php",
+   "description": "Código de «lib/php/copiaCampos.php»."
   },
   {
    "name": "m31leeJsonPhp.html",
-   "title": "srv/lib/leeJson.php",
-   "description": "Código de «srv/lib/leeJson.php»."
+   "title": "lib/php/leeJson.php",
+   "description": "Código de «lib/php/leeJson.php»."
   },
   {
    "name": "m32ServicioPhp.html",
-   "title": "srv/lib/Servicio.php",
-   "description": "Código de «srv/lib/Servicio.php»."
+   "title": "lib/php/Servicio.php",
+   "description": "Código de «lib/php/Servicio.php»."
   }
  ]
 }

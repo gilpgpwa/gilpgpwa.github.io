@@ -1,27 +1,25 @@
 <muestra-codigo>
  <div>
   <div><span style="color: #af00db;">import</span> {</div>
-  <div>&nbsp;<span style="color: #001080;">query</span></div>
+  <div>&nbsp;<span style="color: #001080;">consulta</span></div>
   <div>} <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"../../lib/query.js"</span>;</div>
+     style="color: #a31515;">"../../lib/js/consulta.js"</span></div>
   <div><span style="color: #af00db;">import</span> {</div>
   <div>&nbsp;<span style="color: #001080;">conn</span>,</div>
   <div>&nbsp;<span style="color: #001080;">PASATIEMPO</span></div>
   <div>} <span style="color: #af00db;">from</span> <span
-     style="color: #a31515;">"./conn.js"</span>;</div><br>
+     style="color: #a31515;">"./conn.js"</span></div><br>
   <div><span style="color: #008000;">/**</span></div>
   <div><span
      style="color: #008000;">&nbsp;* Lista todos los objetos que no</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* tienen borrado lógico.</span></div>
+  <div><span style="color: #008000;">&nbsp;* tienen borrado lógico.</span></div>
   <div><span style="color: #008000;">&nbsp;*/</span></div>
   <div><span style="color: #af00db;">export</span> <span
      style="color: #0000ff;">async</span> <span
      style="color: #0000ff;">function</span></div>
-  <div>&nbsp;<span
-     style="color: #795e26;">pasatiempoConsulta</span>() {</div>
+  <div>&nbsp;<span style="color: #795e26;">pasatiempoConsulta</span>() {</div>
   <div>&nbsp;<span style="color: #af00db;">return</span> <span
-     style="color: #795e26;">query</span>(<span
+     style="color: #795e26;">consulta</span>(<span
      style="color: #0070c1;">conn</span>,</div>
   <div>&nbsp; [<span style="color: #0070c1;">PASATIEMPO</span>], (<span
      style="color: #001080;">tx</span>, <span
@@ -32,11 +30,9 @@
   <div>&nbsp; &nbsp;<span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">proc</span> = <span
      style="color: #001080;">tx</span>.</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #795e26;">objectStore</span>(<span
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">objectStore</span>(<span
      style="color: #0070c1;">PASATIEMPO</span>).</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #795e26;">openCursor</span>()</div>
+  <div>&nbsp; &nbsp; <span style="color: #795e26;">openCursor</span>()</div>
   <div>&nbsp; &nbsp;<span style="color: #0070c1;">proc</span>.<span
      style="color: #795e26;">onsuccess</span> = () <span
      style="color: #0000ff;">=&gt;</span> {</div>
@@ -47,8 +43,7 @@
   <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
      style="color: #0070c1;">cursor</span> === <span
      style="color: #0000ff;">null</span>) {</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #795e26;">resolve</span>(<span
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">resolve</span>(<span
      style="color: #0070c1;">modelos</span>)</div>
   <div>&nbsp; &nbsp; } <span style="color: #af00db;">else</span> {</div>
   <div>&nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">let</span> <span
@@ -59,13 +54,11 @@
      style="color: #001080;">modelo</span>.<span
      style="color: #001080;">eliminado</span> == <span
      style="color: #098658;">0</span>) {</div>
-  <div>&nbsp; &nbsp; &nbsp; <span
-     style="color: #0070c1;">modelos</span>.<span
+  <div>&nbsp; &nbsp; &nbsp; <span style="color: #0070c1;">modelos</span>.<span
      style="color: #795e26;">push</span>(<span
      style="color: #001080;">modelo</span>);</div>
   <div>&nbsp; &nbsp; &nbsp;}</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #0070c1;">cursor</span>.<span
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #0070c1;">cursor</span>.<span
      style="color: #795e26;">continue</span>()</div>
   <div>&nbsp; &nbsp; }</div>
   <div>&nbsp; &nbsp;}</div>

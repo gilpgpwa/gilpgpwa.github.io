@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>30. sw.js - GilPG PWA</title>
+ <title>29. sw.js - GilPG PWA</title>
  <meta name="description" content="Código de «sw.js».">
  <style>
  :root {
@@ -396,10 +396,10 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m03sincronizacion/m40siteWebmanifest.html" title="29. site.webmanifest">◀</a>
-  <a class="siguiente" href="/m03sincronizacion/m28frecuentes.html" title="31. Archivos frecuentes">▶</a>
+  <a class="anterior" href="/m03sincronizacion/m38configJs.html" title="28. js/config.js">◀</a>
+  <a class="siguiente" href="/m03sincronizacion/m28frecuentes.html" title="30. Archivos frecuentes">▶</a>
  </div>
-   <h1 >30. sw.js</h1><muestra-codigo>
+   <h1 >29. sw.js</h1><muestra-codigo>
  <div>
   <div><span style="color: #008000;">/* Este archivo debe estar</span></div>
   <div><span
@@ -407,8 +407,7 @@
   </div>
   <div><span style="color: #008000;">&nbsp;* sitio.</span></div>
   <div><span style="color: #008000;">&nbsp;* </span></div>
-  <div><span
-     style="color: #008000;">&nbsp;* Cualquier cambio en el</span></div>
+  <div><span style="color: #008000;">&nbsp;* Cualquier cambio en el</span></div>
   <div><span
      style="color: #008000;">&nbsp;* contenido de este archivo hace</span></div>
   <div><span
@@ -439,24 +438,6 @@
   <div><span style="color: #008000;">&nbsp;*/</span></div>
   <div><span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">ARCHIVOS</span> = [</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/icono2048.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x48.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x72.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x96.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x128.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x192.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x384.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon_x512.png"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"img/maskable_icon.png"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"js/dao/conn.js"</span>,</div>
   <div>&nbsp;<span
      style="color: #a31515;">"js/dao/pasatiempoAgrega.js"</span>,</div>
@@ -470,26 +451,23 @@
      style="color: #a31515;">"js/dao/pasatiempoElimina.js"</span>,</div>
   <div>&nbsp;<span
      style="color: #a31515;">"js/dao/pasatiempoModifica.js"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"js/dao/reemplaza.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"js/dao/reemplaza.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"js/agrega.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"js/config.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"js/index.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"js/modifica.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/cod.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/ejecuta.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/execute.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/Method.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/css/lista.css"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/cod.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/ejecuta.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/cambio.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/Method.js"</span>,</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"lib/muestraError.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/query.js"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"lib/regSw.js"</span>,</div>
+     style="color: #a31515;">"lib/js/muestraError.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/consulta.js"</span>,</div>
+  <div>&nbsp;<span style="color: #a31515;">"lib/js/regSw.js"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"agrega.html"</span>,</div>
-  <div>&nbsp;<span style="color: #a31515;">"favicon.ico"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"index.html"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"modifica.html"</span>,</div>
-  <div>&nbsp;<span
-     style="color: #a31515;">"site.webmanifest"</span>,</div>
   <div>&nbsp;<span style="color: #a31515;">"/"</span></div>
   <div>]</div><br>
   <div><span style="color: #af00db;">if</span> (<span
@@ -508,8 +486,7 @@
   <div>&nbsp;<span style="color: #001080;">self</span>.<span
      style="color: #795e26;">addEventListener</span>(<span
      style="color: #a31515;">"fetch"</span>,</div>
-  <div>&nbsp; <span
-     style="color: #795e26;">descargaDatos</span>)</div><br>
+  <div>&nbsp; <span style="color: #795e26;">descargaDatos</span>)</div><br>
   <div>&nbsp;<span
      style="color: #008000;">// Evento cuando está activo.</span></div>
   <div>&nbsp;<span style="color: #001080;">self</span>.<span
@@ -556,8 +533,8 @@
      style="color: #001080;">evt</span>) {</div>
   <div>&nbsp;<span style="color: #af00db;">if</span> (</div>
   <div>&nbsp; <span style="color: #001080;">evt</span>.<span
-     style="color: #0070c1;">request</span>.<span
-     style="color: #0070c1;">method</span> === <span
+     style="color: #001080;">request</span>.<span
+     style="color: #001080;">method</span> === <span
      style="color: #a31515;">"GET"</span>) {</div>
   <div>&nbsp; <span style="color: #001080;">evt</span>.<span
      style="color: #795e26;">respondWith</span>(<span
@@ -584,11 +561,11 @@
      style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">key</span> <span
      style="color: #0000ff;">of</span> <span
-     style="color: #0070c1;">keys</span>) {</div>
+     style="color: #001080;">keys</span>) {</div>
   <div>&nbsp; <span style="color: #af00db;">await</span> <span
      style="color: #001080;">caches</span>.<span
      style="color: #795e26;">delete</span>(<span
-     style="color: #0070c1;">key</span>)</div>
+     style="color: #001080;">key</span>)</div>
   <div>&nbsp;}</div>
   <div>&nbsp;<span
      style="color: #008000;">// Carga el nuevo contenido.</span></div>
@@ -599,7 +576,7 @@
      style="color: #795e26;">open</span>(<span
      style="color: #0070c1;">CACHE</span>)</div>
   <div>&nbsp;<span style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">cache</span>.<span
+     style="color: #001080;">cache</span>.<span
      style="color: #795e26;">addAll</span>(<span
      style="color: #0070c1;">ARCHIVOS</span>)</div>
   <div>&nbsp;<span style="color: #001080;">console</span>.</div>
@@ -633,22 +610,20 @@
   <div>&nbsp;<span style="color: #0000ff;">const</span> <span
      style="color: #0070c1;">response</span> =</div>
   <div>&nbsp; <span style="color: #af00db;">await</span> <span
-     style="color: #0070c1;">cache</span>.<span
+     style="color: #001080;">cache</span>.<span
      style="color: #795e26;">match</span>(<span
      style="color: #001080;">evt</span>.<span
-     style="color: #0070c1;">request</span>,</div>
-  <div>&nbsp; &nbsp;{ <span
-     style="color: #001080;">ignoreSearch</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #0000ff;">true</span>})</div>
+     style="color: #001080;">request</span>,</div>
+  <div>&nbsp; &nbsp;{ <span style="color: #001080;">ignoreSearch:</span> <span
+     style="color: #0000ff;">true</span> })</div>
   <div>&nbsp;<span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">response</span>) {</div>
+     style="color: #001080;">response</span>) {</div>
   <div>&nbsp; <span
      style="color: #008000;">/* Si lo encuentra, devuelve el</span></div>
   <div><span
      style="color: #008000;">&nbsp; &nbsp;* archivo del cache. */</span></div>
   <div>&nbsp; <span style="color: #af00db;">return</span> <span
-     style="color: #0070c1;">response</span></div>
+     style="color: #001080;">response</span></div>
   <div>&nbsp;} <span style="color: #af00db;">else</span> {</div>
   <div>&nbsp; <span
      style="color: #008000;">/* Si no lo encuentra, lo</span></div>
@@ -661,7 +636,7 @@
   <div>&nbsp; <span style="color: #af00db;">return</span> <span
      style="color: #795e26;">fetch</span>(<span
      style="color: #001080;">evt</span>.<span
-     style="color: #0070c1;">request</span>)</div>
+     style="color: #001080;">request</span>)</div>
   <div>&nbsp;}</div>
   <div>}</div>
  </div>
@@ -697,7 +672,7 @@
       data-logo="true">GilPG PWA</a>
    </p><p>
     <a class="paginaAnterior" href="/m02push/m32ServicioPhp.html"
-      title="32. srv/lib/Servicio.php">▲</a>
+      title="32. lib/php/Servicio.php">▲</a>
    </p>
      <h1><a href="/m03sincronizacion/index.html">3. Sincronización</a></h1>
    <ol type="1">
@@ -843,11 +818,6 @@
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m40siteWebmanifest.html">site.webmanifest</a>
-     </p>
-    </li>
-    <li>
-     <p>
       <a href="/m03sincronizacion/m41swJs.html" class="actual">sw.js</a>
      </p>
     </li>
@@ -863,102 +833,52 @@
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m30codJs.html">lib/cod.js</a>
+      <a href="/m03sincronizacion/m53listaCss.html">lib/css/lista.css</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m31ejecutaJs.html">lib/ejecuta.js</a>
+      <a href="/m03sincronizacion/m32cambioJs.html">lib/js/cambio.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m32executeJs.html">lib/execute.js</a>
+      <a href="/m03sincronizacion/m30codJs.html">lib/js/cod.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m33Method.html">lib/Method.js</a>
+      <a href="/m03sincronizacion/m35consultaJs.html">lib/js/consulta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m34muestraErrorJs.html">lib/muestraError.js</a>
+      <a href="/m03sincronizacion/m31ejecutaJs.html">lib/js/ejecuta.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m35queryJs.html">lib/query.js</a>
+      <a href="/m03sincronizacion/m33Method.html">lib/js/Method.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m39regSwJs.html">lib/regSw.js</a>
+      <a href="/m03sincronizacion/m34muestraErrorJs.html">lib/js/muestraError.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m36leeJsonPhp.html">srv/lib/leeJson.php</a>
+      <a href="/m03sincronizacion/m39regSwJs.html">lib/js/regSw.js</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m37ServicioPhp.html">srv/lib/Servicio.php</a>
+      <a href="/m03sincronizacion/m36leeJsonPhp.html">lib/php/leeJson.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m42imagenes.html">Imágenes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m43faviconIco.html">favicon.ico</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m44icono2048png.html">img/icono2048.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m45maskable_icon_x48png.html">img/maskable_icon_x48.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m46maskable_icon_x72png.html">img/maskable_icon_x72.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m47maskable_icon_x96png.html">img/maskable_icon_x96.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m48maskable_icon_x128png.html">img/maskable_icon_x128.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m49maskable_icon_x192png.html">img/maskable_icon_x192.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m50maskable_icon_x384png.html">img/maskable_icon_x384.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m51maskable_icon_x512png.html">img/maskable_icon_x512.png</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m52maskable_iconPng.html">img/maskable_icon.png</a>
+      <a href="/m03sincronizacion/m37ServicioPhp.html">lib/php/Servicio.php</a>
      </p>
     </li>
    </ol>
@@ -972,7 +892,7 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m03sincronizacion/m40siteWebmanifest.html"
+ let urlAnterior = "/m03sincronizacion/m38configJs.html"
  /**@type {string} */
  let urlSiguiente = "/m03sincronizacion/m28frecuentes.html"
  /**@type {number|null} */

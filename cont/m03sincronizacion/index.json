@@ -145,11 +145,6 @@
    "description": "Código de «js/config.js»."
   },
   {
-   "name": "m40siteWebmanifest.html",
-   "title": "site.webmanifest",
-   "description": "Código de «site.webmanifest»."
-  },
-  {
    "name": "m41swJs.html",
    "title": "sw.js",
    "description": "Código de «sw.js»."
@@ -165,104 +160,54 @@
    "description": "Código de «jsconfig.json»."
   },
   {
+   "name": "m53listaCss.html",
+   "title": "lib/css/lista.css",
+   "description": "Código de «lib/css/lista.css»."
+  },
+  {
+   "name": "m32cambioJs.html",
+   "title": "lib/js/cambio.js",
+   "description": "Código de «lib/js/cambio.js»."
+  },
+  {
    "name": "m30codJs.html",
-   "title": "lib/cod.js",
-   "description": "Código de «js/cod.js»."
+   "title": "lib/js/cod.js",
+   "description": "Código de «lib/js/cod.js»."
+  },
+  {
+   "name": "m35consultaJs.html",
+   "title": "lib/js/consulta.js",
+   "description": "Código de «lib/js/consulta.js»."
   },
   {
    "name": "m31ejecutaJs.html",
-   "title": "lib/ejecuta.js",
-   "description": "Código de «lib/ejecuta.js»."
-  },
-  {
-   "name": "m32executeJs.html",
-   "title": "lib/execute.js",
-   "description": "Código de «js/execute.js»."
+   "title": "lib/js/ejecuta.js",
+   "description": "Código de «lib/js/ejecuta.js»."
   },
   {
    "name": "m33Method.html",
-   "title": "lib/Method.js",
-   "description": "Código de «lib/Method.js»."
+   "title": "lib/js/Method.js",
+   "description": "Código de «lib/js/Method.js»."
   },
   {
    "name": "m34muestraErrorJs.html",
-   "title": "lib/muestraError.js",
-   "description": "Código de «lib/muestraError.js»."
-  },
-  {
-   "name": "m35queryJs.html",
-   "title": "lib/query.js",
-   "description": "Código de «js/query.js»."
+   "title": "lib/js/muestraError.js",
+   "description": "Código de «lib/js/muestraError.js»."
   },
   {
    "name": "m39regSwJs.html",
-   "title": "lib/regSw.js",
-   "description": "Código de «js/regSw.js»."
+   "title": "lib/js/regSw.js",
+   "description": "Código de «lib/js/regSw.js»."
   },
   {
    "name": "m36leeJsonPhp.html",
-   "title": "srv/lib/leeJson.php",
-   "description": "Código de «srv/lib/leeJson.php»."
+   "title": "lib/php/leeJson.php",
+   "description": "Código de «lib/php/leeJson.php»."
   },
   {
    "name": "m37ServicioPhp.html",
-   "title": "srv/lib/Servicio.php",
-   "description": "Código de «srv/lib/Servicio.php»."
-  },
-  {
-   "name": "m42imagenes.html",
-   "title": "Imágenes",
-   "description": "Subsección «Imágenes»."
-  },
-  {
-   "name": "m43faviconIco.html",
-   "title": "favicon.ico",
-   "description": "Código del archivo «favicon.ico»."
-  },
-  {
-   "name": "m44icono2048png.html",
-   "title": "img/icono2048.png",
-   "description": "Código del archivo «img/icono2048.png»."
-  },
-  {
-   "name": "m45maskable_icon_x48png.html",
-   "title": "img/maskable_icon_x48.png",
-   "description": "Código del archivo «img/maskable_icon_x48.png»."
-  },
-  {
-   "name": "m46maskable_icon_x72png.html",
-   "title": "img/maskable_icon_x72.png",
-   "description": "Código del archivo «img/maskable_icon_x72.png»."
-  },
-  {
-   "name": "m47maskable_icon_x96png.html",
-   "title": "img/maskable_icon_x96.png",
-   "description": "Código del archivo «img/maskable_icon_x96.png»."
-  },
-  {
-   "name": "m48maskable_icon_x128png.html",
-   "title": "img/maskable_icon_x128.png",
-   "description": "Código del archivo «img/maskable_icon_x128.png»."
-  },
-  {
-   "name": "m49maskable_icon_x192png.html",
-   "title": "img/maskable_icon_x192.png",
-   "description": "Código del archivo «img/maskable_icon_x192.png»."
-  },
-  {
-   "name": "m50maskable_icon_x384png.html",
-   "title": "img/maskable_icon_x384.png",
-   "description": "Código del archivo «img/maskable_icon_x384.png»."
-  },
-  {
-   "name": "m51maskable_icon_x512png.html",
-   "title": "img/maskable_icon_x512.png",
-   "description": "Código del archivo «img/maskable_icon_x512.png»."
-  },
-  {
-   "name": "m52maskable_iconPng.html",
-   "title": "img/maskable_icon.png",
-   "description": "Código del archivo «img/maskable_icon.png»."
+   "title": "lib/php/Servicio.php",
+   "description": "Código de «lib/php/Servicio.php»."
   }
  ]
 }

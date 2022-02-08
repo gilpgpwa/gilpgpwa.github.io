@@ -20,9 +20,8 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div><br>
-  <div><span
-     style="color: #0000ff;">use</span> Minishlink\WebPush\<span
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div><br>
+  <div><span style="color: #0000ff;">use</span> Minishlink\WebPush\<span
      style="color: #267f99;">WebPush</span>;</div><br>
   <div><span style="color: #0000ff;">class</span> <span
      style="color: #267f99;">SrvNotifica</span> <span
@@ -33,15 +32,12 @@
   <div>&nbsp;<span style="color: #0000ff;">function</span> <span
      style="color: #795e26;">implementacion</span>()</div>
   <div>&nbsp;{</div>
-  <div>&nbsp; <span
-     style="color: #001080;">$suscripciones</span> =</div>
+  <div>&nbsp; <span style="color: #001080;">$suscripciones</span> =</div>
   <div>&nbsp; &nbsp;<span
      style="color: #795e26;">suscripcionConsulta</span>();</div><br>
   <div>&nbsp; <span style="color: #001080;">$auth</span> = [</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #a31515;">"VAPID"</span> =&gt; [</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #a31515;">"subject"</span> =&gt;</div>
+  <div>&nbsp; &nbsp;<span style="color: #a31515;">"VAPID"</span> =&gt; [</div>
+  <div>&nbsp; &nbsp; <span style="color: #a31515;">"subject"</span> =&gt;</div>
   <div>&nbsp; &nbsp; <span
      style="color: #a31515;">"https://gilpgnot.000webhostapp.com/"</span>,</div>
   <div>&nbsp; &nbsp; <span
@@ -64,26 +60,20 @@
      style="color: #001080;">$suscripciones</span></div>
   <div>&nbsp; &nbsp;as <span
      style="color: #001080;">$suscripcion</span>) {</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #001080;">$webPush</span>-&gt;<span
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$webPush</span>-&gt;<span
      style="color: #795e26;">queueNotification</span>(</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #001080;">$suscripcion</span>,</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #a31515;">"Hola! 👋"</span></div>
+  <div>&nbsp; &nbsp; <span style="color: #001080;">$suscripcion</span>,</div>
+  <div>&nbsp; &nbsp; <span style="color: #a31515;">"Hola! 👋"</span></div>
   <div>&nbsp; &nbsp;);</div>
   <div>&nbsp; }</div>
-  <div>&nbsp; <span
-     style="color: #001080;">$reportes</span> = <span
+  <div>&nbsp; <span style="color: #001080;">$reportes</span> = <span
      style="color: #001080;">$webPush</span>-&gt;<span
      style="color: #795e26;">flush</span>();</div>
-  <div>&nbsp; <span
-     style="color: #001080;">$resultados</span> = [];</div>
+  <div>&nbsp; <span style="color: #001080;">$resultados</span> = [];</div>
   <div>&nbsp; <span style="color: #af00db;">foreach</span> (<span
      style="color: #001080;">$reportes</span> as <span
      style="color: #001080;">$reporte</span>) {</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #001080;">$endpoint</span> = <span
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$endpoint</span> = <span
      style="color: #001080;">$reporte</span></div>
   <div>&nbsp; &nbsp; -&gt;<span
      style="color: #795e26;">getRequest</span>()-&gt;<span
@@ -102,10 +92,8 @@
      style="color: #a31515;">"resultado"</span> =&gt; <span
      style="color: #a31515;">"Éxito"</span></div>
   <div>&nbsp; &nbsp; ];</div>
-  <div>&nbsp; &nbsp;} <span
-     style="color: #af00db;">else</span> {</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #af00db;">if</span> (<span
+  <div>&nbsp; &nbsp;} <span style="color: #af00db;">else</span> {</div>
+  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
      style="color: #001080;">$reporte</span></div>
   <div>&nbsp; &nbsp; &nbsp;-&gt;<span
      style="color: #795e26;">isSubscriptionExpired</span>()</div>

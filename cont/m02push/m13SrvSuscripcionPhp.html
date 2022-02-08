@@ -13,8 +13,7 @@
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/dao/suscripcionAgrega.php"</span>;</div>
-  <div><span
-     style="color: #af00db;">require_once</span> <span
+  <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
      style="color: #a31515;">"/dao/suscripcionBusca.php"</span>;</div>
@@ -29,15 +28,15 @@
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/Servicio.php"</span>;</div>
+     style="color: #a31515;">"/../lib/php/Servicio.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/leeJson.php"</span>;</div>
+     style="color: #a31515;">"/../lib/php/leeJson.php"</span>;</div>
   <div><span style="color: #af00db;">require_once</span> <span
      style="color: #0000ff;">__DIR__</span> .</div>
   <div>&nbsp;<span
-     style="color: #a31515;">"/lib/copiaCampos.php"</span>;</div><br>
+     style="color: #a31515;">"/../lib/php/copiaCampos.php"</span>;</div><br>
   <div><span style="color: #0000ff;">function</span> <span
      style="color: #795e26;">leeSuscripcion</span>()</div>
   <div>{</div>
@@ -69,17 +68,14 @@
   <div>&nbsp; <span style="color: #af00db;">if</span> (<span
      style="color: #001080;">$method</span> === <span
      style="color: #a31515;">"POST"</span>) {</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #795e26;">suscripcionAgrega</span>(<span
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">suscripcionAgrega</span>(<span
      style="color: #001080;">$modelo</span>);</div>
   <div>&nbsp; } <span style="color: #af00db;">elseif</span> (<span
      style="color: #001080;">$method</span> === <span
      style="color: #a31515;">"PUT"</span>) {</div>
-  <div>&nbsp; &nbsp;<span
-     style="color: #001080;">$registrado</span> = <span
+  <div>&nbsp; &nbsp;<span style="color: #001080;">$registrado</span> = <span
      style="color: #795e26;">suscripcionBusca</span>(</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
+  <div>&nbsp; &nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
      style="color: #001080;">endpoint</span></div>
   <div>&nbsp; &nbsp;);</div>
   <div>&nbsp; &nbsp;<span style="color: #af00db;">if</span> (<span
@@ -99,8 +95,7 @@
      style="color: #a31515;">"</span>) {</div>
   <div>&nbsp; &nbsp;<span
      style="color: #795e26;">suscripcionElimina</span>(</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #001080;">$modelo</span>-&gt;<span
+  <div>&nbsp; &nbsp; <span style="color: #001080;">$modelo</span>-&gt;<span
      style="color: #001080;">endpoint</span></div>
   <div>&nbsp; &nbsp;);</div>
   <div>&nbsp; }</div>
