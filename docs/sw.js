@@ -23,12 +23,15 @@ const ARCHIVOS = [
    "/img/icono/maskable_icon_x512.png",
    "/img/icono/maskable_icon_x72.png",
    "/img/icono/maskable_icon_x96.png",
+   "/",
    "/index.html",
    "/js/muestra-codigo.js",
+   "/m01notificaciones/",
    "/m01notificaciones/index.html",
    "/m01notificaciones/mAejemplo.html",
    "/m01notificaciones/mBresumen.html",
    "/m01notificaciones/print.html",
+   "/m02push/",
    "/m02push/index.html",
    "/m02push/m01instrucciones.html",
    "/m02push/m02archivos.html",
@@ -63,6 +66,7 @@ const ARCHIVOS = [
    "/m02push/m31leeJsonPhp.html",
    "/m02push/m32ServicioPhp.html",
    "/m02push/print.html",
+   "/m03sincronizacion/",
    "/m03sincronizacion/index.html",
    "/m03sincronizacion/m01instrucciones.html",
    "/m03sincronizacion/m02archivos.html",
@@ -108,8 +112,8 @@ const ARCHIVOS = [
    "/m03sincronizacion/print.html",
    "/print.html",
    "/site.webmanifest",
-   "/src/m01notificaciones/index.html",
-    "/"]
+   "/src/m01notificaciones/",
+   "/src/m01notificaciones/index.html" ]
 
 if (self instanceof ServiceWorkerGlobalScope) {
  self.addEventListener("install", installListener)

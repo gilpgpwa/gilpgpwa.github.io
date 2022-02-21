@@ -1,1 +1,0 @@
-* Agregar metadatos para que los enlaces puedan obtener el ícono de la página.
