@@ -113,7 +113,8 @@ const ARCHIVOS = [
    "/print.html",
    "/site.webmanifest",
    "/src/m01notificaciones/",
-   "/src/m01notificaciones/index.html" ]
+   "/src/m01notificaciones/index.html",
+   "/src/m02push/composer.zip" ]
 
 if (self instanceof ServiceWorkerGlobalScope) {
  self.addEventListener("install", installListener)
