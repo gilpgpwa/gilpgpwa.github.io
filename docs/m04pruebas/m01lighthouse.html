@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>13. js/dao/conn.js - GilPG PWA</title>
- <meta name="description" content="Código de «js/dao/conn.js».">
+ <title>1. Pruebas de rendimiento y soporte de estándares - GilPG PWA</title>
+ <meta name="description" content="Pruebas de rendimiento y soporte de estándares.">
  <meta name="og:image" content="https://gilpgpwa.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -397,101 +397,26 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m03sincronizacion/m12bdCli.html" title="12. Base de datos en el cliente">◀</a>
-  <a class="siguiente" href="/m03sincronizacion/m14pasatiempoAgregaJs.html" title="14. js/dao/pasatiempoAgrega.js">▶</a>
+  <a class="anterior" href="/m04pruebas/index.html" title="4. Pruebas">◀</a>
+  <a class="siguiente" href="/m04pruebas/m02unit.html" title="2. Pruebas de unidad">▶</a>
  </div>
-   <h1 >13. js/dao/conn.js</h1><muestra-codigo>
- <div>
-  <div><span style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">PASATIEMPO</span> =</div>
-  <div>&nbsp;<span style="color: #a31515;">"Pasatiempo"</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">BD_NOMBRE</span> = <span
-     style="color: #a31515;">"sincro"</span></div>
-  <div><span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">BD_VERSION</span> = <span
-     style="color: #098658;">1</span></div><br>
-  <div><span style="color: #008000;">/** </span><span
-     style="color: #0000ff;">@type</span><span
-     style="color: #008000;"> </span><span
-     style="color: #267f99;">{Promise&lt;IDBDatabase&gt;}</span><span
-     style="color: #008000;"> */</span></div>
-  <div><span style="color: #af00db;">export</span> <span
-     style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">conn</span> =</div>
-  <div>&nbsp;<span style="color: #0000ff;">new</span> <span
-     style="color: #267f99;">Promise</span>((<span
-     style="color: #795e26;">resolve</span>, <span
-     style="color: #795e26;">reject</span>) <span
-     style="color: #0000ff;">=&gt;</span> {</div>
-  <div>&nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">solicitud</span> = <span
-     style="color: #001080;">indexedDB</span>.<span
-     style="color: #795e26;">open</span>(</div>
-  <div>&nbsp; &nbsp;<span style="color: #0070c1;">BD_NOMBRE</span>, <span
-     style="color: #0070c1;">BD_VERSION</span>)</div>
-  <div>&nbsp; <span style="color: #0070c1;">solicitud</span>.<span
-     style="color: #795e26;">onerror</span> =</div>
-  <div>&nbsp; &nbsp;() <span style="color: #0000ff;">=&gt;</span> <span
-     style="color: #795e26;">reject</span>(<span
-     style="color: #0070c1;">solicitud</span>.<span
-     style="color: #0070c1;">error</span>)</div>
-  <div>&nbsp; <span style="color: #0070c1;">solicitud</span>.<span
-     style="color: #795e26;">onsuccess</span> =</div>
-  <div>&nbsp; &nbsp;() <span style="color: #0000ff;">=&gt;</span> <span
-     style="color: #795e26;">resolve</span>(<span
-     style="color: #0070c1;">solicitud</span>.<span
-     style="color: #0070c1;">result</span>)</div>
-  <div>&nbsp; <span
-     style="color: #008000;">/* Automáticamente se inicia una</span></div>
-  <div><span
-     style="color: #008000;">&nbsp; &nbsp;* transacción para cambio de</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp; &nbsp;* versión. */</span></div>
-  <div>&nbsp; <span style="color: #0070c1;">solicitud</span>.<span
-     style="color: #795e26;">onupgradeneeded</span> =</div>
-  <div>&nbsp; &nbsp;() <span style="color: #0000ff;">=&gt;</span> {</div>
-  <div>&nbsp; &nbsp; <span style="color: #0000ff;">const</span> <span
-     style="color: #0070c1;">bd</span> = <span
-     style="color: #0070c1;">solicitud</span>.<span
-     style="color: #0070c1;">result</span></div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #008000;">/* Como hay cambio de versión,</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;borra&nbsp;el&nbsp;almacén&nbsp;si&nbsp;es&nbsp;que</span>
-  </div>
-  <div><span
-     style="color: #008000;">&nbsp; &nbsp; &nbsp;* existe. */</span></div>
-  <div>&nbsp; &nbsp; <span style="color: #af00db;">if</span> (<span
-     style="color: #0070c1;">bd</span>.<span
-     style="color: #0070c1;">objectStoreNames</span></div>
-  <div>&nbsp; &nbsp; &nbsp;.<span
-     style="color: #795e26;">contains</span>(<span
-     style="color: #0070c1;">PASATIEMPO</span>)) {</div>
-  <div>&nbsp; &nbsp; &nbsp;<span style="color: #0070c1;">bd</span>.<span
-     style="color: #795e26;">deleteObjectStore</span>(</div>
-  <div>&nbsp; &nbsp; &nbsp; <span
-     style="color: #0070c1;">PASATIEMPO</span>)</div>
-  <div>&nbsp; &nbsp; }</div>
-  <div>&nbsp; &nbsp; <span
-     style="color: #008000;">/* Crea el almacén "Pasatiempo"</span></div>
-  <div><span
-     style="color: #008000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;con&nbsp;el&nbsp;campo&nbsp;llave&nbsp;"uuid".*/</span>
-  </div>
-  <div>&nbsp; &nbsp; <span style="color: #0070c1;">bd</span>.</div>
-  <div>&nbsp; &nbsp; &nbsp;<span
-     style="color: #795e26;">createObjectStore</span>(<span
-     style="color: #0070c1;">PASATIEMPO</span>,</div>
-  <div>&nbsp; &nbsp; &nbsp; { <span
-     style="color: #001080;">keyPath</span><span
-     style="color: #001080;">:</span> <span
-     style="color: #a31515;">"uuid"</span> })</div>
-  <div>&nbsp; &nbsp;}</div>
-  <div>&nbsp;});</div>
- </div>
-</muestra-codigo>
+   <h1 >1. Pruebas de rendimiento y soporte de estándares</h1><div class="lectura">
+ <ul>
+  <li>
+   <p>
+    <dfn>Lighthouse</dfn>
+    es una herramienta automatizada para mejorar el rendimiento, calidad y
+    corrección de aplicaciones web.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/14ev2YZVrturnlNOn9cS4nMH0LvWTU5Ad/view?usp=sharing"
+      target="_blank" rel="nooper">Video sobre el uso de Lighthouse.</a>
+   </p>
+  </li>
+ </ul>
+</div>
  <footer>
  <p>
   <a rel="license"
@@ -522,220 +447,27 @@
     <a href="/index.html"
       data-logo="true">GilPG PWA</a>
    </p><p>
-    <a class="paginaAnterior" href="/m02push/m32ServicioPhp.html"
-      title="32. lib/php/Servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m03sincronizacion/m37ServicioPhp.html"
+      title="41. lib/php/Servicio.php">▲</a>
    </p>
-     <h1><a href="/m03sincronizacion/index.html">3. Sincronización</a></h1>
+     <h1><a href="/m04pruebas/index.html">4. Pruebas</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m03sincronizacion/m01instrucciones.html">Instrucciones</a>
+      <a href="/m04pruebas/m01lighthouse.html" class="actual">Pruebas de rendimiento y soporte de estándares</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m02archivos.html">Archivos</a>
+      <a href="/m04pruebas/m02unit.html">Pruebas de unidad</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m03sincronizacion/m03servidor.html">Servidor</a>
+      <a href="/m04pruebas/m03selenium.html">Pruebas de la app</a>
      </p>
     </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m04PasatiempoPhp.html">srv/modelo/Pasatiempo.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m05SrvSincroPhp.html">srv/SrvSincro.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m06bdCreaPhp.html">srv/dao/bdCrea.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m07AccesoBdPhp.html">srv/dao/AccesoBd.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m08pasatiempoAgregaPhp.html">srv/dao/pasatiempoAgrega.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m09pasatiempoBuscaPhp.html">srv/dao/pasatiempoBusca.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m10pasatiempoConsultaPhp.html">srv/dao/pasatiempoConsulta.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m11pasatiempoModificaPhp.html">srv/dao/pasatiempoModifica.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m12bdCli.html">Base de datos en el cliente</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m13connJs.html" class="actual">js/dao/conn.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m14pasatiempoAgregaJs.html">js/dao/pasatiempoAgrega.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m15pasatiempoBuscaJs.html">js/dao/pasatiempoBusca.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m16pasatiempoConsultaJs.html">js/dao/pasatiempoConsulta.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m17pasatiempoConsultaTodosJs.html">js/dao/pasatiempoConsultaTodos.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m18pasatiempoEliminaJs.html">js/dao/pasatiempoElimina.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m19pasatiempoModificaJs.html">js/dao/pasatiempoModifica.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m20reemplazaJs.html">js/dao/reemplaza.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m21funcionalidad.html">Funcionalidad</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m22indexHtml.html">index.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m23indexJs.html">js/index.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m24agregaHtml.html">agrega.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m25agregaJs.html">js/agrega.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m26modificaHtml.html">modifica.html</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m27modificaJs.html">js/modifica.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m38configJs.html">js/config.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m41swJs.html">sw.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m28frecuentes.html">Archivos frecuentes</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m29jsconfigJson.html">jsconfig.json</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m53listaCss.html">lib/css/lista.css</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m32idbExecuteJs.html">lib/js/idbExecute.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m35idbQueryJs.html">lib/js/idbQuery.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m30codJs.html">lib/js/cod.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m31ejecutaJs.html">lib/js/ejecuta.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m33Method.html">lib/js/Method.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m34muestraErrorJs.html">lib/js/muestraError.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m39regSwJs.html">lib/js/regSw.js</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m36leeJsonPhp.html">lib/php/leeJson.php</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      <a href="/m03sincronizacion/m37ServicioPhp.html">lib/php/Servicio.php</a>
-     </p>
-    </li>
-   </ol><p>
-    <a class="paginaSiguiente" href="/m04pruebas/index.html"
-      title="4. Pruebas">▼</a>
-   </p>
+   </ol>
 </nav>
  <script>
  registraServiceWorker("/sw.js")
@@ -746,9 +478,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m03sincronizacion/m12bdCli.html"
+ let urlAnterior = "/m04pruebas/index.html"
  /**@type {string} */
- let urlSiguiente = "/m03sincronizacion/m14pasatiempoAgregaJs.html"
+ let urlSiguiente = "/m04pruebas/m02unit.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

@@ -1,0 +1,23 @@
+{
+ "type": "1",
+ "title": "Pruebas",
+ "description": "Contenido de la lección «4. Pruebas».",
+ "printDescription": "Página para imprimir de la lección «4. Pruebas».",
+ "listado": [
+  {
+   "name": "m01lighthouse.html",
+   "title": "Pruebas de rendimiento y soporte de estándares",
+   "description": "Pruebas de rendimiento y soporte de estándares."
+  },
+  {
+   "name": "m02unit.html",
+   "title": "Pruebas de unidad",
+   "description": "Pruebas de unidad."
+  },
+  {
+   "name": "m03selenium.html",
+   "title": "Pruebas de la app",
+   "description": "Pruebas de la app."
+  }
+ ]
+}
