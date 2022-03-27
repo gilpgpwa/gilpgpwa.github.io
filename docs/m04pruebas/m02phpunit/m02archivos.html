@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>1. Pruebas de rendimiento y soporte de estándares - GilPG PWA</title>
- <meta name="description" content="Pruebas de rendimiento y soporte de estándares.">
+ <title>2. Archivos - GilPG PWA</title>
+ <meta name="description" content="Archivos.">
  <meta name="og:image" content="https://gilpgpwa.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -397,23 +397,35 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m04pruebas/index.html" title="4. Pruebas">◀</a>
-  <a class="siguiente" href="/m04pruebas/m02phpunit/index.html" title="2. PHPUnit">▶</a>
+  <a class="anterior" href="/m04pruebas/m02phpunit/m01instrucciones.html" title="1. Instrucciones">◀</a>
+  <a class="siguiente" href="/m04pruebas/m02phpunit/m03recomiendaPhp.html" title="3. src/recomienda.php">▶</a>
  </div>
-   <h1 >1. Pruebas de rendimiento y soporte de estándares</h1><div class="lectura">
+   <h1 >2. Archivos</h1><div class="lectura">
  <ul>
   <li>
-   <p>
-    <dfn>Lighthouse</dfn>
-    es una herramienta automatizada para mejorar el rendimiento, calidad y
-    corrección de aplicaciones web.
-   </p>
+   <p>src</p>
+   <ul>
+    <li>
+     <p><a href="m03recomiendaPhp.html">recomienda.php</a></p>
+    </li>
+   </ul>
   </li>
   <li>
-   <p>
-    <a href="https://drive.google.com/file/d/14ev2YZVrturnlNOn9cS4nMH0LvWTU5Ad/view?usp=sharing"
-      target="_blank" rel="nooper">Video sobre el uso de Lighthouse.</a>
-   </p>
+   <p>tests</p>
+   <ul>
+    <li>
+     <p><a href="m04RecomiendaTestPhp.html">recomiendaTest.php</a></p>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>vendor</p>
+  </li>
+  <li>
+   <p>composer.json</p>
+  </li>
+  <li>
+   <p>composer.lock</p>
   </li>
  </ul>
 </div>
@@ -447,32 +459,40 @@
     <a href="/index.html"
       data-logo="true">GilPG PWA</a>
    </p><p>
-    <a class="paginaAnterior" href="/m03sincronizacion/m37ServicioPhp.html"
-      title="41. lib/php/Servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m04pruebas/m01lighthouse.html"
+      title="1. Pruebas de rendimiento y soporte de estándares">▲</a>
    </p>
-     <h1><a href="/m04pruebas/index.html">4. Pruebas</a></h1>
+     <h1><a href="/m04pruebas/m02phpunit/index.html">2. PHPUnit</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m04pruebas/m01lighthouse.html" class="actual">Pruebas de rendimiento y soporte de estándares</a>
+      <a href="/m04pruebas/m02phpunit/m01instrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04pruebas/m02phpunit/">PHPUnit</a>
+      <a href="/m04pruebas/m02phpunit/m02archivos.html" class="actual">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04pruebas/m03jest/">Jest</a>
+      <a href="/m04pruebas/m02phpunit/m03recomiendaPhp.html">src/recomienda.php</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04pruebas/m04selenium.html">Pruebas de la app</a>
+      <a href="/m04pruebas/m02phpunit/m04RecomiendaTestPhp.html">tests/RecomiendaTest.php</a>
      </p>
     </li>
-   </ol>
+    <li>
+     <p>
+      <a href="/m04pruebas/m02phpunit/m05salida.html">Salida de la ejecución</a>
+     </p>
+    </li>
+   </ol><p>
+    <a class="paginaSiguiente" href="/m04pruebas/m03jest/index.html"
+      title="3. Jest">▼</a>
+   </p>
 </nav>
  <script>
  registraServiceWorker("/sw.js")
@@ -483,9 +503,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m04pruebas/index.html"
+ let urlAnterior = "/m04pruebas/m02phpunit/m01instrucciones.html"
  /**@type {string} */
- let urlSiguiente = "/m04pruebas/m02phpunit/index.html"
+ let urlSiguiente = "/m04pruebas/m02phpunit/m03recomiendaPhp.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

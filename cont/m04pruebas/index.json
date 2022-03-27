@@ -10,12 +10,13 @@
    "description": "Pruebas de rendimiento y soporte de estándares."
   },
   {
-   "name": "m02unit.html",
-   "title": "Pruebas de unidad",
-   "description": "Pruebas de unidad."
+   "name": "m02phpunit"
   },
   {
-   "name": "m03selenium.html",
+   "name": "m03jest"
+  },
+  {
+   "name": "m04selenium.html",
    "title": "Pruebas de la app",
    "description": "Pruebas de la app."
   }

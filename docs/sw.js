@@ -113,14 +113,30 @@ const ARCHIVOS = [
    "/m04pruebas/",
    "/m04pruebas/index.html",
    "/m04pruebas/m01lighthouse.html",
-   "/m04pruebas/m02unit.html",
-   "/m04pruebas/m03selenium.html",
+   "/m04pruebas/m02phpunit/",
+   "/m04pruebas/m02phpunit/index.html",
+   "/m04pruebas/m02phpunit/m01instrucciones.html",
+   "/m04pruebas/m02phpunit/m02archivos.html",
+   "/m04pruebas/m02phpunit/m03recomiendaPhp.html",
+   "/m04pruebas/m02phpunit/m04RecomiendaTestPhp.html",
+   "/m04pruebas/m02phpunit/m05salida.html",
+   "/m04pruebas/m02phpunit/print.html",
+   "/m04pruebas/m03jest/",
+   "/m04pruebas/m03jest/index.html",
+   "/m04pruebas/m03jest/m01instrucciones.html",
+   "/m04pruebas/m03jest/m02archivos.html",
+   "/m04pruebas/m03jest/m03recomiendaJs.html",
+   "/m04pruebas/m03jest/m04RecomiendaTestJs.html",
+   "/m04pruebas/m03jest/m05salida.html",
+   "/m04pruebas/m03jest/print.html",
+   "/m04pruebas/m04selenium.html",
    "/m04pruebas/print.html",
    "/print.html",
    "/site.webmanifest",
    "/src/m01notificaciones/",
    "/src/m01notificaciones/index.html",
-   "/src/m02push/composer.zip" ]
+   "/src/m02push/composer.zip",
+   "/src/m04pruebas/composer.zip" ]
 
 if (self instanceof ServiceWorkerGlobalScope) {
  self.addEventListener("install", installListener)

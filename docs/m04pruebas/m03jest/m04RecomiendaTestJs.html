@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>2. Pruebas de unidad - GilPG PWA</title>
- <meta name="description" content="Pruebas de unidad.">
+ <title>4. recomienda.test.js - GilPG PWA</title>
+ <meta name="description" content="Código de «recomienda.test.js».">
  <meta name="og:image" content="https://gilpgpwa.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -397,39 +397,50 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m04pruebas/m01lighthouse.html" title="1. Pruebas de rendimiento y soporte de estándares">◀</a>
-  <a class="siguiente" href="/m04pruebas/m03selenium.html" title="3. Pruebas de la app">▶</a>
+  <a class="anterior" href="/m04pruebas/m03jest/m03recomiendaJs.html" title="3. recomienda.js">◀</a>
+  <a class="siguiente" href="/m04pruebas/m03jest/m05salida.html" title="5. Salida de la ejecución">▶</a>
  </div>
-   <h1 >2. Pruebas de unidad</h1><div class="lectura">
- <ul>
-  <li>
-   <p>
-    Las
-    <dfn>pruebas de unidad</dfn>
-    permiten asegurar que una parte del código cumple correctamente con sus
-    funciones.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para probar código JavaScript puede usarse
-    <dfn>Jest</dfn>.
-   </p>
-  </li>
-  <li>
-   <p>
-    Para probar código PHP puede usarse
-    <dfn>PHP Unit</dfn>.
-   </p>
-  </li>
-  <li>
-   <p>
-    <a href="https://drive.google.com/file/d/1e27HZVjkkB8_7QH77scrhSBCmTxAc64k/view?usp=sharing"
-      target="_blank" rel="nooper">Video sobre el uso de Jest sobre Replit.</a>
-   </p>
-  </li>
- </ul>
-</div>
+   <h1 >4. recomienda.test.js</h1><muestra-codigo>
+ <div>
+  <div><span style="color: #0000ff;">const</span> <span
+     style="color: #795e26;">recomienda</span> =</div>
+  <div>&nbsp;<span style="color: #795e26;">require</span>(<span
+     style="color: #a31515;">"./recomienda.js"</span>)</div><br>
+  <div><span style="color: #795e26;">test</span>(</div>
+  <div>&nbsp;<span style="color: #a31515;">"pop"</span>,</div>
+  <div>&nbsp;() <span style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">expect</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">recomienda</span>(<span
+     style="color: #a31515;">"pop"</span>)</div>
+  <div>&nbsp; &nbsp;).<span style="color: #795e26;">toBe</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #a31515;">"Ariana Grande."</span>
+  </div>
+  <div>&nbsp; &nbsp;)</div>
+  <div>&nbsp;})</div><br>
+  <div><span style="color: #795e26;">test</span>(</div>
+  <div>&nbsp;<span style="color: #a31515;">"reg"</span>,</div>
+  <div>&nbsp;() <span style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">expect</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">recomienda</span>(<span
+     style="color: #a31515;">"reg"</span>)</div>
+  <div>&nbsp; &nbsp;).<span style="color: #795e26;">toBe</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #a31515;">"Bad Bunny."</span></div>
+  <div>&nbsp; &nbsp;)</div>
+  <div>&nbsp;})</div><br>
+  <div><span style="color: #795e26;">test</span>(</div>
+  <div>&nbsp;<span style="color: #a31515;">"reg2"</span>,</div>
+  <div>&nbsp;() <span style="color: #0000ff;">=&gt;</span> {</div>
+  <div>&nbsp; &nbsp;<span style="color: #795e26;">expect</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span style="color: #795e26;">recomienda</span>(<span
+     style="color: #a31515;">"reg"</span>)</div>
+  <div>&nbsp; &nbsp;).<span style="color: #795e26;">toBe</span>(</div>
+  <div>&nbsp; &nbsp; &nbsp;<span
+     style="color: #a31515;">"Daddy Yankee."</span></div>
+  <div>&nbsp; &nbsp;)</div>
+  <div>&nbsp;})</div>
+ </div>
+</muestra-codigo>
  <footer>
  <p>
   <a rel="license"
@@ -460,27 +471,40 @@
     <a href="/index.html"
       data-logo="true">GilPG PWA</a>
    </p><p>
-    <a class="paginaAnterior" href="/m03sincronizacion/m37ServicioPhp.html"
-      title="41. lib/php/Servicio.php">▲</a>
+    <a class="paginaAnterior" href="/m04pruebas/m02phpunit/m05salida.html"
+      title="5. Salida de la ejecución">▲</a>
    </p>
-     <h1><a href="/m04pruebas/index.html">4. Pruebas</a></h1>
+     <h1><a href="/m04pruebas/m03jest/index.html">3. Jest</a></h1>
    <ol type="1">
     <li>
      <p>
-      <a href="/m04pruebas/m01lighthouse.html">Pruebas de rendimiento y soporte de estándares</a>
+      <a href="/m04pruebas/m03jest/m01instrucciones.html">Instrucciones</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04pruebas/m02unit.html" class="actual">Pruebas de unidad</a>
+      <a href="/m04pruebas/m03jest/m02archivos.html">Archivos</a>
      </p>
     </li>
     <li>
      <p>
-      <a href="/m04pruebas/m03selenium.html">Pruebas de la app</a>
+      <a href="/m04pruebas/m03jest/m03recomiendaJs.html">recomienda.js</a>
      </p>
     </li>
-   </ol>
+    <li>
+     <p>
+      <a href="/m04pruebas/m03jest/m04RecomiendaTestJs.html" class="actual">recomienda.test.js</a>
+     </p>
+    </li>
+    <li>
+     <p>
+      <a href="/m04pruebas/m03jest/m05salida.html">Salida de la ejecución</a>
+     </p>
+    </li>
+   </ol><p>
+    <a class="paginaSiguiente" href="/m04pruebas/m04selenium.html"
+      title="4. Pruebas de la app">▼</a>
+   </p>
 </nav>
  <script>
  registraServiceWorker("/sw.js")
@@ -491,9 +515,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m04pruebas/m01lighthouse.html"
+ let urlAnterior = "/m04pruebas/m03jest/m03recomiendaJs.html"
  /**@type {string} */
- let urlSiguiente = "/m04pruebas/m03selenium.html"
+ let urlSiguiente = "/m04pruebas/m03jest/m05salida.html"
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */

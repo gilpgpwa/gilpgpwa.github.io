@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#039623">
 <link rel="manifest" href="/site.webmanifest">
 <script src="/js/muestra-codigo.js"></script>
- <title>1. Pruebas de rendimiento y soporte de estándares - GilPG PWA</title>
- <meta name="description" content="Pruebas de rendimiento y soporte de estándares.">
+ <title>4. Pruebas de la app - GilPG PWA</title>
+ <meta name="description" content="Pruebas de la app.">
  <meta name="og:image" content="https://gilpgpwa.github.io/img/icono/icono2048.png">
  <style>
  :root {
@@ -397,22 +397,38 @@
   <button id="abre" type="button" title="Menú" class="cambiaMenu">
    &#x2630;
   </button>
-  <a class="anterior" href="/m04pruebas/index.html" title="4. Pruebas">◀</a>
-  <a class="siguiente" href="/m04pruebas/m02phpunit/index.html" title="2. PHPUnit">▶</a>
+  <a class="anterior" href="/m04pruebas/m03jest/m05salida.html" title="5. Salida de la ejecución">◀</a>
+  
  </div>
-   <h1 >1. Pruebas de rendimiento y soporte de estándares</h1><div class="lectura">
+   <h1 >4. Pruebas de la app</h1><div class="lectura">
  <ul>
   <li>
    <p>
-    <dfn>Lighthouse</dfn>
-    es una herramienta automatizada para mejorar el rendimiento, calidad y
-    corrección de aplicaciones web.
+    Hay herramientas que permiten probar toda la aplicación.
    </p>
   </li>
   <li>
    <p>
-    <a href="https://drive.google.com/file/d/14ev2YZVrturnlNOn9cS4nMH0LvWTU5Ad/view?usp=sharing"
-      target="_blank" rel="nooper">Video sobre el uso de Lighthouse.</a>
+    <a href="https://www.selenium.dev/"
+      target="_blank" rel="nooper">Selenium</a>.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://github.com/puppeteer/puppeteer"
+      target="_blank" rel="nooper">Puppeteer</a>.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1TlTaJZa7iLUhN3nM9EmDap8jZfotFFOh/view?usp=sharing"
+      target="_blank" rel="nooper">Video sobre la instalación de Selenium.</a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://drive.google.com/file/d/1XwKZekALsv2GOGqlS4EhiI29UpBgKGV9/view?usp=sharing"
+      target="_blank" rel="nooper">Video sobre el uso de Selenium.</a>
    </p>
   </li>
  </ul>
@@ -454,7 +470,7 @@
    <ol type="1">
     <li>
      <p>
-      <a href="/m04pruebas/m01lighthouse.html" class="actual">Pruebas de rendimiento y soporte de estándares</a>
+      <a href="/m04pruebas/m01lighthouse.html">Pruebas de rendimiento y soporte de estándares</a>
      </p>
     </li>
     <li>
@@ -469,7 +485,7 @@
     </li>
     <li>
      <p>
-      <a href="/m04pruebas/m04selenium.html">Pruebas de la app</a>
+      <a href="/m04pruebas/m04selenium.html" class="actual">Pruebas de la app</a>
      </p>
     </li>
    </ol>
@@ -483,9 +499,9 @@
  const abre = document.querySelector("#abre")
 
  /**@type {string} */
- let urlAnterior = "/m04pruebas/index.html"
+ let urlAnterior = "/m04pruebas/m03jest/m05salida.html"
  /**@type {string} */
- let urlSiguiente = "/m04pruebas/m02phpunit/index.html"
+ let urlSiguiente = ""
  /**@type {number|null} */
  let iniciaX = null
  /**@type {number|null} */
