@@ -233,8 +233,8 @@
  }
 </style>
  <style>
- #principal {
-  transition: margin-left 0.7s ease-in-out;
+ body {
+  scroll-padding-top: var(--padTop);
  }
 
  body:not(.sinTransicion) #principal {
@@ -254,13 +254,42 @@
   }
  }
 
- #principal>.controles {
-  display: flex;
-  gap: var(--gap);
+ #principal {
+  padding-top: var(--padTop);
+  box-sizing: border-box;
+  transition: margin-left 0.7s ease-in-out;
  }
 
- #principal>.controles>.siguiente {
-  margin-left: auto
+ #principal a {
+  word-wrap: break-word;
+ }
+
+ #principal>#abre {
+  position: fixed;
+  top: var(--gap);
+  left: var(--gap);
+  transition: 0.7s ease-in-out;
+ }
+
+ #principal>.anterior {
+  position: fixed;
+  top: var(--gap);
+  background-color: var(--colFondo);
+  transition: 0.7s ease-in-out;
+ }
+
+ #principal>.siguiente {
+  position: fixed;
+  top: var(--gap);
+  right: var(--gap);
+  background-color: var(--colFondo);
+  transition: 0.7s ease-in-out;
+ }
+
+ .scroll #principal>#abre,
+ .scroll #principal>.anterior,
+ .scroll #principal>.siguiente {
+  top: -10rem;
  }
 
  #principal h1:not(.default) {
@@ -333,6 +362,10 @@
  }
 
  @media screen and (max-width: 999px) {
+  #principal {
+   max-width: 100vw;
+  }
+
   #cierra {
    position: fixed;
    top: 0;
@@ -357,6 +390,10 @@
   .menu>#nav {
    transform: translateX(0);
   }
+
+  #principal>.anterior {
+   left: calc(2 * var(--gap) + 2rem);
+  }
  }
 
  @media screen and (min-width: 1000px) {
@@ -376,15 +413,22 @@
    margin-left: var(--anchoNav)
   }
 
-  .xmenu #abre {
-   display: none
+  .menu>#principal>.anterior {
+   left: calc(2 * var(--gap) + 2rem);
+  }
+
+  .xmenu>#principal>.anterior {
+   top: var(--gap);
+   left: calc(var(--anchoNav) + var(--gap));
   }
  }
 
  @media print {
 
   #nav,
-  #principal>.controles {
+  #principal>#abre,
+  #principal>.anterior,
+  #principal>.siguiente {
    display: none;
   }
  }
@@ -730,6 +774,7 @@
  const LOCAL_STORAGE_MENU = "menu"
  const MENU = "menu"
  const XMENU = "xmenu"
+ const SCROLL = "scroll"
  const nav = document.querySelector("#nav")
  const abre = document.querySelector("#abre")
 
@@ -741,10 +786,17 @@
  let iniciaX = null
  /**@type {number|null} */
  let iniciaY = null
+ /** @type {number} */
+ let posY = 0
+ /** @type {number} */
+ let dy = 0
+ /** @type {boolean} */
+  let scrolling = false
 
  document.addEventListener("keydown", teclas)
  document.addEventListener("touchstart", iniciaTouch)
  document.addEventListener("touchmove", desplazaTouch)
+ addEventListener("scroll", onScroll)
  if (abre) {
   abre.addEventListener("click", cambiaMenu)
  }
@@ -835,6 +887,24 @@
     }
    }
   }
+ }
+ function onScroll() {
+  dy = scrollY - posY
+  posY = scrollY
+  if (!scrolling) {
+   requestAnimationFrame(avanzaScroll)
+  }
+  scrolling = true
+ }
+ function avanzaScroll() {
+  if (posY === 0) {
+   document.body.classList.remove(SCROLL)
+  } else if (dy < 0){
+   document.body.classList.remove(SCROLL)
+  } else if (dy > 0){
+   document.body.classList.add(SCROLL)
+  }
+  scrolling = false
  }
 </script>
 </body>
