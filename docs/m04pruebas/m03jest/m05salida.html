@@ -12,6 +12,7 @@
  <meta name="og:image" content="https://gilpgpwa.github.io/img/icono/icono2048.png">
  <style>
  :root {
+  --padTop: 2rem;
   --introDuracion: 2s;
   --introFuncion: ease-out;
   --padCont: 0.5rem;
@@ -441,13 +442,11 @@
 </head>
 <body class="xmenu">
  <div id="principal">
- <div class="controles">
-  <button id="abre" type="button" title="Menú" class="cambiaMenu">
-   &#x2630;
-  </button>
-  <a class="anterior" href="/m04pruebas/m03jest/m04RecomiendaTestJs.html" title="4. recomienda.test.js">◀</a>
-  <a class="siguiente" href="/m04pruebas/m04selenium.html" title="4. Pruebas de la app">▶</a>
- </div>
+ <button id="abre" type="button" title="Menú" class="cambiaMenu">
+  &#x2630;
+ </button>
+ <a class="anterior" href="/m04pruebas/m03jest/m04RecomiendaTestJs.html" title="4. recomienda.test.js">◀</a>
+ <a class="siguiente" href="/m04pruebas/m04selenium.html" title="4. Pruebas de la app">▶</a>
    <h1 >5. Salida de la ejecución</h1><muestra-codigo><div><div>FAIL &nbsp;./recomienda.test.js (5.888s)</div><div>✓ pop (5ms)</div><div>✓ reg (1ms)</div><div>✕ reg2 (86ms)</div><br><div>● reg2</div><br><div>&nbsp; expect(received).toBe(expected) // Object.is equality</div><br><div>&nbsp; Expected: "Daddy Yankee."</div><div>&nbsp; Received: "Bad Bunny."</div><br><div>&nbsp; &nbsp; 27 | &nbsp; &nbsp;expect(</div><div>&nbsp; &nbsp; 28 | &nbsp; &nbsp; &nbsp;recomienda("reg")</div><div>&nbsp; &gt; 29 | &nbsp; &nbsp;).toBe(</div><div>&nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;^</div><div>&nbsp; &nbsp; 30 | &nbsp; &nbsp; &nbsp;"Daddy Yankee."</div><div>&nbsp; &nbsp; 31 | &nbsp; &nbsp;)</div><div>&nbsp; &nbsp; 32 | &nbsp;})</div><br><div>&nbsp; &nbsp; at Object.<span style="color: #800000;">&lt;anonymous&gt;</span> (recomienda.test.js:29:6)</div><br><div>Test Suites: 1 failed, 1 total</div><div>Tests: &nbsp; &nbsp; &nbsp; 1 failed, 2 passed, 3 total</div><div>Snapshots: &nbsp; 0 total</div><div>Time: &nbsp; &nbsp; &nbsp; &nbsp;13.397s</div><div>Ran all test suites.</div></div></muestra-codigo>
  <footer>
  <p>

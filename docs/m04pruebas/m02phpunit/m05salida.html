@@ -12,6 +12,7 @@
  <meta name="og:image" content="https://gilpgpwa.github.io/img/icono/icono2048.png">
  <style>
  :root {
+  --padTop: 2rem;
   --introDuracion: 2s;
   --introFuncion: ease-out;
   --padCont: 0.5rem;
@@ -441,13 +442,11 @@
 </head>
 <body class="xmenu">
  <div id="principal">
- <div class="controles">
-  <button id="abre" type="button" title="Menú" class="cambiaMenu">
-   &#x2630;
-  </button>
-  <a class="anterior" href="/m04pruebas/m02phpunit/m04RecomiendaTestPhp.html" title="4. tests/RecomiendaTest.php">◀</a>
-  <a class="siguiente" href="/m04pruebas/m03jest/index.html" title="3. Jest">▶</a>
- </div>
+ <button id="abre" type="button" title="Menú" class="cambiaMenu">
+  &#x2630;
+ </button>
+ <a class="anterior" href="/m04pruebas/m02phpunit/m04RecomiendaTestPhp.html" title="4. tests/RecomiendaTest.php">◀</a>
+ <a class="siguiente" href="/m04pruebas/m03jest/index.html" title="3. Jest">▶</a>
    <h1 >5. Salida de la ejecución</h1><muestra-codigo><div><div>./vendor/bin/phpunit tests</div><div>PHPUnit 9.5.19 #StandWithUkraine</div><br><div>..F &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3 / 3 (100%)</div><br><div>Time: 00:00.021, Memory: 4.00 MB</div><br><div>There was 1 failure:</div><br><div>1) RecomiendaTest::testReg2</div><div>Probando reg 2</div><div>Failed asserting that two strings are equal.</div><div>--- Expected</div><div>+++ Actual</div><div>@@ @@</div><div>-'Daddy Yankee.'</div><div>+'Bad Bunny.'</div><br><div>D:\gilpg\Documents\Sitios\phptest\tests\RecomiendaTest.php:31</div><div>phpvfscomposer://D:\gilpg\Documents\Sitios\phptest\vendor\phpunit\phpunit\phpunit:97</div><br><div>FAILURES!</div><div>Tests: 3, Assertions: 3, Failures: 1.</div></div></muestra-codigo>
  <footer>
  <p>
