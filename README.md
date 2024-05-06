@@ -1,2 +1,2 @@
 # gilpgpwa.github.io
-Sitio sobre PWA
+Ejemplo de PWA básico
