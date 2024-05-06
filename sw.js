@@ -15,14 +15,13 @@
  * conoce como número menor y se cambia cuando se realizan
  * modificaciones menores.
  */
-const VERSION = "2.1"
+const VERSION = "2.2"
 
 /** Nombre del archivo de cache. */
 const CACHE = "ejemploPWA"
 
 /**
- * Archivos requeridos para que la
- * aplicación funcione fuera de
+ * Archivos requeridos para que la aplicación funcione fuera de
  * línea.
  */
 const ARCHIVOS = [
