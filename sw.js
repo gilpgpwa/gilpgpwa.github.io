@@ -69,7 +69,7 @@ if (self instanceof ServiceWorkerGlobalScope) {
 }
 
 async function llenaElCache() {
- console.log("Intentando cargar caché:", CACHE, ".")
+ console.log("Intentando cargar caché:", CACHE)
  // Borra todos los cachés.
  const keys = await caches.keys()
  for (const key of keys) {
@@ -79,8 +79,8 @@ async function llenaElCache() {
  const cache = await caches.open(CACHE)
  // Carga el listado de ARCHIVOS.
  await cache.addAll(ARCHIVOS)
- console.log("Cache cargado:", CACHE, ".")
- console.log("Versión:", VERSION, ".")
+ console.log("Cache cargado:", CACHE)
+ console.log("Versión:", VERSION)
 }
 
 /** @param {FetchEvent} evt */
