@@ -15,7 +15,7 @@
  * conoce como número menor y se cambia cuando se realizan
  * modificaciones menores.
  */
-const VERSION = "2.3"
+const VERSION = "1.00"
 
 /** Nombre del archivo de cache. */
 const CACHE = "ejemploPWA"
@@ -40,10 +40,7 @@ const ARCHIVOS = [
  "img/maskable_icon_x96.png",
  "img/screenshot_horizontal.png",
  "img/screenshot_vertical.png",
- "js/configura.js",
- "lib/js/muestraError.js",
- "lib/js/ProblemDetails.js",
- "lib/js/registraServiceWorkerSiEsSoportado.js",
+ "js/registraServiceWorker.js",
  "/"
 ]
 

@@ -13,7 +13,4 @@
 "img/maskable_icon_x96.png",
 "img/screenshot_horizontal.png",
 "img/screenshot_vertical.png",
-"js/configura.js",
-"lib/js/muestraError.js",
-"lib/js/ProblemDetails.js",
-"lib/js/registraServiceWorkerSiEsSoportado.js",
+"js/registraServiceWorker.js",
