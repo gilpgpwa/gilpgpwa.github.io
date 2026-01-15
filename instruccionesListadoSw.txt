@@ -12,14 +12,16 @@ Generar el listado de archivos del sw.js desde Visual Studio Code.
 4. Quita del archivo archivos.txt:
     * el encabezado,
     * todas las carpetas,
-    * el archivo .vscode/settings.json,
+    * todos los archivos dentro de .vscode como:
+       * el archivo .vscode/settings.json,
+       * el archivo .vscode/launch.json,
     * el archivo .htaccess,
     * el archivo archivos.txt,
     * este archivo (instruccionesListadoSw.txt),
     * el archivo jsconfig.json,
     * el archivo sw.js,
-    * el archivo de la base de datos, que termina en ".bd" y
-      está en la carpeta srv,
+    * el archivo de la base de datos, que termina en ".db" y
+      está en la carpeta php,
     * todos los archivos de php y
     * las líneas en blanco del final
 

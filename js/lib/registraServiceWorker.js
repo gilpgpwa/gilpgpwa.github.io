@@ -1,5 +1,3 @@
-"use strict" // usa JavaScript en modo estricto.
-
 const nombreDeServiceWorker = "sw.js"
 
 try {
