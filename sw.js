@@ -27,6 +27,7 @@ const CACHE = "ejemploPWA"
 const ARCHIVOS = [
  "favicon.ico",
  "index.html",
+ "jsconfig.json",
  "site.webmanifest",
  "css/estilos.css",
  "img/icono2048.png",
@@ -40,7 +41,7 @@ const ARCHIVOS = [
  "img/maskable_icon_x96.png",
  "img/screenshot_horizontal.png",
  "img/screenshot_vertical.png",
- "js/registraServiceWorker.js",
+ "js/lib/registraServiceWorker.js",
  "/"
 ]
 
